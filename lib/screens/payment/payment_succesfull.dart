@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import "../services/hexColor.dart";
+import '../../services/hexColor.dart';
 
 class PaymentSuceeded extends StatefulWidget {
   @override
