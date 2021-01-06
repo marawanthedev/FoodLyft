@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 import "../../../services/hexColor.dart";
 
-class VisaCardPayment extends StatelessWidget {
+class VisaCardPayment extends StatefulWidget {
+  @override
+  _VisaCardPaymentState createState() => _VisaCardPaymentState();
+
   final _formKey = GlobalKey<FormState>();
+  var paymentInfo = {
+    "card-holder-name": "",
+    "card-number": "",
+    "expiration-date": "",
+    "cvv": ""
+  };
+  final cardHolderNameCtrl = TextEditingController();
+  final cardNumberCtrl = TextEditingController();
+  final expirationDateCtrl = TextEditingController();
+  final cvvCtrl = TextEditingController();
+}
+
+class _VisaCardPaymentState extends State<VisaCardPayment> {
+  void populatePaymentInfo() {
+    widget.paymentInfo['card-holder-name'] = widget.cardHolderNameCtrl.text;
+    widget.paymentInfo['card-number'] = widget.cardNumberCtrl.text;
+    widget.paymentInfo['expiration-date'] = widget.expirationDateCtrl.text;
+    widget.paymentInfo['cvv'] = widget.cvvCtrl.text;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +42,7 @@ class VisaCardPayment extends StatelessWidget {
             ),
           ),
           Form(
-            key: _formKey,
+            key: widget._formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -29,12 +51,14 @@ class VisaCardPayment extends StatelessWidget {
                   width: 350,
                   height: 65,
                   child: TextFormField(
+                    controller: widget.cardHolderNameCtrl,
+                    keyboardType: TextInputType.name,
                     decoration: const InputDecoration(
                       hintText: 'Cardholder Name',
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter some text';
+                        return 'Please enter CardHolder Name';
                       }
                       return null;
                     },
@@ -44,12 +68,17 @@ class VisaCardPayment extends StatelessWidget {
                   width: 350,
                   height: 65,
                   child: TextFormField(
+                    controller: widget.cardNumberCtrl,
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       hintText: 'Card Number',
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter some text';
+                        return 'Please enter Card Number';
+                      }
+                      if (value.length < 12) {
+                        return 'Please enter the 12-digit Card Number';
                       }
                       return null;
                     },
@@ -62,13 +91,21 @@ class VisaCardPayment extends StatelessWidget {
                       height: 65,
                       margin: EdgeInsets.only(right: 20),
                       child: TextFormField(
+                        controller: widget.expirationDateCtrl,
                         decoration: const InputDecoration(
                           hintText: 'Expiration Date',
                         ),
                         validator: (value) {
+                          RegExp regex =
+                              RegExp("(1[0-2]|0?[1-9])/(?:[0-9]{2})?[0-9]{2}");
                           if (value.isEmpty) {
-                            return 'Please enter some text';
+                            return 'Please enter Expiration Date';
                           }
+                          if(!regex.hasMatch(value)){
+                            return 'Please enter a valid Date';
+
+                          }
+
                           return null;
                         },
                       ),
@@ -77,12 +114,17 @@ class VisaCardPayment extends StatelessWidget {
                       width: 165,
                       height: 65,
                       child: TextFormField(
+                        controller: widget.cvvCtrl,
+                        keyboardType: TextInputType.number,
                         decoration: const InputDecoration(
                           hintText: 'CVV',
                         ),
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'Please enter some text';
+                            return 'Please enter CVV';
+                          }
+                          if (value.length != 3) {
+                            return 'Please enter the 3-digit CVV';
                           }
                           return null;
                         },
@@ -96,7 +138,20 @@ class VisaCardPayment extends StatelessWidget {
                     width: 400,
                     height: 50,
                     child: RaisedButton(
-                      onPressed: () => {},
+                      onPressed: () {
+                        // Validate returns true if the form is valid, otherwise false.
+                        if (widget._formKey.currentState.validate()) {
+                          // If the form is valid, display a snackbar. In the real world,
+                          // you'd often call a server or save the information in a database.
+
+                          Scaffold.of(context).showSnackBar(
+                              SnackBar(content: Text('Processing Data')));
+                          this.setState(() {
+                            populatePaymentInfo();
+                            print(widget.paymentInfo);
+                          });
+                        }
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                           side: BorderSide(
@@ -106,6 +161,7 @@ class VisaCardPayment extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: 'Roboto',
+                              fontWeight: FontWeight.normal,
                               fontSize: 20)),
                       color: HexColor("F2A22C"),
                     ),
