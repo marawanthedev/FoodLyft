@@ -48,6 +48,13 @@ flutter:
     - assets/images/cash.png
     - assets/images/visa.png
     - assets/images/mastercard.png
+    - assets/images/facebook.png
+    - assets/images/google.png
+    - assets/images/twitter.png
+    - assets/images/user.png
+    - assets/images/password.png
+    - assets/images/eye.png
+
 
     # - images/a_dot_ham.jpeg
 
