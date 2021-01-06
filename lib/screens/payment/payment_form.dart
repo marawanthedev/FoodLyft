@@ -32,54 +32,66 @@ class _PaymentFormState extends State<PaymentForm>
         height: 100,
         color: Colors.white,
         child: Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 120,
-            backgroundColor: Colors.white,
-            elevation: 0,
-            iconTheme: IconThemeData(
-              color: Colors.black, //change your color here
-            ),
-            title: Text("Payment", style: TextStyle(color: Colors.black)),
-            bottom: TabBar(
-              indicatorColor: HexColor("008000"),
-              indicatorWeight: 1,
-              unselectedLabelColor: Colors.red,
-              indicator: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(width: 2, color: HexColor("008000")))),
-              controller: controller,
-              tabs: <Widget>[
-                Tab(
-                    child: Container(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Image(
-                      image: AssetImage(
-                        "assets/images/visa.png",
-                      ),
-                      height: 50,
-                      width: 65,
-                      fit: BoxFit.fill),
-                )),
-                Tab(
-                  child: Container(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Image(
-                        image: AssetImage("assets/images/mastercard.png"),
-                        height: 50,
-                        width: 65,
-                        fit: BoxFit.fill),
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(170),
+            child: AppBar(
+              toolbarHeight: 150,
+              backgroundColor: Colors.white,
+              elevation: 0,
+              iconTheme: IconThemeData(
+                color: Colors.black, //change your color here
+              ),
+              title: Text("Payment", style: TextStyle(color: Colors.black)),
+              bottom: TabBar(
+                indicatorColor: HexColor("008000"),
+                indicatorWeight: 1,
+                unselectedLabelColor: Colors.red,
+                indicator: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(width: 2, color: HexColor("008000")))),
+                controller: controller,
+                tabs: <Widget>[
+                  Container(
+                    height: 70,
+                    child: Tab(
+                        child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Image(
+                          image: AssetImage(
+                            "assets/images/visa.png",
+                          ),
+                          width: 65,
+                          fit: BoxFit.fill),
+                    )),
                   ),
-                ),
-                Tab(
-                    child: Container(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Image(
-                      image: AssetImage("assets/images/cash.png"),
-                      height: 50,
-                      width: 65,
-                      fit: BoxFit.fill),
-                ))
-              ],
+                  Container(
+                    height: 70,
+                    child: Tab(
+                        child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Image(
+                          image: AssetImage(
+                            "assets/images/mastercard.png",
+                          ),
+                          width: 65,
+                          fit: BoxFit.fill),
+                    )),
+                  ),
+                  Container(
+                    height: 70,
+                    child: Tab(
+                        child: Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Image(
+                          image: AssetImage(
+                            "assets/images/cash.png",
+                          ),
+                          width: 65,
+                          fit: BoxFit.fill),
+                    )),
+                  )
+                ],
+              ),
             ),
           ),
           body: TabBarView(
@@ -93,20 +105,3 @@ class _PaymentFormState extends State<PaymentForm>
         ));
   }
 }
-
-//  SizedBox(
-//           height: 50,
-//         ),
-//         Container(
-//           height: 30,
-//           alignment: Alignment.centerLeft,
-//           child: Text(
-//             "Payment",
-//             style: TextStyle(
-//                 fontSize: 24,
-//                 color: Colors.black,
-//                 fontFamily: "Roboto",
-//                 decoration: TextDecoration.none,
-//                 fontWeight: FontWeight.normal),
-//           ),
-//         ),

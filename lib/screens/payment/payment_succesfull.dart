@@ -39,7 +39,7 @@ class _PaymentSuceededState extends State<PaymentSuceeded> {
             height: 25,
             width: 225,
             child: Text(
-              "Payment has suceeded ${widget.paymentInfo['card-holder-name']}",
+              "Payment has suceeded Mr.${widget.paymentInfo['card-holder-name']}",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,

@@ -26,8 +26,12 @@ class _MasterCardPaymentState extends State<MasterCardPayment> {
     widget.paymentInfo['card-number'] = widget.cardNumberCtrl.text;
     widget.paymentInfo['expiration-date'] = widget.expirationDateCtrl.text;
     widget.paymentInfo['cvv'] = widget.cvvCtrl.text;
+
+
     Navigator.pushNamed(context, "/payment_failed",
         arguments: widget.paymentInfo);
+
+
     // var timer = Timer(Duration(seconds: 2), () => _navigate());
   }
 
@@ -126,6 +130,8 @@ class _MasterCardPaymentState extends State<MasterCardPayment> {
                       width: 165,
                       height: 65,
                       child: TextFormField(
+
+                        obscureText: true,
                         controller: widget.cvvCtrl,
                         keyboardType: TextInputType.number,
                         decoration: const InputDecoration(

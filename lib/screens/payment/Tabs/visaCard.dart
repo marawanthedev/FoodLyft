@@ -32,7 +32,7 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
     //     arguments: widget.paymentInfo);
     var timer = Timer(Duration(seconds: 2), () => _navigate());
   }
-   
+
   void _navigate() {
     Navigator.pushNamed(context,
         widget.paymentSuceeded ? "/payment_suceeded" : "/payment_failed",
@@ -81,6 +81,7 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
                   width: 350,
                   height: 65,
                   child: TextFormField(
+                    obscureText: true,
                     controller: widget.cardNumberCtrl,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
@@ -126,6 +127,7 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
                       width: 165,
                       height: 65,
                       child: TextFormField(
+                        obscureText: true,
                         controller: widget.cvvCtrl,
                         keyboardType: TextInputType.number,
                         decoration: const InputDecoration(

@@ -4,9 +4,10 @@ import '../../services/hexColor.dart';
 class PaymentFailed extends StatefulWidget {
   @override
   _PaymentFailedState createState() => _PaymentFailedState();
+  
   final paymentInfo;
-
   PaymentFailed(this.paymentInfo);
+
   double amount = 22.3;
   // String dollarSign="'$'";
   String mainFont = "Roboto-regular";
