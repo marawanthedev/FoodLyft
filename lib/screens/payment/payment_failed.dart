@@ -4,7 +4,9 @@ import '../../services/hexColor.dart';
 class PaymentFailed extends StatefulWidget {
   @override
   _PaymentFailedState createState() => _PaymentFailedState();
+  final paymentInfo;
 
+  PaymentFailed(this.paymentInfo);
   double amount = 22.3;
   // String dollarSign="'$'";
   String mainFont = "Roboto-regular";
@@ -17,6 +19,9 @@ class PaymentFailed extends StatefulWidget {
 }
 
 class _PaymentFailedState extends State<PaymentFailed> {
+  void _navigate() {
+    Navigator.pushNamed(context, "/payment_form");
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +36,7 @@ class _PaymentFailedState extends State<PaymentFailed> {
             height: 25,
             width: 225,
             child: Text(
-              "Payment has failed",
+              "Payment has failed ${widget.paymentInfo['card-holder-name']}",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20.5,
@@ -117,7 +122,7 @@ class _PaymentFailedState extends State<PaymentFailed> {
             height: 50,
             width: 200,
             child: RaisedButton(
-              onPressed: () => {},
+              onPressed: () => _navigate(),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                   side: BorderSide(
