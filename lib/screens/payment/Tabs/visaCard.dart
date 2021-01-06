@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "../../../services/hexColor.dart";
+import 'dart:async';
 
 class VisaCardPayment extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class VisaCardPayment extends StatefulWidget {
     "expiration-date": "",
     "cvv": ""
   };
+  bool paymentSuceeded = true;
   final cardHolderNameCtrl = TextEditingController();
   final cardNumberCtrl = TextEditingController();
   final expirationDateCtrl = TextEditingController();
@@ -24,6 +26,17 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
     widget.paymentInfo['card-number'] = widget.cardNumberCtrl.text;
     widget.paymentInfo['expiration-date'] = widget.expirationDateCtrl.text;
     widget.paymentInfo['cvv'] = widget.cvvCtrl.text;
+
+    // Navigator.pushNamed(context,
+    //     widget.paymentSuceeded ? "/payment_suceeded" : "payment_failed",
+    //     arguments: widget.paymentInfo);
+    var timer = Timer(Duration(seconds: 2), () => _navigate());
+  }
+   
+  void _navigate() {
+    Navigator.pushNamed(context,
+        widget.paymentSuceeded ? "/payment_suceeded" : "/payment_failed",
+        arguments: widget.paymentInfo);
   }
 
   @override
@@ -101,9 +114,8 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
                           if (value.isEmpty) {
                             return 'Please enter Expiration Date';
                           }
-                          if(!regex.hasMatch(value)){
+                          if (!regex.hasMatch(value)) {
                             return 'Please enter a valid Date';
-
                           }
 
                           return null;
@@ -144,11 +156,15 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
                           // If the form is valid, display a snackbar. In the real world,
                           // you'd often call a server or save the information in a database.
 
-                          Scaffold.of(context).showSnackBar(
-                              SnackBar(content: Text('Processing Data')));
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                              'Processing Data',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            backgroundColor: HexColor("F2A22C"),
+                          ));
                           this.setState(() {
                             populatePaymentInfo();
-                            print(widget.paymentInfo);
                           });
                         }
                       },

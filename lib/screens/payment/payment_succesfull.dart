@@ -5,6 +5,10 @@ class PaymentSuceeded extends StatefulWidget {
   @override
   _PaymentSuceededState createState() => _PaymentSuceededState();
 
+  final paymentInfo;
+
+  PaymentSuceeded(this.paymentInfo);
+
   double amount = 22.3;
   // String dollarSign="'$'";
   String mainFont = "Roboto-regular";
@@ -17,6 +21,10 @@ class PaymentSuceeded extends StatefulWidget {
 }
 
 class _PaymentSuceededState extends State<PaymentSuceeded> {
+  void _navigate() {
+    Navigator.pushNamed(context, "/payment_form");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +39,7 @@ class _PaymentSuceededState extends State<PaymentSuceeded> {
             height: 25,
             width: 225,
             child: Text(
-              "Payment has suceeded",
+              "Payment has suceeded ${widget.paymentInfo['card-holder-name']}",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
@@ -117,7 +125,7 @@ class _PaymentSuceededState extends State<PaymentSuceeded> {
             height: 50,
             width: 200,
             child: RaisedButton(
-              onPressed: () => {},
+              onPressed: () => _navigate(),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                   side: BorderSide(
