@@ -33,6 +33,7 @@ class _PaymentFormState extends State<PaymentForm>
         color: Colors.white,
         child: Scaffold(
           appBar: AppBar(
+            toolbarHeight: 120,
             backgroundColor: Colors.white,
             elevation: 0,
             iconTheme: IconThemeData(
@@ -50,28 +51,33 @@ class _PaymentFormState extends State<PaymentForm>
               tabs: <Widget>[
                 Tab(
                     child: Container(
-                  height: 40,
                   padding: EdgeInsets.only(top: 5),
                   child: Image(
-                    image: AssetImage("assets/images/visa.png"),
-                  ),
+                      image: AssetImage(
+                        "assets/images/visa.png",
+                      ),
+                      height: 50,
+                      width: 65,
+                      fit: BoxFit.fill),
                 )),
                 Tab(
                   child: Container(
-                    height: 40,
                     padding: EdgeInsets.only(top: 5),
                     child: Image(
-                      image: AssetImage("assets/images/mastercard.png"),
-                    ),
+                        image: AssetImage("assets/images/mastercard.png"),
+                        height: 50,
+                        width: 65,
+                        fit: BoxFit.fill),
                   ),
                 ),
                 Tab(
                     child: Container(
-                  height: 50,
                   padding: EdgeInsets.only(top: 5),
                   child: Image(
-                    image: AssetImage("assets/images/cash.png"),
-                  ),
+                      image: AssetImage("assets/images/cash.png"),
+                      height: 50,
+                      width: 65,
+                      fit: BoxFit.fill),
                 ))
               ],
             ),
