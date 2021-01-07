@@ -8,7 +8,7 @@ import "./services/router.dart" as router;
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/signup",
+    initialRoute: "/payment_form",
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":

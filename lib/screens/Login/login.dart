@@ -114,29 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            // FormInput(
-                            //   inputWidth: 350,
-                            //   inputHeight: 65,
-                            //   marginRight: 0,
-                            //   hideInputValue: true,
-                            //   controller: widget.confrimPasswordCtrl,
-                            //   prefixIcon: Image(
-                            //       height: 30,
-                            //       image: AssetImage(
-                            //         "assets/images/password.png",
-                            //       )),
-                            //   placeHolder: "Confirm Password",
-                            //   placeHolderStyle:
-                            //       TextStyle(fontSize: 20, fontFamily: 'Roboto'),
-                            //   validator: (value) {
-                            //     if (value.isEmpty) {
-                            //       return 'Please confirm your password';
-                            //     }
-                            //     return null;
-                            //   },
-                            //   contentPadding:
-                            //       EdgeInsets.only(top: 12.5, left: 5),
-                            // ),
+                      
                             FormInput(
                               inputHeight: 65,
                               inputWidth: 350,

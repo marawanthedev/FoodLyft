@@ -62,7 +62,8 @@ class _VisaCardPaymentState extends State<VisaCardPayment> {
                 formKey: widget._formKey,
                 setState: () => this.setState(() {
                       populatePaymentInfo();
-                    }))
+                    })
+                    )
           ],
         ),
       ),
