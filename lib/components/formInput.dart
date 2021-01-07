@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 class FormInput extends StatelessWidget {
   double inputHeight, inputWidth;
-  var controller;
   Function validator;
-  var placeHolder = '';
   double marginRight = 0;
-  var margin = {};
   bool hideInputValue = false;
+  var prefixIcon,
+      placeHolderStyle,
+      placeHolder = '',
+      margin = {},
+      controller,
+      contentPadding;
   FormInput(
       {this.controller,
       this.validator,
@@ -15,7 +18,9 @@ class FormInput extends StatelessWidget {
       this.inputHeight,
       this.inputWidth,
       this.marginRight,
-      this.hideInputValue});
+      this.hideInputValue,
+      this.prefixIcon,
+      this.placeHolderStyle,this.contentPadding});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +32,10 @@ class FormInput extends StatelessWidget {
         obscureText: hideInputValue,
         controller: controller,
         decoration: new InputDecoration(
-          hintText: placeHolder,
-        ),
+            hintText: placeHolder,
+            hintStyle: placeHolderStyle,
+            contentPadding: contentPadding,
+            prefixIcon: prefixIcon),
         validator: validator,
       ),
     );

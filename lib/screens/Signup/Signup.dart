@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import "../../services/hexColor.dart";
 import 'dart:async';
+import "../../components/formInput.dart";
 
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
   final _formKey = GlobalKey<FormState>();
-  var userInfo = {
-    "email": "",
-    "password": "",
-  };
+  var userInfo = {"email": "", "password": "", "confirmPassword": ""};
   bool paymentSuceeded = true;
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
@@ -31,6 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void populateSignUpInfo() {
     widget.userInfo['email'] = widget.emailCtrl.text;
     widget.userInfo['password'] = widget.passwordCtrl.text;
+    widget.userInfo['confrimPassword'] = widget.confrimPasswordCtrl.text;
   }
 
   @override
@@ -58,7 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               )),
           body: SingleChildScrollView(
-                      child: Container(
+            child: Container(
               width: 450,
               margin: EdgeInsets.only(top: 20),
               child: Column(
@@ -141,88 +140,74 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(top: 20),
-                              width: 350,
-                              height: 65,
-                              child: TextFormField(
-                                controller: widget.emailCtrl,
-                                keyboardType: TextInputType.emailAddress,
-                                decoration: const InputDecoration(
-                                  prefixIcon: Image(
-                                      height: 30,
-                                      image: AssetImage(
-                                        "assets/images/user.png",
-                                      )),
-                                  hintText: 'Email',
-                                  hintStyle: TextStyle(
-                                      fontSize: 20, fontFamily: 'Roboto'),
-                                  contentPadding:
-                                      EdgeInsets.only(top: 12.5, left: 5),
-                                ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Please enter a valid email';
-                                  }
-                                  return null;
-                                },
-                              ),
+                            FormInput(
+                              inputWidth: 350,
+                              inputHeight: 65,
+                              marginRight: 0,
+                              hideInputValue: false,
+                              controller: widget.emailCtrl,
+                              prefixIcon: Image(
+                                  height: 30,
+                                  image: AssetImage(
+                                    "assets/images/user.png",
+                                  )),
+                              placeHolder: "Email",
+                              placeHolderStyle:
+                                  TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a valid email';
+                                }
+                                return null;
+                              },
+                              contentPadding:
+                                  EdgeInsets.only(top: 12.5, left: 5),
                             ),
-                            Container(
-                              width: 350,
-                              height: 65,
-                              child: TextFormField(
-                                obscureText: true,
-                                controller: widget.passwordCtrl,
-                                keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  prefixIcon: Image(
-                                      image: AssetImage(
+                            FormInput(
+                              inputWidth: 350,
+                              inputHeight: 65,
+                              marginRight: 0,
+                              hideInputValue: true,
+                              controller: widget.passwordCtrl,
+                              prefixIcon: Image(
+                                  height: 30,
+                                  image: AssetImage(
                                     "assets/images/password.png",
                                   )),
-                                  contentPadding:
-                                      EdgeInsets.only(top: 12.5, left: 5),
-                                  hintText: 'Password',
-                                  hintStyle: TextStyle(
-                                      fontSize: 20, fontFamily: 'Roboto'),
-                                ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Please enter you password';
-                                  }
-                                  // if (value.length < 8) {
-                                  //   return 'password can not be less than';
-                                  // }
-                                  return null;
-                                },
-                              ),
+                              placeHolder: "Password",
+                              placeHolderStyle:
+                                  TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a your password';
+                                }
+                                return null;
+                              },
+                              contentPadding:
+                                  EdgeInsets.only(top: 12.5, left: 5),
                             ),
-                            Container(
-                              width: 350,
-                              height: 65,
-                              child: TextFormField(
-                                obscureText: true,
-                                controller: widget.confrimPasswordCtrl,
-                                keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  prefixIcon: Image(
-                                      image: AssetImage(
+                            FormInput(
+                              inputWidth: 350,
+                              inputHeight: 65,
+                              marginRight: 0,
+                              hideInputValue: true,
+                              controller: widget.confrimPasswordCtrl,
+                              prefixIcon: Image(
+                                  height: 30,
+                                  image: AssetImage(
                                     "assets/images/password.png",
                                   )),
-                                  contentPadding:
-                                      EdgeInsets.only(top: 12.5, left: 5),
-                                  hintText: 'Confirm Password',
-                                  hintStyle: TextStyle(
-                                      fontSize: 20, fontFamily: 'Roboto'),
-                                ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Please enter you password';
-                                  }
-
-                                  return null;
-                                },
-                              ),
+                              placeHolder: "Confirm Password",
+                              placeHolderStyle:
+                                  TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please confirm your password';
+                                }
+                                return null;
+                              },
+                              contentPadding:
+                                  EdgeInsets.only(top: 12.5, left: 5),
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 20),
@@ -244,7 +229,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             .showSnackBar(SnackBar(
                                           content: Text(
                                             'Processing Signup Data',
-                                            style: TextStyle(color: Colors.white),
+                                            style:
+                                                TextStyle(color: Colors.white),
                                           ),
                                           backgroundColor: HexColor("F2A22C"),
                                         ));
@@ -314,8 +300,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
           ),
-        )
-        
-        );
+        ));
   }
 }
