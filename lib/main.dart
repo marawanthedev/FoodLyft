@@ -4,11 +4,13 @@ import 'screens/payment/payment_succesfull.dart';
 import 'screens/payment/payment_form.dart';
 import "./screens/Login/login.dart";
 import "./screens/Signup/Signup.dart";
+import './screens/Restaurantlist/Restaurant_List.dart';
 import "./services/router.dart" as router;
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/payment_form",
+    debugShowCheckedModeBanner: false,
+    initialRoute: "/Restaurant_List",
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
@@ -26,6 +28,8 @@ void main() {
           return MaterialPageRoute(builder: (context) => LoginScreen());
         case "/signup":
           return MaterialPageRoute(builder: (context) => SignUpScreen());
+        case "/Restaurant_List":
+          return MaterialPageRoute(builder: (context) => RestaurantMenu());
       }
     },
   ));
