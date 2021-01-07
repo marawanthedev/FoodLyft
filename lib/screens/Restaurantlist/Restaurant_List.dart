@@ -12,12 +12,55 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: SafeArea(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text("User Name"),
+                accountEmail: Text("User Email"),
+              ),
+              ListTile(
+                  leading: Icon(
+                    Icons.person,
+                  ),
+                  title: Text(
+                    "Profile",
+                    style: TextStyle(fontSize: 20, color: aTextColor),
+                  )),
+              ListTile(
+                  leading: Icon(Icons.location_city),
+                  title: Text(
+                    "Address",
+                    style: TextStyle(fontSize: 20, color: aTextColor),
+                  )),
+              ListTile(
+                  leading: Icon(Icons.notification_important),
+                  title: Text(
+                    "Notifications",
+                    style: TextStyle(fontSize: 20, color: aTextColor),
+                  )),
+              ListTile(
+                  leading: Icon(
+                    Icons.history,
+                  ),
+                  title: Text(
+                    "History",
+                    style: TextStyle(fontSize: 20, color: aTextColor),
+                  ))
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: Icon(
-          Icons.sort,
-          color: appListColor,
+        leading: FlatButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.sort,
+            color: appListColor,
+          ),
         ),
         actions: [
           CircleAvatar(
