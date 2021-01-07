@@ -25,6 +25,7 @@ class PaymentForm extends StatelessWidget {
             inputWidth: 350,
             inputHeight: 65,
             marginRight: 0,
+            prefixIcon: null,
             controller: cardHolderNameCtrl,
             placeHolder: "CardHolder Name",
             validator: (value) {
@@ -40,6 +41,7 @@ class PaymentForm extends StatelessWidget {
             inputHeight: 65,
             hideInputValue: true,
             marginRight: 0,
+           prefixIcon: null,
             placeHolder: "Card Number",
             controller: cardNumberCtrl,
             validator: (value) {
@@ -59,6 +61,7 @@ class PaymentForm extends StatelessWidget {
                 inputHeight: 65,
                 controller: expirationDateCtrl,
                 hideInputValue: false,
+                prefixIcon: null,
                 placeHolder: "Expiration Date",
                 marginRight: 20,
                 validator: (value) {
@@ -78,6 +81,7 @@ class PaymentForm extends StatelessWidget {
                 inputWidth: 165,
                 inputHeight: 65,
                 marginRight: 0,
+                prefixIcon: null,
                 hideInputValue: true,
                 controller: cvvCtrl,
                 placeHolder: "CVV",
