@@ -23,7 +23,8 @@ void main() {
           return MaterialPageRoute(
               builder: (context) => PaymentFailed(settings.arguments));
         case "/login":
-          return MaterialPageRoute(builder: (context) => LoginScreen(settings.arguments));
+          return MaterialPageRoute(
+              builder: (context) => LoginScreen(settings.arguments));
         case "/signup":
           return MaterialPageRoute(builder: (context) => SignUpScreen());
       }
