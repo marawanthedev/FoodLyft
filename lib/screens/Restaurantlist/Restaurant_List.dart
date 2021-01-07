@@ -20,34 +20,19 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                 accountName: Text("User Name"),
                 accountEmail: Text("User Email"),
               ),
-              ListTile(
-                  leading: Icon(
-                    Icons.person,
-                  ),
-                  title: Text(
-                    "Profile",
-                    style: TextStyle(fontSize: 20, color: aTextColor),
-                  )),
-              ListTile(
-                  leading: Icon(Icons.location_city),
-                  title: Text(
-                    "Address",
-                    style: TextStyle(fontSize: 20, color: aTextColor),
-                  )),
-              ListTile(
-                  leading: Icon(Icons.notification_important),
-                  title: Text(
-                    "Notifications",
-                    style: TextStyle(fontSize: 20, color: aTextColor),
-                  )),
-              ListTile(
-                  leading: Icon(
-                    Icons.history,
-                  ),
-                  title: Text(
-                    "History",
-                    style: TextStyle(fontSize: 20, color: aTextColor),
-                  ))
+              ListBuild(
+                title: "Profile",
+                icon: Icons.person,
+              ),
+              ListBuild(
+                title: "Address",
+                icon: Icons.location_city,
+              ),
+              ListBuild(
+                title: "Notifications",
+                icon: Icons.notification_important,
+              ),
+              ListBuild(title: "History", icon: Icons.history),
             ],
           ),
         ),
@@ -253,6 +238,26 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ListBuild extends StatelessWidget {
+  String title;
+  IconData icon;
+  ListBuild({this.title, this.icon});
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      onPressed: (){},
+      child: ListTile(
+          leading: Icon(
+            icon,
+          ),
+          title: Text(
+            title,
+            style: TextStyle(fontSize: 20, color: aTextColor),
+          )),
     );
   }
 }
