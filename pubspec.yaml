@@ -54,6 +54,22 @@ flutter:
     - assets/images/user.png
     - assets/images/password.png
     - assets/images/eye.png
+    - assets/images/fastfood.jpg
+    - assets/images/western.jpg
+    - assets/images/arab.jpg
+    - assets/images/italian.jpg
+    - assets/images/drinks.jpg
+    - assets/images/breakfast.jpg
+    - assets/images/bilad.png
+    - assets/images/Hayfa.png
+    - assets/images/hadrmawt.png
+    - assets/images/halab.jpg
+    - assets/images/Mac.png
+    - assets/images/pizza.png
+    - assets/images/kfc.png
+    - assets/images/carls.png
+
+
 
 
     # - images/a_dot_ham.jpeg
