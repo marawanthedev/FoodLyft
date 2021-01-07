@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "../../services/hexColor.dart";
 import "../../components/formInput.dart";
+import "../../components/socialMediaBar.dart";
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -64,38 +65,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                            height: 70,
-                            width: 130,
-                            child: ConstrainedBox(
-                                constraints: BoxConstraints.expand(),
-                                child: FlatButton(
-                                    onPressed: () => {print("facebook")},
-                                    child: Image.asset(
-                                        'assets/images/facebook.png')))),
-                        Container(
-                            height: 70,
-                            width: 130,
-                            child: ConstrainedBox(
-                                constraints: BoxConstraints.expand(),
-                                child: FlatButton(
-                                    onPressed: () => {print("google")},
-                                    child: Image.asset(
-                                        'assets/images/google.png')))),
-                        Container(
-                            height: 70,
-                            width: 130,
-                            child: ConstrainedBox(
-                                constraints: BoxConstraints.expand(),
-                                child: FlatButton(
-                                    onPressed: () => {print("twitter")},
-                                    child: Image.asset(
-                                        'assets/images/twitter.png'))))
-                      ],
-                    ),
+                      child: SocialMediaAppBar(
+                    onPressedFunctions: {
+                      'google': () => {print("Google")},
+                      'facebook': () => {print("Facebook")},
+                      'twitter': () => {print("twitter")},
+                    },
+                  )
                   ),
                   Center(
                       child: Container(
@@ -112,7 +88,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: Colors.black,
                           ),
                         ),
-                        
                         Container(
                           child: Text(
                             "or",
