@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
 import './Constants.dart';
@@ -272,7 +272,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      
       child: Padding(
         padding: const EdgeInsets.all(7.0),
         child: Column(
