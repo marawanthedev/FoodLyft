@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "./formInput.dart";
 import "../services/hexColor.dart";
+import "../components/button.dart";
 
 class PaymentForm extends StatelessWidget {
   var formKey;
@@ -41,7 +42,7 @@ class PaymentForm extends StatelessWidget {
             inputHeight: 65,
             hideInputValue: true,
             marginRight: 0,
-           prefixIcon: null,
+            prefixIcon: null,
             placeHolder: "Card Number",
             controller: cardNumberCtrl,
             validator: (value) {
@@ -100,39 +101,26 @@ class PaymentForm extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: SizedBox(
-              width: 400,
-              height: 50,
-              child: RaisedButton(
-                onPressed: () {
-                  // Validate returns true if the form is valid, otherwise false.
-                  if (formKey.currentState.validate()) {
-                    // If the form is valid, display a snackbar. In the real world,
-                    // you'd often call a server or save the information in a database.
-
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                      content: Text(
-                        'Processing Data',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      backgroundColor: HexColor("F2A22C"),
-                    ));
-                    setState();
-                  }
-                },
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    side: BorderSide(
-                      color: Color.fromRGBO(0, 0, 0, 0),
-                    )),
-                child: Text("Confirm Payment",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 20)),
-                color: HexColor("F2A22C"),
-              ),
-            ),
+                width: 400,
+                height: 50,
+                child: customButton(
+                  buttonText: "Confirm payment",
+                  onPressed: () {
+                    if (formKey.currentState.validate()) {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                          'Processing Data',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        backgroundColor: HexColor("F2A22C"),
+                      ));
+                      setState();
+                    }
+                  },
+                  backgroundColor: HexColor("F2A22C"),
+                  formKey: formKey,
+                )
+                ),
           ),
         ],
       ),
