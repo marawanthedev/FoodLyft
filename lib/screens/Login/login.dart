@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "../../services/hexColor.dart";
-import 'dart:async';
+import "../../components/formInput.dart";
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               )),
           body: SingleChildScrollView(
-                      child: Container(
+            child: Container(
               width: 450,
               margin: EdgeInsets.only(top: 20),
               child: Column(
@@ -138,61 +138,74 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(top: 20),
-                              width: 350,
-                              height: 65,
-                              child: TextFormField(
-                                controller: widget.emailCtrl,
-                                keyboardType: TextInputType.emailAddress,
-                                decoration: const InputDecoration(
-                                  prefixIcon: Image(
-                                      height: 30,
-                                      image: AssetImage(
-                                        "assets/images/user.png",
-                                      )),
-                                  hintText: 'Email',
-                                  hintStyle: TextStyle(
-                                      fontSize: 20, fontFamily: 'Roboto'),
-                                  contentPadding:
-                                      EdgeInsets.only(top: 12.5, left: 5),
-                                ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Please enter a valid email';
-                                  }
-                                  return null;
-                                },
-                              ),
+                            // FormInput(
+                            //   inputWidth: 350,
+                            //   inputHeight: 65,
+                            //   marginRight: 0,
+                            //   hideInputValue: true,
+                            //   controller: widget.confrimPasswordCtrl,
+                            //   prefixIcon: Image(
+                            //       height: 30,
+                            //       image: AssetImage(
+                            //         "assets/images/password.png",
+                            //       )),
+                            //   placeHolder: "Confirm Password",
+                            //   placeHolderStyle:
+                            //       TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                            //   validator: (value) {
+                            //     if (value.isEmpty) {
+                            //       return 'Please confirm your password';
+                            //     }
+                            //     return null;
+                            //   },
+                            //   contentPadding:
+                            //       EdgeInsets.only(top: 12.5, left: 5),
+                            // ),
+                            FormInput(
+                              inputHeight: 65,
+                              inputWidth: 350,
+                              controller: widget.emailCtrl,
+                              hideInputValue: false,
+                              prefixIcon: Image(
+                                  height: 30,
+                                  image: AssetImage(
+                                    "assets/images/user.png",
+                                  )),
+                              placeHolder: 'Email',
+                              placeHolderStyle:
+                                  TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                              contentPadding:
+                                  EdgeInsets.only(top: 12.5, left: 5),
+                              marginRight: 0,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter a valid email';
+                                }
+                                return null;
+                              },
                             ),
-                            Container(
-                              width: 350,
-                              height: 65,
-                              child: TextFormField(
-                                obscureText: true,
-                                controller: widget.passwordCtrl,
-                                keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  prefixIcon: Image(
-                                      image: AssetImage(
+                            FormInput(
+                              inputHeight: 65,
+                              inputWidth: 350,
+                              controller: widget.passwordCtrl,
+                              hideInputValue: true,
+                              prefixIcon: Image(
+                                  height: 30,
+                                  image: AssetImage(
                                     "assets/images/password.png",
                                   )),
-                                  contentPadding:
-                                      EdgeInsets.only(top: 12.5, left: 5),
-                                  hintText: 'Password',
-                                  hintStyle: TextStyle(
-                                      fontSize: 20, fontFamily: 'Roboto'),
-                                ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Please enter you password';
-                                  }
-                                  // if (value.length < 8) {
-                                  //   return 'password can not be less than';
-                                  // }
-                                  return null;
-                                },
-                              ),
+                              placeHolder: 'Password',
+                              placeHolderStyle:
+                                  TextStyle(fontSize: 20, fontFamily: 'Roboto'),
+                              contentPadding:
+                                  EdgeInsets.only(top: 12.5, left: 5),
+                              marginRight: 0,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'Please enter your password';
+                                }
+                                return null;
+                              },
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 20),
@@ -214,7 +227,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                             .showSnackBar(SnackBar(
                                           content: Text(
                                             'Processing Login Data',
-                                            style: TextStyle(color: Colors.white),
+                                            style:
+                                                TextStyle(color: Colors.white),
                                           ),
                                           backgroundColor: HexColor("F2A22C"),
                                         ));
