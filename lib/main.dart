@@ -5,6 +5,7 @@ import 'screens/payment/payment_form.dart';
 import "./screens/Login/login.dart";
 import "./screens/Signup/Signup.dart";
 import './screens/Restaurantlist/Restaurant_List.dart';
+import "./screens/cart/cart.dart";
 import "./services/router.dart" as router;
 
 void main() {
@@ -31,6 +32,8 @@ void main() {
           return MaterialPageRoute(builder: (context) => SignUpScreen());
         case "/Restaurant_List":
           return MaterialPageRoute(builder: (context) => RestaurantMenu());
+        case "/cart":
+          return MaterialPageRoute(builder: (context) => CartScreen());
       }
     },
   ));

@@ -1,41 +1,41 @@
 import 'package:flutter/material.dart';
 
-class customButton extends StatelessWidget {
-  var formKey,buttonText,backgroundColor,onPressed,setState;
+// Guide to utilizing this component
+// width and height should be passed in double format
+// ex instead of passing width:400, pass width:400.0
+// rest is working without any confusion
 
-  customButton({this.backgroundColor, this.buttonText, this.formKey,this.onPressed,this.setState});
+class customButton extends StatelessWidget {
+  var formKey, buttonText, backgroundColor, onPressed, setState, width, height;
+
+  customButton(
+      {this.backgroundColor,
+      this.buttonText,
+      this.formKey,
+      this.onPressed,
+      this.setState,
+      this.width,
+      this.height});
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      onPressed: () {
-        // Validate returns true if the form is valid, otherwise false.
-        if (formKey.currentState.validate()) {
-          // If the form is valid, display a snackbar. In the real world,
-          // you'd often call a server or save the information in a database.
-
-          Scaffold.of(context).showSnackBar(SnackBar(
-            content: Text(
-              'Processing Data',
-              style: TextStyle(color: Colors.white),
-            ),
-            backgroundColor: backgroundColor,
-            
-          ));
-          setState();
-        }
-      },
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-          side: BorderSide(
-            color: Color.fromRGBO(0, 0, 0, 0),
-          )),
-      child: Text("Confirm Payment",
-          style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.normal,
-              fontSize: 20)),
-      color: backgroundColor,
+    return SizedBox(
+      width: width,
+      height: height,
+      child: RaisedButton(
+        onPressed: onPressed,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(
+              color: Color.fromRGBO(0, 0, 0, 0),
+            )),
+        child: Text(buttonText,
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 20)),
+        color: backgroundColor,
+      ),
     );
   }
 }
