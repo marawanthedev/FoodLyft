@@ -7,14 +7,10 @@ import "./screens/Signup/Signup.dart";
 import './screens/Restaurantlist/Restaurant_List.dart';
 import "./services/router.dart" as router;
 
-
-
-    
-    
-    
-    void main() {
+void main() {
   runApp(MaterialApp(
-    initialRoute: "/signup",
+    debugShowCheckedModeBanner: false,
+    initialRoute: "/Restaurant_List",
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
@@ -29,7 +25,8 @@ import "./services/router.dart" as router;
           return MaterialPageRoute(
               builder: (context) => PaymentFailed(settings.arguments));
         case "/login":
-          return MaterialPageRoute(builder: (context) => LoginScreen(settings.arguments));
+          return MaterialPageRoute(
+              builder: (context) => LoginScreen(settings.arguments));
         case "/signup":
           return MaterialPageRoute(builder: (context) => SignUpScreen());
         case "/Restaurant_List":
