@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/services/hexColor.dart';
 
 class CartItem extends StatelessWidget {
   final String title;
   String image;
   final bool isTouched;
-  final Function press;
+  final price;
+  final quantity;
   var color, appMainColor;
+  Function increaseQuantity, decreaseQuantity, deleteItem;
+
   CartItem(
       {this.title,
       this.isTouched = false,
-      this.press,
+      this.deleteItem,
       this.image,
       this.color,
-      this.appMainColor});
+      this.appMainColor,
+      this.increaseQuantity,
+      this.decreaseQuantity,
+      this.quantity,
+      this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +36,7 @@ class CartItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(7.0),
         child: Container(
-          padding: EdgeInsets.only(left: 20, right: 20, top: 15, bottom: 15),
+          padding: EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
           child: Column(
             children: <Widget>[
               Container(
@@ -59,17 +67,49 @@ class CartItem extends StatelessWidget {
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           title,
                           style:
                               TextStyle(fontFamily: 'Poppins', fontSize: 17.5),
                         ),
-                        Text("2",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 17.5,
-                                fontWeight: FontWeight.bold))
+                        Container(
+                          width: 100,
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 30,
+                                height: 30,
+                                margin: EdgeInsets.only(right: 10),
+                                child: FloatingActionButton.extended(
+                                  onPressed: decreaseQuantity,
+                                  label: Icon(Icons.remove),
+                                  icon: null,
+                                  backgroundColor: HexColor("F2A22C"),
+                                ),
+                              ),
+                              Text("$quantity",
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 17.5,
+                                      fontWeight: FontWeight.bold)),
+                              Container(
+                                width: 30,
+                                height: 30,
+                                margin: EdgeInsets.only(left: 10),
+                                child: FloatingActionButton.extended(
+                                  onPressed: increaseQuantity,
+                                  label: Icon(Icons.add),
+                                  icon: null,
+                                  backgroundColor: HexColor("F2A22C"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                     Column(
@@ -78,7 +118,7 @@ class CartItem extends StatelessWidget {
                         Container(
                           height: 40,
                           child: FlatButton(
-                            onPressed: () => {},
+                            onPressed: deleteItem,
                             child: Image.asset(
                               'assets/images/delete.png',
                               width: 15,
@@ -89,7 +129,7 @@ class CartItem extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.only(top: 5),
                           height: 40,
-                          child: Text("\$ 41.90",
+                          child: Text("\$ $price",
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 17.5,
