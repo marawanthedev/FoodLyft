@@ -7,11 +7,34 @@ class CartScreen extends StatefulWidget {
   @override
   _CartScreenState createState() => _CartScreenState();
 
+  // CartItem(
+  //   image: 'assets/images/burger-2.png',
+  //   title: "Beef Burger",
+  //   press: () {},
+  // )
+  var items = [
+    {
+      "title": "Chiptole",
+      "price": 23.5,
+      "imgSrc": "assets/images/burger-1.png",
+      "press": () => "gg",
+      "quantity": 1
+    },
+    {
+      "title": "Chiptole",
+      "price": 20.5,
+      "imgSrc": "assets/images/burger-2.png",
+      "press": () => "gg",
+      "quantity": 1
+    }
+  ];
   final containerWidth = 350.0;
   final cartPriceDetailsHeight = 35.0;
 }
 
 class _CartScreenState extends State<CartScreen> {
+  double subTotal = 0;
+
   TextStyle fadedStyle =
       TextStyle(color: HexColor("667C8A"), fontSize: 20, fontFamily: "Poppins");
   TextStyle boldedStyle = TextStyle(
@@ -19,6 +42,67 @@ class _CartScreenState extends State<CartScreen> {
       fontSize: 20,
       fontFamily: "Poppins",
       fontWeight: FontWeight.normal);
+
+  Widget getCartItems(items) {
+    print("getting");
+    resetSubTotal();
+    List<Widget> list = new List<Widget>();
+    for (var i = 0; i < widget.items.length; i++) {
+      updateSubTotal(widget.items[i]['price'], widget.items[i]['quantity']);
+
+      list.add(CartItem(
+        image: widget.items[i]['imgSrc'],
+        isTouched: i == 0 ? true : false,
+        title: widget.items[i]['title'],
+        deleteItem: () {
+          this.setState(() {
+            widget.items.removeAt(i);
+          });
+        },
+        quantity: widget.items[i]['quantity'],
+        price: widget.items[i]['price'],
+        increaseQuantity: () {
+          int currentQuantity = widget.items[i]['quantity'];
+          widget.items[i]['quantity'] = currentQuantity + 1;
+          setState(() {});
+        },
+        decreaseQuantity: () {
+          int currentQuantity = widget.items[i]['quantity'];
+
+          if (currentQuantity == 1) {
+            widget.items.removeAt(i);
+          } else {
+            widget.items[i]['quantity'] = currentQuantity - 1;
+          }
+
+          setState(() {});
+        },
+      ));
+    }
+    return new Column(
+        mainAxisAlignment: MainAxisAlignment.start, children: list);
+  }
+
+  void updateSubTotal(itemPrice, itemQuantity) {
+    print("called");
+    subTotal += (itemPrice * itemQuantity);
+  }
+
+  double getPickUpCharge() {
+    return (subTotal * 0.05).roundToDouble();
+  }
+
+  double getTax() {
+    return (subTotal * 0.02).roundToDouble();
+  }
+
+  void resetSubTotal() {
+    subTotal = 0;
+  }
+
+  double getTotal() {
+    return getTax() + subTotal + getPickUpCharge();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,39 +131,12 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             Container(
               height: widget.containerWidth,
-              width: 400,
+              width: 450,
               color: Colors.white,
               alignment: Alignment.centerLeft,
               child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CartItem(
-                          image: 'assets/images/burger-1.png',
-                          title: "Chiptole",
-                          isTouched: true,
-                          press: () {},
-                        ),
-                        CartItem(
-                          image: 'assets/images/burger-2.png',
-                          title: "Beef Burger",
-                          press: () {},
-                        ),
-                        CartItem(
-                          image: 'assets/images/burger-1.png',
-                          title: "Chiptole",
-                          press: () {},
-                        ),
-                        CartItem(
-                          image: 'assets/images/burger-2.png',
-                          title: "Beef Burger",
-                          press: () {},
-                        ),
-                      ],
-                    ),
-                  )),
+                  child: Container(child: getCartItems(widget.items))),
             ),
             Container(
               height: widget.cartPriceDetailsHeight,
@@ -91,7 +148,7 @@ class _CartScreenState extends State<CartScreen> {
                     "Subtotal",
                     style: fadedStyle,
                   ),
-                  Text("\$ 62.85", style: boldedStyle)
+                  Text("\$ $subTotal", style: boldedStyle)
                 ],
               ),
             ),
@@ -102,7 +159,7 @@ class _CartScreenState extends State<CartScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Pick-Up Charge", style: fadedStyle),
-                  Text("\$ 2.25", style: boldedStyle)
+                  Text("\$ ${getPickUpCharge()}", style: boldedStyle)
                 ],
               ),
             ),
@@ -114,7 +171,7 @@ class _CartScreenState extends State<CartScreen> {
                 children: [
                   Text("Tax", style: fadedStyle),
                   Text(
-                    "\$ 0.25",
+                    "\$ ${getTax()}",
                     style: boldedStyle,
                   )
                 ],
@@ -127,7 +184,7 @@ class _CartScreenState extends State<CartScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Total", style: boldedStyle),
-                  Text("\$ 65.35", style: boldedStyle)
+                  Text("\$ ${getTotal()}", style: boldedStyle)
                 ],
               ),
             ),
