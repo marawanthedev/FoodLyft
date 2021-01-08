@@ -15,7 +15,8 @@ class SocialMediaAppBar extends StatelessWidget {
                 constraints: BoxConstraints.expand(),
                 child: FlatButton(
                     onPressed: onPressedFunctions['facebook'],
-                    child: Image.asset('assets/images/facebook.png')))),
+                    child: Image.asset('assets/images/facebook.png')
+                    ))),
         Container(
             height: 70,
             width: 130,
