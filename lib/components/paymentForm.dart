@@ -100,27 +100,25 @@ class PaymentForm extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: SizedBox(
-                width: 400,
-                height: 50,
-                child: customButton(
-                  buttonText: "Confirm payment",
-                  onPressed: () {
-                    if (formKey.currentState.validate()) {
-                      Scaffold.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                          'Processing Data',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        backgroundColor: HexColor("F2A22C"),
-                      ));
-                      setState();
-                    }
-                  },
-                  backgroundColor: HexColor("F2A22C"),
-                  formKey: formKey,
-                )
-                ),
+            child: customButton(
+              width: 400.0,
+              height: 50.0,
+              buttonText: "Confirm payment",
+              onPressed: () {
+                if (formKey.currentState.validate()) {
+                  Scaffold.of(context).showSnackBar(SnackBar(
+                    content: Text(
+                      'Processing Data',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    backgroundColor: HexColor("F2A22C"),
+                  ));
+                  setState();
+                }
+              },
+              backgroundColor: HexColor("F2A22C"),
+              formKey: formKey,
+            ),
           ),
         ],
       ),
