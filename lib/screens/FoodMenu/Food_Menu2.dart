@@ -51,118 +51,124 @@ class _FoodMenu2State extends State<FoodMenu2> {
           color: Colors.grey[100],
           panel: Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 30.0, 30.0, 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "Restaurant Name",
-                      style: TextStyle(
-                          fontSize: 26.0, fontWeight: FontWeight.bold),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "4.6",
-                          style: TextStyle(
-                            color: aTextLightColor,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Restaurant Name",
+                        style: TextStyle(
+                            fontSize: 26.0, fontWeight: FontWeight.bold),
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "4.6",
+                            style: TextStyle(
+                              color: aTextLightColor,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: appMainColor,
-                          size: 20.0,
-                        )
+                          Icon(
+                            Icons.star,
+                            color: appMainColor,
+                            size: 20.0,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  Text(
+                    "Closes at 11 pm",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Container(
+                    height: 40.0,
+                    width: width,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        CategoryBuilder(
+                            colora: appMainColor,
+                            menu: "Category0",
+                            menuImage: "assets/images/pizza1.png",
+                            menuColor: Colors.white),
+                        CategoryBuilder(
+                            colora: appListColor,
+                            menu: "Category1",
+                            menuImage: "assets/images/drink.png",
+                            menuColor: black),
+                        CategoryBuilder(
+                            colora: appListColor,
+                            menu: "Category2",
+                            menuImage: "assets/images/pastry.png",
+                            menuColor: black),
+                        CategoryBuilder(
+                            colora: appListColor,
+                            menu: "Category3",
+                            menuImage: "assets/images/pizza1.png",
+                            menuColor: black),
                       ],
-                    )
-                  ],
-                ),
-                Text(
-                  "Closes at 11 pm",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14.0,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Container(
-                  height: 40.0,
-                  width: width,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      CategoryBuilder(
-                          colora: appMainColor,
-                          menu: "Category0",
-                          menuImage: "assets/images/pizza1.png",
-                          menuColor: Colors.white),
-                      CategoryBuilder(
-                          colora: appListColor,
-                          menu: "Category1",
-                          menuImage: "assets/images/drink.png",
-                          menuColor: black),
-                      CategoryBuilder(
-                          colora: appListColor,
-                          menu: "Category2",
-                          menuImage: "assets/images/pastry.png",
-                          menuColor: black),
-                      CategoryBuilder(
-                          colora: appListColor,
-                          menu: "Category3",
-                          menuImage: "assets/images/pizza1.png",
-                          menuColor: black),
-                    ],
+                  SizedBox(
+                    height: 10.0,
                   ),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
-                  child: Column(
-                    children: [
-                      ItemsBuilder(
-                          image: "assets/images/veg.png",
-                          itemName: "Item Name",
-                          desc: "Item Description",
-                          price: "50"),
-                      ItemsBuilder(
-                          image: "assets/images/veg.png",
-                          itemName: "Item Name",
-                          desc: "Item Description",
-                          price: "50"),
-                      ItemsBuilder(
-                          image: "assets/images/veg.png",
-                          itemName: "Item Name",
-                          desc: "Item Description",
-                          price: "50"),
-                      ItemsBuilder(
-                          image: "assets/images/veg.png",
-                          itemName: "Item Name",
-                          desc: "Item Description",
-                          price: "50"),
-                      ItemsBuilder(
-                          image: "assets/images/veg.png",
-                          itemName: "Item Name",
-                          desc: "Item Description",
-                          price: "50"),
-                      ItemsBuilder(
-                          image: "assets/images/veg.png",
-                          itemName: "Item Name",
-                          desc: "Item Description",
-                          price: "50"),
-                    ],
-                  ),
-                )
-              ],
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        children: [
+                          ItemsBuilder(
+                              image: "assets/images/veg.png",
+                              itemName: "Item Name",
+                              desc: "Item Description",
+                              price: "50"),
+                          ItemsBuilder(
+                              image: "assets/images/veg.png",
+                              itemName: "Item Name",
+                              desc: "Item Description",
+                              price: "50"),
+                          ItemsBuilder(
+                              image: "assets/images/veg.png",
+                              itemName: "Item Name",
+                              desc: "Item Description",
+                              price: "50"),
+                          ItemsBuilder(
+                              image: "assets/images/veg.png",
+                              itemName: "Item Name",
+                              desc: "Item Description",
+                              price: "50"),
+                          ItemsBuilder(
+                              image: "assets/images/veg.png",
+                              itemName: "Item Name",
+                              desc: "Item Description",
+                              price: "50"),
+                          ItemsBuilder(
+                              image: "assets/images/veg.png",
+                              itemName: "Item Name",
+                              desc: "Item Description",
+                              price: "50"),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           )),
     );

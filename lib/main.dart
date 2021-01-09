@@ -9,7 +9,6 @@ import './screens/Restaurantlist/Restaurant_List.dart';
 import "./screens/cart/cart.dart";
 import './screens/FoodMenu/Food_Menu.dart';
 import './screens/FoodMenu/Food_Menu2.dart';
-import "./services/router.dart" as router;
 
 void main() {
   runApp(MaterialApp(
@@ -42,7 +41,6 @@ void main() {
         case "/Food_Menu2":
           return MaterialPageRoute(builder: (context) => FoodMenu2());
       }
-
     },
   ));
 }
