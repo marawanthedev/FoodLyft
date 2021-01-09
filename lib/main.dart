@@ -13,8 +13,9 @@ import "./services/router.dart" as router;
 
 void main() {
   runApp(MaterialApp(
+
     debugShowCheckedModeBanner: false,
-    initialRoute: "/Food_Menu2",
+
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
