@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/FoodMenu/Food_Menu.dart';
 import 'screens/payment/payment_failed.dart';
 import 'screens/payment/payment_succesfull.dart';
 import 'screens/payment/payment_form.dart';
 import "./screens/Login/login.dart";
 import "./screens/Signup/Signup.dart";
+<<<<<<< HEAD
 // import "./services/router.dart" as router;
 import 'screens/admin/new_restaurant.dart';
 import 'screens/admin/edit-restaurant.dart';
@@ -13,6 +15,17 @@ import 'screens/admin/dialog/delete_dialog.dart';
 void main() {
   runApp(MaterialApp(
     initialRoute: "/new_restaurant",
+=======
+import './screens/Restaurantlist/Restaurant_List.dart';
+import "./screens/cart/cart.dart";
+import './screens/FoodMenu/Food_Menu.dart';
+import './screens/FoodMenu/Food_Menu2.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    initialRoute: "/Food_Menu2",
+>>>>>>> 5d95c19a7fb78ca88bc69ffd4270d38e89ee2e63
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
@@ -31,6 +44,7 @@ void main() {
               builder: (context) => LoginScreen(settings.arguments));
         case "/signup":
           return MaterialPageRoute(builder: (context) => SignUpScreen());
+<<<<<<< HEAD
         case "/new_restaurant":
           return MaterialPageRoute(builder: (context) => New_Restaurant());
         case "/edit_restaurant":
@@ -39,6 +53,16 @@ void main() {
           return MaterialPageRoute(builder: (context) => Back_Home_Dialog());
         case "/delete_dialog":
           return MaterialPageRoute(builder: (context) => Delete_Dialog());
+=======
+        case "/Restaurant_List":
+          return MaterialPageRoute(builder: (context) => RestaurantMenu());
+        case "/cart":
+          return MaterialPageRoute(builder: (context) => CartScreen());
+        case "/Food_Menu":
+          return MaterialPageRoute(builder: (context) => FoodMenu());
+        case "/Food_Menu2":
+          return MaterialPageRoute(builder: (context) => FoodMenu2());
+>>>>>>> 5d95c19a7fb78ca88bc69ffd4270d38e89ee2e63
       }
     },
   ));
