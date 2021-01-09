@@ -1,14 +1,12 @@
-
-
 import 'package:flutter/material.dart';
 import './Constants.dart';
-
 class RestaurantMenu extends StatefulWidget {
   @override
   _RestaurantMenuState createState() => _RestaurantMenuState();
 }
 
 class _RestaurantMenuState extends State<RestaurantMenu> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -249,7 +247,7 @@ class ListBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      onPressed: (){},
+      onPressed: () {},
       child: ListTile(
           leading: Icon(
             icon,
@@ -272,7 +270,6 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      
       child: Padding(
         padding: const EdgeInsets.all(7.0),
         child: Column(

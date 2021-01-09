@@ -23,7 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sliding_up_panel: ^1.0.2  
 
+  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
@@ -71,6 +73,11 @@ flutter:
     - assets/images/burger-1.png
     - assets/images/burger-2.png
     - assets/images/delete.png
+    - assets/images/pizza1.png
+    - assets/images/pastry.png
+    - assets/images/drink.png
+    - assets/images/veg.png
+
 
 
     # - images/a_dot_ham.jpeg
