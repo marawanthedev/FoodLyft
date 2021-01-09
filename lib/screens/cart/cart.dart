@@ -7,11 +7,6 @@ class CartScreen extends StatefulWidget {
   @override
   _CartScreenState createState() => _CartScreenState();
 
-  // CartItem(
-  //   image: 'assets/images/burger-2.png',
-  //   title: "Beef Burger",
-  //   press: () {},
-  // )
   var items = [
     {
       "title": "Chiptole",
@@ -47,6 +42,7 @@ class _CartScreenState extends State<CartScreen> {
     print("getting");
     resetSubTotal();
     List<Widget> list = new List<Widget>();
+    
     for (var i = 0; i < widget.items.length; i++) {
       updateSubTotal(widget.items[i]['price'], widget.items[i]['quantity']);
 

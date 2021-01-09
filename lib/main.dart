@@ -10,7 +10,7 @@ import "./services/router.dart" as router;
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/cart",
+    initialRoute: "/Restaurant_List",
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
