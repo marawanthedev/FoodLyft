@@ -78,6 +78,9 @@ flutter:
     - assets/images/pastry.png
     - assets/images/drink.png
     - assets/images/veg.png
+    - assets/images/foodlyft_logo_splash.png
+    - assets/images/start_background.jpg
+    - assets/images/knife_spoon_fork.png
 
 
 
