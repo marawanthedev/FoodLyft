@@ -9,6 +9,8 @@ import 'screens/admin/new_restaurant.dart';
 import 'screens/admin/edit-restaurant.dart';
 import 'screens/admin/dialog/back_home_dialog.dart';
 import 'screens/admin/dialog/delete_dialog.dart';
+import './screens/HomePage/homepage_screen.dart';
+import './screens/splash/splash_screen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -39,6 +41,10 @@ void main() {
           return MaterialPageRoute(builder: (context) => Back_Home_Dialog());
         case "/delete_dialog":
           return MaterialPageRoute(builder: (context) => Delete_Dialog());
+        case "/splash_screen":
+          return MaterialPageRoute(builder: (context) => SplashScreen());
+        case "/homepage_screen":
+          return MaterialPageRoute(builder: (context) => HomePage());
       }
     },
   ));
