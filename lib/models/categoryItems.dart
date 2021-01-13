@@ -1,8 +1,4 @@
-import 'package:foodlyft/components/categoryItem.dart';
-
 import "../screens/Restaurantlist/Constants.dart";
-import 'package:flutter/material.dart';
-import "../components/categoryItem.dart";
 
 class CategoryItems {
   CategoryItems();

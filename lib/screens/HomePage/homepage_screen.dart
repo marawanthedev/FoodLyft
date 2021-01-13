@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/Login/login.dart';
+import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/screens/Signup/Signup.dart';
 
 class HomePage extends StatefulWidget {
+  List<User> users;
+  HomePage({this.users}):super();
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -92,9 +94,9 @@ class _HomePageState extends State<HomePage> {
                 height: 60,
                 width: 310,
                 child: RaisedButton(
-                  // onPressed: () => Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => LoginScreen())),
-                  onPressed: () {},
+                   //onPressed: () => Navigator.push(context,
+                      // MaterialPageRoute(builder: (context) => LoginScreen())),
+                  onPressed: (){},
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -111,9 +113,9 @@ class _HomePageState extends State<HomePage> {
                 height: 60,
                 width: 310,
                 child: RaisedButton(
-                  // onPressed: () => Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => SignUpScreen())),
-                  onPressed: () {},
+                   onPressed: () => Navigator.push(context,
+                       MaterialPageRoute(builder: (context) => SignUpScreen())),
+                  
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                       side: BorderSide(

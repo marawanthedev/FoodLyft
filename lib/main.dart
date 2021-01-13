@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/FoodMenu/Food_Menu.dart';
+import 'screens/FoodMenu/Food_Menu2.dart';
 import 'screens/payment/payment_failed.dart';
 import 'screens/payment/payment_succesfull.dart';
 import 'screens/payment/payment_form.dart';
@@ -11,10 +13,12 @@ import 'screens/admin/dialog/back_home_dialog.dart';
 import 'screens/admin/dialog/delete_dialog.dart';
 import './screens/HomePage/homepage_screen.dart';
 import './screens/splash/splash_screen.dart';
+import './screens/Restaurantlist/Restaurant_List.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/new_restaurant",
+    debugShowCheckedModeBanner: false,
+    initialRoute: "/SignUpScreen",
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
@@ -31,7 +35,7 @@ void main() {
         case "/login":
           return MaterialPageRoute(
               builder: (context) => LoginScreen(settings.arguments));
-        case "/signup":
+        case "/Signup":
           return MaterialPageRoute(builder: (context) => SignUpScreen());
         case "/new_restaurant":
           return MaterialPageRoute(builder: (context) => New_Restaurant());
@@ -45,6 +49,10 @@ void main() {
           return MaterialPageRoute(builder: (context) => SplashScreen());
         case "/homepage_screen":
           return MaterialPageRoute(builder: (context) => HomePage());
+        case "/Food_Menu2":
+          return MaterialPageRoute(builder: (context) => FoodMenu2());
+        case "/Restaurant_List":
+          return MaterialPageRoute(builder: (context) => RestaurantMenu());
       }
     },
   ));
