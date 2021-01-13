@@ -18,7 +18,7 @@ import './screens/Restaurantlist/Restaurant_List.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: "/SignUpScreen",
+    initialRoute: "/Restaurant_List",
     onGenerateRoute: (settings) {
       switch (settings.name) {
         case "/":
