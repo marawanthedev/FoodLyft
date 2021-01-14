@@ -3,7 +3,7 @@ import "../screens/Restaurantlist/Constants.dart";
 class CategoryItems {
   CategoryItems();
 
-  var fastFood = [
+  List restaurants = [
     {
       "image": 'assets/images/Mac.png',
       "title": "Macdonald's",
@@ -31,6 +31,7 @@ class CategoryItems {
       "title": "KFC",
       "press": () {},
       "color": aTextColor,
-    }
+    },
+    
   ];
 }

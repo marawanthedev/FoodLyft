@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/MenuItems_builder.dart';
 import 'package:foodlyft/components/RestaurantMenu_Category.dart';
+import 'package:foodlyft/screens/Restaurantlist/Restaurant_List.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 
@@ -42,7 +43,8 @@ class _FoodMenu2State extends State<FoodMenu2> {
                         color: white,
                         size: 35,
                       ),
-                      onPressed: () {}),
+                       onPressed: () => Navigator.push(context,
+                       MaterialPageRoute(builder: (context) => RestaurantMenu())),),
                 ),
               ],
             ),
