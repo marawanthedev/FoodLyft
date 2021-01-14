@@ -1,13 +1,9 @@
-import 'package:foodlyft/components/categoryItem.dart';
-
 import "../screens/Restaurantlist/Constants.dart";
-import 'package:flutter/material.dart';
-import "../components/categoryItem.dart";
 
 class CategoryItems {
   CategoryItems();
 
-  var fastFood = [
+  List restaurants = [
     {
       "image": 'assets/images/Mac.png',
       "title": "Macdonald's",
@@ -35,6 +31,7 @@ class CategoryItems {
       "title": "KFC",
       "press": () {},
       "color": aTextColor,
-    }
+    },
+    
   ];
 }
