@@ -33,7 +33,7 @@ void main() {
         case "/login":
           return MaterialPageRoute(
               builder: (context) => LoginScreen(settings.arguments));
-        case "/signup":
+        case "/Signup":
           return MaterialPageRoute(builder: (context) => SignUpScreen());
         case "/new_restaurant":
           return MaterialPageRoute(builder: (context) => New_Restaurant());
@@ -55,7 +55,6 @@ void main() {
           return MaterialPageRoute(builder: (context) => SplashScreen());
         case "/homepage_screen":
           return MaterialPageRoute(builder: (context) => HomePage());
-
       }
     },
   ));

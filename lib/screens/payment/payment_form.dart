@@ -4,7 +4,6 @@ import "./Tabs/cash.dart" as cashTab;
 import "./Tabs/masterCard.dart" as masterCardTab;
 import "./Tabs/visaCard.dart" as visaCardTab;
 import "../../services/hexColor.dart";
-import "../../services/pictureWidget.dart";
 
 class PaymentForm extends StatefulWidget {
   @override
