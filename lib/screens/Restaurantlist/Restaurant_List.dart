@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/components/restaurant_list_category.dart';
-import 'package:foodlyft/screens/FoodMenu/Food_Menu2.dart';
+import 'package:foodlyft/components/arab_Row_Build.dart';
+import 'package:foodlyft/components/italian_Row_Build.dart';
+import 'package:foodlyft/components/western_Row_Build.dart';
 import './Constants.dart';
-
+import '../../components/drawer_Options.dart';
 class RestaurantMenu extends StatefulWidget {
   @override
   _RestaurantMenuState createState() => _RestaurantMenuState();
@@ -12,36 +13,13 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: SafeArea(
-          child: Column(
-            children: [
-              UserAccountsDrawerHeader(
-                accountName: Text("User Name"),
-                accountEmail: Text("User Email"),
-              ),
-              ListBuild(
-                title: "Profile",
-                icon: Icons.person,
-              ),
-              ListBuild(
-                title: "Address",
-                icon: Icons.location_city,
-              ),
-              ListBuild(
-                title: "Notifications",
-                icon: Icons.notification_important,
-              ),
-              ListBuild(title: "History", icon: Icons.history),
-            ],
-          ),
-        ),
-      ),
+      drawer: DrawerOptions(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
-          onPressed: () {},
+          onPressed: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => DrawerOptions())),
           child: Icon(
             Icons.sort,
             color: appListColor,
@@ -64,115 +42,89 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
           ),
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(20),
-            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                color: appListColor.withOpacity(0.40),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                border: Border.all(
+                  color: appListColor.withOpacity(0.40),
+                ),
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  icon: Icon(Icons.search),
+                  hintText: "Search here",
+                  hintStyle: TextStyle(color: appListColor),
+                ),
               ),
             ),
-            child: TextField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                icon: Icon(Icons.search),
-                hintText: "Search here",
-                hintStyle: TextStyle(color: appListColor),
-              ),
-            ),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "All",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Western",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ListView.separated(
-              separatorBuilder: (context, index) => Text(
-                "Western",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              itemBuilder: (context, index) {
-                return MaterialButton(
-                   onPressed: () => Navigator.push(context,
-                       MaterialPageRoute(builder: (context) => FoodMenu2())),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        CategoryItem(
-                          image: 'assets/images/fastfood.jpg',
-                          title: "Fast Food",
-                          isTouched: true,
-                          press: () {},
-                        ),
-                        CategoryItem(
-                          image: 'assets/images/western.jpg',
-                          title: "Western Food",
-                          press: () {},
-                        ),
-                        CategoryItem(
-                          image: 'assets/images/arab.jpg',
-                          title: "Arab Food",
-                          press: () {},
-                        ),
-                        CategoryItem(
-                          image: 'assets/images/italian.jpg',
-                          title: "Italian Food",
-                          press: () {},
-                        ),
-                        CategoryItem(
-                          image: 'assets/images/drinks.jpg',
-                          title: "Drinks",
-                          press: () {},
-                        ),
-                        CategoryItem(
-                          image: 'assets/images/breakfast.jpg',
-                          title: "BreakFast",
-                          press: () {},
-                        ),
-                      ],
+              ],
+            ),
+            WesternRowBuild(),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Arab",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                );
-              },
-              itemCount: 4,
+                ),
+              ],
             ),
-          ),
-        ],
+            ArabRowBuild(),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Italian",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            ItalianRowBuild(),
+          ],
+        ),
       ),
     );
   }
 }
 
-class RestaurantsDetails {
-  final String imagePath;
-  final String title;
-
-  RestaurantsDetails({
-    @required this.imagePath,
-    @required this.title,
-  });
-}
 
 class ListBuild extends StatelessWidget {
   String title;
