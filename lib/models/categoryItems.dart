@@ -1,7 +1,7 @@
 import "../screens/Restaurantlist/Constants.dart";
 
 class CategoryItems {
-  CategoryItems();
+  
 
   List restaurants = [
     {
@@ -34,4 +34,7 @@ class CategoryItems {
     },
     
   ];
+  CategoryItems({this.restaurants});
+  
 }
+
