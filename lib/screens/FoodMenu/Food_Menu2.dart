@@ -1,8 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/MenuItems_builder.dart';
-import 'package:foodlyft/components/RestaurantMenu_Category.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
@@ -38,13 +36,16 @@ class _FoodMenu2State extends State<FoodMenu2> {
                   top: 40,
                   left: 20,
                   child: IconButton(
-                      icon: Icon(
-                        Icons.keyboard_arrow_left,
-                        color: white,
-                        size: 35,
-                      ),
-                       onPressed: () => Navigator.push(context,
-                       MaterialPageRoute(builder: (context) => RestaurantMenu())),),
+                    icon: Icon(
+                      Icons.keyboard_arrow_left,
+                      color: white,
+                      size: 35,
+                    ),
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RestaurantMenu())),
+                  ),
                 ),
               ],
             ),
@@ -94,81 +95,31 @@ class _FoodMenu2State extends State<FoodMenu2> {
                       fontSize: 14.0,
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
                   Container(
-                    height: 40.0,
-                    width: width,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        CategoryBuilder(
-                            colora: appMainColor,
-                            menu: "Category0",
-                            menuImage: "assets/images/pizza1.png",
-                            menuColor: Colors.white),
-                        CategoryBuilder(
-                            colora: appListColor,
-                            menu: "Category1",
-                            menuImage: "assets/images/drink.png",
-                            menuColor: black),
-                        CategoryBuilder(
-                            colora: appListColor,
-                            menu: "Category2",
-                            menuImage: "assets/images/pastry.png",
-                            menuColor: black),
-                        CategoryBuilder(
-                            colora: appListColor,
-                            menu: "Category3",
-                            menuImage: "assets/images/pizza1.png",
-                            menuColor: black),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
-                    child: SingleChildScrollView(
+                    height: height,
+                    child: ListView.builder(
                       scrollDirection: Axis.vertical,
-                      child: Column(
-                        children: [
-                          ItemsBuilder(
-                              image: "assets/images/veg.png",
-                              itemName: "Item Name",
-                              desc: "Item Description",
-                              price: "50"),
-                          ItemsBuilder(
-                              image: "assets/images/veg.png",
-                              itemName: "Item Name",
-                              desc: "Item Description",
-                              price: "50"),
-                          ItemsBuilder(
-                              image: "assets/images/veg.png",
-                              itemName: "Item Name",
-                              desc: "Item Description",
-                              price: "50"),
-                          ItemsBuilder(
-                              image: "assets/images/veg.png",
-                              itemName: "Item Name",
-                              desc: "Item Description",
-                              price: "50"),
-                          ItemsBuilder(
-                              image: "assets/images/veg.png",
-                              itemName: "Item Name",
-                              desc: "Item Description",
-                              price: "50"),
-                          ItemsBuilder(
-                              image: "assets/images/veg.png",
-                              itemName: "Item Name",
-                              desc: "Item Description",
-                              price: "50"),
-                        ],
-                      ),
+                      itemBuilder: (context, index) {
+                        return MaterialButton(
+                          onPressed: () {
+                            print("menu#$index");
+                          },
+                          child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: <Widget>[
+                                  ItemsBuilder(
+                                      image: "assets/images/veg.png",
+                                      itemName: "Item Name",
+                                      desc: "Item Description",
+                                      price: "50"),
+                                ],
+                              )),
+                        );
+                      },
+                      itemCount: 10,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

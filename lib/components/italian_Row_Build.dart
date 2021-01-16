@@ -18,8 +18,11 @@ class ItalianRowBuild extends StatelessWidget {
         // ),
         itemBuilder: (context, index) {
           return MaterialButton(
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => FoodMenu2())),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FoodMenu2()));
+              print("Italian$index");
+            },
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -31,17 +34,12 @@ class ItalianRowBuild extends StatelessWidget {
                     isTouched: true,
                     press: () {},
                   ),
-                  CategoryItem(
-                    image: 'assets/images/western.jpg',
-                    title: "Western Food",
-                    press: () {},
-                  ),
                 ],
               ),
             ),
           );
         },
-        itemCount: 2,
+        itemCount: 5,
       ),
     );
   }
