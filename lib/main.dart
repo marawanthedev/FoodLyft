@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/cart/cart.dart';
+import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:provider/provider.dart';
 import 'screens/FoodMenu/Food_Menu2.dart';
 import 'screens/payment/payment_failed.dart';
@@ -38,6 +40,8 @@ void main() {
                 builder: (context) => LoginScreen(settings.arguments));
           case "/Signup":
             return MaterialPageRoute(builder: (context) => SignUpScreen());
+          case "/cart":
+            return MaterialPageRoute(builder: (context) => CartScreen());
           case "/new_restaurant":
             return MaterialPageRoute(builder: (context) => New_Restaurant());
           case "/edit_restaurant":
@@ -54,6 +58,8 @@ void main() {
             return MaterialPageRoute(builder: (context) => FoodMenu2());
           case "/Restaurant_List":
             return MaterialPageRoute(builder: (context) => RestaurantMenu());
+          case "/food_details":
+            return MaterialPageRoute(builder: (context) => FoodDetails());
         }
       },
     ));

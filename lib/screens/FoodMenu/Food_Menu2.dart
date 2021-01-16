@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/MenuItems_builder.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List.dart';
+import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 
@@ -102,7 +103,11 @@ class _FoodMenu2State extends State<FoodMenu2> {
                       itemBuilder: (context, index) {
                         return MaterialButton(
                           onPressed: () {
-                            print("menu#$index");
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FoodDetails()));
+                            print("Item$index");
                           },
                           child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,

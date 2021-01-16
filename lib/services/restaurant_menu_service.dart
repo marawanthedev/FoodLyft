@@ -1,28 +1,15 @@
 
 // import 'rest_service.dart';
 
-// class TodoDataService {
+// class RestaurantsDataService {
 //   final rest = service<RestService>();
 
-//   Future<List<Todo>> getUserTodoList({int userId}) async {
-//     final listJson = await rest.get('todos?userId=$userId');
+//   Future<List<Restaurants>> getRestaurantList({int restaurantId}) async {
+//     final listJson = await rest.get('restaurants?restaurantId=$restaurantId');
 
 //     return (listJson as List)
-//         .map((itemJson) => Todo.fromJson(itemJson))
+//         .map((itemJson) => Restaurant.fromJson(itemJson))
 //         .toList();
 //   }
 
-//   Future<Todo> updateTodoStatus({int id, bool status}) async {
-//     final json = await rest.patch('todos/$id', data: {'completed': status});
-//     return Todo.fromJson(json);
-//   }
-
-//   Future<Todo> createTodo({Todo todo}) async {
-//     final json = await rest.post('todos', data: todo);
-//     return Todo.fromJson(json);
-//   }
-
-//   Future deleteTodo({int id}) async {
-//     await rest.delete('todos/$id');
-//   }
-// }
+//   // }

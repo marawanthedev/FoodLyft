@@ -8,6 +8,6 @@
 
 // void init() {
 //   service.registerLazySingleton(() => RestService());
-//   service.registerLazySingleton(() => TodoDataService());
-//   service.registerLazySingleton(() => UserDataService());
+//   service.registerLazySingleton(() => RestaurantDataService());
+//   service.registerLazySingleton(() => RestaurantListDataService());
 // }
