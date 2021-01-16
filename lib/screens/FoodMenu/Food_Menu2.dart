@@ -1,21 +1,23 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:foodlyft/components/MenuItems_builder.dart';
-import 'package:foodlyft/screens/Restaurantlist/Restaurant_List.dart';
-import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
+
+import '../../components/MenuItems_builder.dart';
+import '../../providers/restaurants.dart';
+import '../../screens/Restaurantlist/Restaurant_List.dart';
+import '../../screens/fooddetailsscreen/food_details.dart';
+import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 
-class FoodMenu2 extends StatefulWidget {
-  FoodMenu2({Key key}) : super(key: key);
-
-  @override
-  _FoodMenu2State createState() => _FoodMenu2State();
-}
-
-class _FoodMenu2State extends State<FoodMenu2> {
+class FoodMenu2 extends StatelessWidget {
+  static const routeName = '/Food_Menu2';
   @override
   Widget build(BuildContext context) {
+    final restaurantId = ModalRoute.of(context).settings.arguments as String;
+    final loadedRestaurant = Provider.of<Restaurants>(
+      context,
+      listen: false,
+    ).findById(restaurantId);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -28,7 +30,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
             child: Stack(
               children: [
                 Image(
-                  image: AssetImage('assets/images/italian.jpg'),
+                  image: AssetImage(loadedRestaurant.image),
                   fit: BoxFit.cover,
                   height: height / 2,
                   width: width,
@@ -65,7 +67,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "Restaurant Name",
+                        loadedRestaurant.title,
                         style: TextStyle(
                             fontSize: 26.0, fontWeight: FontWeight.bold),
                       ),
@@ -114,9 +116,9 @@ class _FoodMenu2State extends State<FoodMenu2> {
                               child: Column(
                                 children: <Widget>[
                                   ItemsBuilder(
-                                      image: "assets/images/veg.png",
-                                      itemName: "Item Name",
-                                      desc: "Item Description",
+                                      image: loadedRestaurant.image,
+                                      itemName: loadedRestaurant.title,
+                                      desc: loadedRestaurant.description,
                                       price: "50"),
                                 ],
                               )),

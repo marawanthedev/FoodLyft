@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/components/arab_Row_Build.dart';
-import 'package:foodlyft/components/italian_Row_Build.dart';
-import 'package:foodlyft/components/western_Row_Build.dart';
+import '../../screens/Restaurantlist/restaurants_grid.dart';
+import '../../providers/restaurant.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
+
 class RestaurantMenu extends StatefulWidget {
   @override
   _RestaurantMenuState createState() => _RestaurantMenuState();
@@ -18,8 +18,8 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
-          onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => DrawerOptions())),
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => DrawerOptions())),
           child: Icon(
             Icons.sort,
             color: appListColor,
@@ -66,67 +66,16 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                 ),
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Western",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            WesternRowBuild(),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Arab",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            ArabRowBuild(),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Italian",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            ItalianRowBuild(),
+            Container(
+              height: 500,
+              child: RestaurantsGrid(),
+            )
           ],
         ),
       ),
     );
   }
 }
-
 
 class ListBuild extends StatelessWidget {
   String title;

@@ -1,4 +1,4 @@
-import 'dart:ui';
+
 
 import 'package:flutter/material.dart';
 import '../../components/item_title.dart';
@@ -12,13 +12,20 @@ class FoodDetails extends StatelessWidget {
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
+        title: Center(
+            child: Text(
+          "Restaurant Name",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        )),
         backgroundColor: appMainColor,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
-            Navigator.push(
+            Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => FoodMenu2()));
           },
         ),
