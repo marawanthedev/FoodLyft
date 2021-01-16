@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/components/arab_Row_Build.dart';
-import 'package:foodlyft/components/categoryItem.dart';
-import 'package:foodlyft/components/italian_Row_Build.dart';
-import 'package:foodlyft/components/western_Row_Build.dart';
+import '../../screens/Restaurantlist/restaurants_grid.dart';
 import '../../models/restaurant.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
@@ -13,98 +10,6 @@ class RestaurantMenu extends StatefulWidget {
 }
 
 class _RestaurantMenuState extends State<RestaurantMenu> {
-  final List<Restaurant> restaurants = [
-    Restaurant(
-      id: 'r1',
-      title: "Macdonald's",
-      image: 'assets/images/Mac.png',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r2',
-      title: "Pizza Hut",
-      image: 'assets/images/pizza.png',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r3',
-      title: "KFC",
-      image: 'assets/images/kfc.png',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-    Restaurant(
-      id: 'r4',
-      title: "KFC",
-      image: 'assets/images/italian.jpg',
-      isTouched: true,
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,26 +68,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             ),
             Container(
               height: 500,
-              child: GridView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.all(10.0),
-                itemCount: restaurants.length,
-                itemBuilder: (ctx, i) => InkWell(
-                  onTap: () {
-                    print("Restaurant index is #$i");
-                  },
-                  child: CategoryItem(
-                    restaurants[i].id,
-                    restaurants[i].title,
-                    restaurants[i].image,
-                  ),
-                ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 5,
-                ),
-              ),
+              child: RestaurantsGrid(),
             )
           ],
         ),
