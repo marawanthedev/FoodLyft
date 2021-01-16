@@ -30,7 +30,7 @@ class FoodMenu2 extends StatelessWidget {
             child: Stack(
               children: [
                 Image(
-                  image: AssetImage('assets/images/italian.jpg'),
+                  image: AssetImage(loadedRestaurant.image),
                   fit: BoxFit.cover,
                   height: height / 2,
                   width: width,
@@ -116,9 +116,9 @@ class FoodMenu2 extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   ItemsBuilder(
-                                      image: "assets/images/veg.png",
-                                      itemName: "Item Name",
-                                      desc: "Item Description",
+                                      image: loadedRestaurant.image,
+                                      itemName: loadedRestaurant.title,
+                                      desc: loadedRestaurant.description,
                                       price: "50"),
                                 ],
                               )),

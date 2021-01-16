@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class Restaurant {
+class Restaurant with ChangeNotifier{
   final String id;
   final String title;
   final String image;

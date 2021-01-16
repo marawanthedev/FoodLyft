@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../screens/Restaurantlist/restaurants_grid.dart';
-import '../../models/restaurant.dart';
+import '../../providers/restaurant.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
 

@@ -25,7 +25,7 @@ class FoodDetails extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
-            Navigator.push(
+            Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => FoodMenu2()));
           },
         ),
