@@ -1,0 +1,77 @@
+{
+    "restaurantmenu": [{
+            "id": 2,
+            "restaurantIdd": 1,
+            "title": "Carls jr",
+            "image": "image path"
+        },
+        {
+            "id": 3,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 4,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 5,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 6,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 7,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 8,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 9,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        },
+        {
+            "id": 10,
+            "restaurantIdd": 1,
+            "title": "Hardees",
+            "image": "image path"
+        }
+    ],
+    "restaurants": [{
+            "id": 1,
+            "title": "Chili's",
+            "image": "assets/images/burger.png"
+        },
+        {
+            "id": 2,
+            "title": "Mexicana",
+            "image": "assets/images/mexican.png"
+        }, {
+            "id": 3,
+            "title": "Nando's",
+            "image": "assets/images/pastry.png"
+        },
+        {
+            "id": 4,
+            "title": "Hardees",
+            "image": "assets/images/mexicanPizza.png"
+        }
+    ]
+}

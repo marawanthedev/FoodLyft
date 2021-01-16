@@ -46,21 +46,23 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(
-                  color: appListColor.withOpacity(0.40),
+            SafeArea(
+              child: Container(
+                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(
+                    color: appListColor.withOpacity(0.40),
+                  ),
                 ),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  icon: Icon(Icons.search),
-                  hintText: "Search here",
-                  hintStyle: TextStyle(color: appListColor),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    icon: Icon(Icons.search),
+                    hintText: "Search here",
+                    hintStyle: TextStyle(color: appListColor),
+                  ),
                 ),
               ),
             ),
