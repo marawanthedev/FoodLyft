@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../screens/Restaurantlist/restaurants_grid.dart';
-import '../../providers/restaurant.dart';
+import '../../models/restaurant.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
 
@@ -10,6 +10,9 @@ class RestaurantMenu extends StatefulWidget {
 }
 
 class _RestaurantMenuState extends State<RestaurantMenu> {
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

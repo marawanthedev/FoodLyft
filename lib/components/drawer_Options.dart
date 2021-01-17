@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import '../screens/Restaurantlist/Restaurant_List.dart';
 
-class DrawerOptions extends StatelessWidget {
+class DrawerOptions extends StatefulWidget {
+  @override
+  _DrawerOptionsState createState() => _DrawerOptionsState();
+}
+
+class _DrawerOptionsState extends State<DrawerOptions> {
+
+   void _navigate(target){
+
+    Navigator.pushNamed(context, "/$target");
+  }
+
   @override
   Widget build(BuildContext context) {
-    
     return Drawer(
-      
       child: SafeArea(
         child: Column(
           children: [
@@ -14,22 +23,30 @@ class DrawerOptions extends StatelessWidget {
               accountName: Text("User Name"),
               accountEmail: Text("User Email"),
             ),
-            ListBuild(
-              title: "Profile",
-              icon: Icons.person,
+            ListTile(
+              title: Text("Profile"),
+              leading: Icon(Icons.person),
+              onTap: () => _navigate("profile"),
             ),
-            ListBuild(
-              title: "Address",
-              icon: Icons.location_city,
+            ListTile(
+              title: Text("Address"),
+              leading: Icon(Icons.location_city),
+              onTap: () => print("Address"),
             ),
-            ListBuild(
-              title: "Notifications",
-              icon: Icons.notification_important,
+            ListTile(
+              title: Text("Notifications"),
+              leading: Icon(Icons.notification_important),
+              onTap: () => print('not'),
             ),
-            ListBuild(title: "History", icon: Icons.history),
+            ListTile(
+              title: Text("History"),
+              leading: Icon(Icons.history),
+              onTap: () => print('History'),
+            ),
           ],
         ),
       ),
     );
   }
 }
+

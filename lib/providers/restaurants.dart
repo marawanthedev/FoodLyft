@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../providers/restaurant.dart';
+import '../models/restaurant.dart';
 
 class Restaurants with ChangeNotifier {
   List<Restaurant> _items = [
