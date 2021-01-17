@@ -24,7 +24,9 @@ class CartScreen extends StatefulWidget {
       "quantity": 1
     }
   ];
+  
   final containerWidth = 350.0;
+
   final cartPriceDetailsHeight = 35.0;
 }
 

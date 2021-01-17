@@ -3,6 +3,7 @@ import "../../services/hexColor.dart";
 import "../../components/formInput.dart";
 import "../../components/socialMediaBar.dart";
 import "../../models/user.dart";
+import "../Restaurantlist/Restaurant_List.dart";
 
 class LoginScreen extends StatefulWidget {
   List<User> users;
@@ -30,10 +31,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
     print(widget.users);
 
-    // Navigator.pushNamed(context,
-    //     widget.paymentSuceeded ? "/payment_suceeded" : "payment_failed",
-    //     arguments: widget.paymentInfo);
-    // var timer = Timer(Duration(seconds: 2), () => _navigate());
     validateLoginInput();
   }
 
@@ -43,6 +40,8 @@ class _LoginScreenState extends State<LoginScreen> {
       print(user.password);
       if (user.email == widget.userInfo['email']) {
         if (user.password == widget.userInfo['password']) {
+        Navigator.push(context,
+              MaterialPageRoute(builder: (context) => RestaurantMenu()));
           print("Login successfull");
           return;
         } else {

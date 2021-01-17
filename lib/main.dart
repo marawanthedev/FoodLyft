@@ -26,7 +26,7 @@ void main() {
         FoodMenu2.routeName: (ctx) => FoodMenu2(),
       },
       debugShowCheckedModeBanner: false,
-      initialRoute: "/Restaurant_List",
+      initialRoute: "/splash_screen",
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
