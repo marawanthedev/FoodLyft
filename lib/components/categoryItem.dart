@@ -1,21 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/FoodMenu/Food_Menu2.dart';
+import '../screens/Restaurantlist/Constants.dart';
 
 class CategoryItem extends StatelessWidget {
+  final String id;
   final String title;
   String image;
   final bool isTouched;
   final Function press;
-  var color, appMainColor;
-  CategoryItem({this.title, this.isTouched = false, this.press, this.image,this.color,this.appMainColor});
+  var color;
+  CategoryItem([
+    this.id,
+    this.title,
+    this.image,
+    this.isTouched = false,
+    this.press,
+    this.color,
+  ]);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.all(7.0),
-        child: Column(
-          children: <Widget>[
-            Container(
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Column(
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {
+              print("my index is #$id");
+              Navigator.of(context).pushNamed(
+                FoodMenu2.routeName,
+                arguments: id,
+              );
+            },
+            child: Container(
               height: 100,
               width: 150,
               decoration: BoxDecoration(
@@ -24,27 +41,20 @@ class CategoryItem extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              title,
-              style: isTouched
-                  ? TextStyle(
-                      fontSize: 20,
-                      color: color,
-                      fontWeight: FontWeight.bold)
-                  : TextStyle(fontSize: 14),
-            ),
-            if (isTouched)
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 2),
-                height: 3,
-                width: 20,
-                decoration: BoxDecoration(color: appMainColor),
-              )
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(title,
+              style: TextStyle(
+                  fontSize: 20, color: color, fontWeight: FontWeight.bold)),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 2),
+            height: 3,
+            width: 20,
+            decoration: BoxDecoration(color: appMainColor),
+          )
+        ],
       ),
     );
   }

@@ -4,6 +4,7 @@ import "../../services/hexColor.dart";
 import "../../components/button.dart";
 
 class CartScreen extends StatefulWidget {
+  static const routeName = '/Food_Menu2';
   @override
   _CartScreenState createState() => _CartScreenState();
 
