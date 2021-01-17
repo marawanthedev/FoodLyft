@@ -5,9 +5,9 @@ import '../../components/MenuItems_builder.dart';
 import '../../providers/restaurants.dart';
 import '../../screens/Restaurantlist/Restaurant_List.dart';
 import '../../screens/fooddetailsscreen/food_details.dart';
-import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
+import 'package:provider/provider.dart';
 
 class FoodMenu2 extends StatelessWidget {
   static const routeName = '/Food_Menu2';

@@ -112,7 +112,7 @@ flutter:
   #     - asset: assets/fonts/Poppins-Regular.ttf
   #  - family: Poppins-medium
   #    fonts:
-  #     - asset: assets/fonts/Poppins-Medium.ttf    
+  #     - asset: assets/fonts/Poppins-Medium.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
