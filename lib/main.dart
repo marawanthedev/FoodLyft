@@ -19,7 +19,8 @@ import './screens/splash/splash_screen.dart';
 import './screens/Restaurantlist/Restaurant_List.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
+  runApp(
+    ChangeNotifierProvider(
     create: (ctx) => Restaurants(),
     child: MaterialApp(
       routes: {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/providers/restaurants.dart';
 import '../../components/categoryItem.dart';
-import '../../providers/restaurant.dart';
 import 'package:provider/provider.dart';
 class RestaurantsGrid extends StatelessWidget {
   
