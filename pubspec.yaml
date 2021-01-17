@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   sliding_up_panel: ^1.0.2  
+  provider: ^3.1.0
 
   
   # The following adds the Cupertino Icons font to your application.

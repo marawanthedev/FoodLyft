@@ -44,6 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user.email == widget.userInfo['email']) {
         if (user.password == widget.userInfo['password']) {
           print("Login successfull");
+          Navigator.pushNamed(context, "/restaurant_list");
+
           return;
         } else {
           print("Password is incorrect");
