@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import '../../components/item_title.dart';
 import '../../screens/FoodMenu/Food_Menu2.dart';
@@ -100,10 +98,8 @@ class Body extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => CartScreen()),
-                        );
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => CartScreen()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
