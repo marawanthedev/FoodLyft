@@ -94,6 +94,9 @@ class _HomePageState extends State<HomePage> {
                 height: 60,
                 width: 310,
                 child: RaisedButton(
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen([]))),
+=======
                    //onPressed: () => Navigator.push(context,
                       // MaterialPageRoute(builder: (context) => LoginScreen())),
                   onPressed: (){},
@@ -113,6 +116,8 @@ class _HomePageState extends State<HomePage> {
                 height: 60,
                 width: 310,
                 child: RaisedButton(
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen())),
                    onPressed: () => Navigator.push(context,
                        MaterialPageRoute(builder: (context) => SignUpScreen())),
                   

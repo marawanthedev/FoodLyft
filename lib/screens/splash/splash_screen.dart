@@ -40,6 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 flex: 3,
                 child: Container(
                   child: Column(
+                    
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       CircleAvatar(
