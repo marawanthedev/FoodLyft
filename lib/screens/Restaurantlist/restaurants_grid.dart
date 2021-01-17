@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:foodlyft/providers/restaurants.dart';
 import '../../components/categoryItem.dart';
 import 'package:provider/provider.dart';
-class RestaurantsGrid extends StatelessWidget {
-  
 
+class RestaurantsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final restaurantsData = Provider.of<Restaurants>(context);
     final restaurantss = restaurantsData.items;
     return GridView.builder(
@@ -27,4 +25,3 @@ class RestaurantsGrid extends StatelessWidget {
     );
   }
 }
-

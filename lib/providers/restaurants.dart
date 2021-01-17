@@ -130,6 +130,9 @@ class Restaurants with ChangeNotifier {
   }
 
   Restaurant findById(String id) {
-    return _items.firstWhere((rest) => rest.id == id);
+    return _items.firstWhere(
+      (rest) => rest.id == id
+      );
+       
   }
 }

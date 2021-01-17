@@ -21,7 +21,8 @@ import "./screens/Profile_Screens/Profile.dart";
 import 'providers/Profile_Provider.dart';
 
 void main() {
-  runApp(MultiProvider(
+  runApp(
+    MultiProvider(
     providers: [
       ChangeNotifierProvider(
         create: (ctx) => Restaurants(),
