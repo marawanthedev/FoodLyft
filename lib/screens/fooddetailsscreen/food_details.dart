@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/models/restaurant.dart';
+import 'package:foodlyft/providers/restaurants.dart';
+import 'package:provider/provider.dart';
 import '../../components/item_title.dart';
 import '../../screens/FoodMenu/Food_Menu2.dart';
 import '../../screens/Restaurantlist/Constants.dart';
@@ -7,6 +10,7 @@ import '../../screens/cart/cart.dart';
 class FoodDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
@@ -46,8 +50,10 @@ class FoodDetails extends StatelessWidget {
 }
 
 class Body extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
+    final loaded = Provider.of<Restaurants>(context);
     Size size = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
@@ -75,7 +81,7 @@ class Body extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ItemTitle(
-                  name: "Item name",
+                  name: loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName,
                   numOfReviews: 10,
                   rating: 4,
                   price: 20,

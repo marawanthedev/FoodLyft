@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:foodlyft/models/menu.dart';
 import '../models/restaurant.dart';
 
 class Restaurants with ChangeNotifier {
+  var ind;
+  int restaurantId;
+  List<MenuItems> itemsa = [];
   List<Restaurant> _items = [
     Restaurant(
       id: 'r1',
@@ -9,6 +13,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/Mac.png',
       description: "Desciprion 1",
       price: 20,
+      itemsa: [
+        MenuItems(
+            resturantId: "r1",
+            itemName: "Shawerma",
+            description: "Tasty Shawerma Sarookh",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r1",
+            itemName: "Shawerma",
+            description: "Tasty Shawerma Sarookh",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r1",
+            itemName: "Shawerma",
+            description: "Tasty Shawerma Sarookh",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r1",
+            itemName: "Shawerma",
+            description: "Tasty Shawerma Sarookh",
+            price: 10.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -130,9 +156,8 @@ class Restaurants with ChangeNotifier {
   }
 
   Restaurant findById(String id) {
-    return _items.firstWhere(
-      (rest) => rest.id == id
-      );
-       
+    restaurantId = int.parse(id.split("")[1]) - 1;
+
+    return _items.firstWhere((rest) => rest.id == id);
   }
 }

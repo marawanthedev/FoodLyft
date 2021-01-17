@@ -21,8 +21,7 @@ import "./screens/Profile_Screens/Profile.dart";
 import "./providers/UserAuth_Provider.dart";
 
 void main() {
-  runApp(
-    MultiProvider(
+  runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
         create: (ctx) => Restaurants(),
@@ -67,7 +66,10 @@ void main() {
           case "/homepage_screen":
             return MaterialPageRoute(builder: (context) => HomePage());
           case "/Food_Menu2":
-            return MaterialPageRoute(builder: (context) => FoodMenu2());
+            return MaterialPageRoute(
+                builder: (context) => FoodMenu2(
+                      restaurantid: settings.arguments,
+                    ));
           case "/Restaurant_List":
             return MaterialPageRoute(builder: (context) => RestaurantMenu());
           case "/food_details":

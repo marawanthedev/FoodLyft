@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/providers/restaurants.dart';
 import 'package:foodlyft/screens/FoodMenu/Food_Menu2.dart';
+import 'package:provider/provider.dart';
 import '../screens/Restaurantlist/Constants.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -9,14 +11,14 @@ class CategoryItem extends StatelessWidget {
   final bool isTouched;
   final Function press;
   var color;
-  CategoryItem([
+  CategoryItem({
     this.id,
     this.title,
     this.image,
     this.isTouched = false,
     this.press,
     this.color,
-  ]);
+  });
 
   @override
   Widget build(BuildContext context) {

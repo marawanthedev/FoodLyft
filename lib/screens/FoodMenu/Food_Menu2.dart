@@ -9,15 +9,23 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 import 'package:provider/provider.dart';
 
-class FoodMenu2 extends StatelessWidget {
+class FoodMenu2 extends StatefulWidget {
   static const routeName = '/Food_Menu2';
+  String restaurantid;
+  FoodMenu2({this.restaurantid});
+
+  @override
+  _FoodMenu2State createState() => _FoodMenu2State();
+}
+
+class _FoodMenu2State extends State<FoodMenu2> {
   @override
   Widget build(BuildContext context) {
-    final restaurantId = ModalRoute.of(context).settings.arguments as String;
-    final loadedRestaurant = Provider.of<Restaurants>(
+    final loaded = Provider.of<Restaurants>(
       context,
       listen: false,
-    ).findById(restaurantId);
+    );
+    final loadedRestaurant = loaded.findById(widget.restaurantid);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -105,11 +113,10 @@ class FoodMenu2 extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return MaterialButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FoodDetails()));
+                            loaded.ind = index;
+                            Navigator.pushNamed(context, "/food_details");
                             print("Item$index");
+                            print("Item ${loaded.restaurantId}");
                           },
                           child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
@@ -117,14 +124,15 @@ class FoodMenu2 extends StatelessWidget {
                                 children: <Widget>[
                                   ItemsBuilder(
                                       image: loadedRestaurant.image,
-                                      itemName: loadedRestaurant.title,
+                                      itemName: loadedRestaurant
+                                          .itemsa[index].itemName,
                                       desc: loadedRestaurant.description,
                                       price: "50"),
                                 ],
                               )),
                         );
                       },
-                      itemCount: 10,
+                      itemCount: loadedRestaurant.itemsa.length,
                     ),
                   ),
                 ],

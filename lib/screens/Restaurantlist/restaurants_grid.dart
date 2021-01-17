@@ -13,9 +13,9 @@ class RestaurantsGrid extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       itemCount: restaurantss.length,
       itemBuilder: (ctx, i) => CategoryItem(
-        restaurantss[i].id,
-        restaurantss[i].title,
-        restaurantss[i].image,
+        id: restaurantss[i].id,
+        title: restaurantss[i].title,
+        image: restaurantss[i].image,
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
