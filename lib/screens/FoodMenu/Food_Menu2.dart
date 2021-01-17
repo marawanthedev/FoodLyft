@@ -92,7 +92,7 @@ class FoodMenu2 extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    "Closes at 11 pm",
+                    "Closes at 11 pmmm",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 14.0,
