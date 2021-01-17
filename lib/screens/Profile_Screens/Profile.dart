@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../providers/Profile_Provider.dart';
+import 'package:foodlyft/providers/UserAuth_Provider.dart';
 import 'package:provider/provider.dart';
 
 import 'Custom_Dialog.dart';
@@ -27,7 +27,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final profile_provider = Provider.of<ProfileProvider>(context);
+    final userAuthProvider = Provider.of<UserAuthProvider>(context);
+
+    final userInAuth = userAuthProvider.getUserInAuth();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -86,7 +88,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                         child: CircleAvatar(
                           backgroundColor: Color.fromRGBO(255, 167, 39, 1),
                           backgroundImage: NetworkImage(
-                            "${profile_provider.image}",
+                            "${userInAuth.imageSrc != null ? userInAuth.imageSrc : "https://i.pinimg.com/originals/57/1b/a6/571ba67a5d3cf25533fd4ed7f29a79cb.jpg"}",
                           ),
                         ),
                       ),
@@ -103,10 +105,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                     Expanded(child: SizedBox()),
                     ListTile(
                       title: Text(
-                        'Name',
+                        "Name",
                         style: TextStyle(color: Colors.grey, fontSize: 18),
                       ),
-                      subtitle: Text('${profile_provider.name}',
+                      subtitle: Text('${userInAuth.name}',
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -114,10 +116,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                     ),
                     ListTile(
                       title: Text(
-                        'Email',
+                        "Email",
                         style: TextStyle(color: Colors.grey, fontSize: 18),
                       ),
-                      subtitle: Text('${profile_provider.email}',
+                      subtitle: Text('${userInAuth.email}',
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -125,10 +127,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                     ),
                     ListTile(
                       title: Text(
-                        'Phone',
+                        "Phone",
                         style: TextStyle(color: Colors.grey, fontSize: 18),
                       ),
-                      subtitle: Text('${profile_provider.phone}',
+                      subtitle: Text('${userInAuth.phoneNumber}',
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,

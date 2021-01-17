@@ -18,7 +18,7 @@ import './screens/HomePage/homepage_screen.dart';
 import './screens/splash/splash_screen.dart';
 import './screens/Restaurantlist/Restaurant_List.dart';
 import "./screens/Profile_Screens/Profile.dart";
-import 'providers/Profile_Provider.dart';
+import "./providers/UserAuth_Provider.dart";
 
 void main() {
   runApp(
@@ -28,12 +28,12 @@ void main() {
         create: (ctx) => Restaurants(),
       ),
       ChangeNotifierProvider(
-        create: (ctx) => ProfileProvider(),
+        create: (ctx) => UserAuthProvider(),
       ),
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/Restaurant_List",
+      initialRoute: "/Signup",
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import "../../services/hexColor.dart";
 import 'dart:async';
 import "../../components/formInput.dart";
 import "../../components/socialMediaBar.dart";
-import "../../models/user.dart";
+import '../../models/user.dart';
+import "../../providers/UserAuth_Provider.dart";
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -15,6 +17,9 @@ class SignUpScreen extends StatefulWidget {
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
   final confrimPasswordCtrl = TextEditingController();
+  final nameCtrl = TextEditingController();
+  final numberCtrl = TextEditingController();
+  var userAuthProvider;
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
@@ -26,25 +31,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
     print("pops");
     widget.userInfo['email'] = widget.emailCtrl.text;
     widget.userInfo['password'] = widget.passwordCtrl.text;
-    print(widget.userInfo);
+    widget.userInfo['name'] = widget.nameCtrl.text;
+    widget.userInfo['number'] = widget.numberCtrl.text;
     addUserToDB();
   }
 
   void addUserToDB() {
     print("Adding checking user to db");
     if (!duplicateUserInfo()) {
-      widget.users.add(User(
+      widget.userAuthProvider.addUser(User(
         email: widget.userInfo['email'],
         password: widget.userInfo['password'],
-        name: null,
-        phoneNumber: null,
+        name: widget.userInfo['name'],
+        phoneNumber: widget.userInfo['number'],
         imageSrc: null,
       ));
       print("userAdded");
-      widget.users.forEach((user) => {
-        print(user.email),
-        print(user.password)
-      });
+      widget.users.forEach((user) => {print(user.email), print(user.password)});
     } else {
       print("Duplicate User");
     }
@@ -62,6 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    widget.userAuthProvider = Provider.of<UserAuthProvider>(context);
     return Container(
         color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -223,8 +227,60 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   contentPadding:
                                       EdgeInsets.only(top: 12.5, left: 5),
                                 ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    FormInput(
+                                      inputWidth: 155,
+                                      inputHeight: 65,
+                                      marginRight: 0,
+                                      hideInputValue: false,
+                                      controller: widget.nameCtrl,
+                                      prefixIcon: Image(
+                                          height: 30,
+                                          image: AssetImage(
+                                            "assets/images/name.png",
+                                          )),
+                                      placeHolder: "Name",
+                                      placeHolderStyle: TextStyle(
+                                          fontSize: 20, fontFamily: 'Roboto'),
+                                      validator: (value) {
+                                        if (value.isEmpty) {
+                                          return 'Please Enter your Name';
+                                        }
+                                        return null;
+                                      },
+                                      contentPadding:
+                                          EdgeInsets.only(top: 12.5, left: 5),
+                                    ),
+                                    FormInput(
+                                      inputWidth: 155,
+                                      inputHeight: 65,
+                                      marginRight: 0,
+                                      hideInputValue: false,
+                                      controller: widget.numberCtrl,
+                                      prefixIcon: Image(
+                                          height: 30,
+                                          image: AssetImage(
+                                            "assets/images/phone.png",
+                                          )),
+                                      placeHolder: "Phone ",
+                                      placeHolderStyle: TextStyle(
+                                          fontSize: 20, fontFamily: 'Roboto'),
+                                      validator: (value) {
+                                        if (value.isEmpty) {
+                                          return 'Please Enter your  Number';
+                                        }
+                                        return null;
+                                      },
+                                      contentPadding:
+                                          EdgeInsets.only(top: 12.5, left: 5),
+                                    ),
+                                  ],
+                                ),
                                 Container(
-                                  margin: EdgeInsets.only(top: 20),
+                                  margin: EdgeInsets.only(top: 10),
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 16.0),
@@ -277,7 +333,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.only(top: 10),
+                          margin: EdgeInsets.only(top: 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

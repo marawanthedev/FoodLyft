@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/providers/UserAuth_Provider.dart';
+import 'package:provider/provider.dart';
 import "../../services/hexColor.dart";
 import "../../components/formInput.dart";
 import "../../components/socialMediaBar.dart";
-import "../../models/user.dart";
+import '../../models/user.dart';
 import "../Restaurantlist/Restaurant_List.dart";
 
 class LoginScreen extends StatefulWidget {
@@ -18,7 +20,7 @@ class LoginScreen extends StatefulWidget {
   bool paymentSuceeded = true;
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
-
+  var userAuthProvider;
   // final cardNumberCtrl = TextEditingController();
   // final expirationDateCtrl = TextEditingController();
   // final cvvCtrl = TextEditingController();
@@ -35,12 +37,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void validateLoginInput() {
-    widget.users.forEach((user) {
+    widget.userAuthProvider.users.forEach((user) {
       print(user.email);
       print(user.password);
       if (user.email == widget.userInfo['email']) {
         if (user.password == widget.userInfo['password']) {
-        Navigator.push(context,
+          widget.userAuthProvider.addUserInAuth(user);
+          Navigator.push(context,
               MaterialPageRoute(builder: (context) => RestaurantMenu()));
           print("Login successfull");
           return;
@@ -55,6 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    widget.userAuthProvider = Provider.of<UserAuthProvider>(context);
+
     return Container(
         color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
