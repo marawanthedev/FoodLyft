@@ -17,17 +17,22 @@ import 'screens/admin/dialog/delete_dialog.dart';
 import './screens/HomePage/homepage_screen.dart';
 import './screens/splash/splash_screen.dart';
 import './screens/Restaurantlist/Restaurant_List.dart';
+import "./screens/Profile_Screens/Profile.dart";
+import 'providers/Profile_Provider.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-    create: (ctx) => Restaurants(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (ctx) => Restaurants(),
+      ),
+      ChangeNotifierProvider(
+        create: (ctx) => ProfileProvider(),
+      ),
+    ],
     child: MaterialApp(
-      routes: {
-        FoodMenu2.routeName: (ctx) => FoodMenu2(),
-      },
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash_screen",
+      initialRoute: "/Restaurant_List",
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
@@ -66,6 +71,8 @@ void main() {
             return MaterialPageRoute(builder: (context) => RestaurantMenu());
           case "/food_details":
             return MaterialPageRoute(builder: (context) => FoodDetails());
+          case "/profile":
+            return MaterialPageRoute(builder: (context) => Profile());
         }
       },
     ),

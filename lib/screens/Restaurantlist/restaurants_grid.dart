@@ -27,3 +27,4 @@ class RestaurantsGrid extends StatelessWidget {
     );
   }
 }
+
