@@ -79,6 +79,9 @@ flutter:
     - assets/images/start_background.jpg
     - assets/images/knife_spoon_fork.png
     - assets/images/logo_foodlyft.png
+    - assets/images/name.png
+    - assets/images/phone.png
+
     # - images/a_dot_ham.jpeg
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.

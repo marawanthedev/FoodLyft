@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../providers/Profile_Provider.dart';
+import 'package:foodlyft/providers/UserAuth_Provider.dart';
 import 'package:provider/provider.dart';
 
 class Constants {
@@ -47,8 +47,8 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
   }
 
   contentBox(context) {
-    final profile_provider = Provider.of<ProfileProvider>(context);
-
+    final userAuthProvider = Provider.of<UserAuthProvider>(context);
+    final userInAuth = userAuthProvider.getUserInAuth();
     return Stack(children: <Widget>[
       Container(
         padding: EdgeInsets.only(
@@ -76,7 +76,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                   color: Color.fromRGBO(255, 167, 39, 1),
                 ),
                 hintText: 'What do people call you?',
-                labelText: '${profile_provider.name}',
+                labelText: '${userInAuth.name}',
                 focusColor: Color.fromRGBO(255, 167, 39, 1),
               ),
             ),
@@ -88,7 +88,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                   color: Color.fromRGBO(255, 167, 39, 1),
                 ),
                 hintText: 'What is your email address?',
-                labelText: '${profile_provider.email}',
+                labelText: '${userInAuth.email}',
               ),
             ),
             TextFormField(
@@ -99,7 +99,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                   color: Color.fromRGBO(255, 167, 39, 1),
                 ),
                 hintText: 'What is your phone number?',
-                labelText: '${profile_provider.phone}',
+                labelText: '${userInAuth.phoneNumber}',
               ),
             ),
             SizedBox(
@@ -141,15 +141,15 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                       onTap: () {
                         // print(nameController.text);
                         if (nameController.text.isEmpty) {
-                          nameController.text = profile_provider.name;
+                          nameController.text = userInAuth.name;
                         }
                         if (emailController.text.isEmpty) {
-                          emailController.text = profile_provider.email;
+                          emailController.text = userInAuth.email;
                         }
                         if (phoneController.text.isEmpty) {
-                          phoneController.text = profile_provider.phone;
+                          phoneController.text = userInAuth.phoneNumber;
                         }
-                        profile_provider.updateAttributes(nameController.text,
+                        userAuthProvider.updateAttributes(nameController.text,
                             emailController.text, phoneController.text);
                         Navigator.pop(context);
                       },
