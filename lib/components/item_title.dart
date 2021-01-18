@@ -55,7 +55,7 @@ class ItemTitle extends StatelessWidget {
     );
   }
 
-  ClipPath priceTag(BuildContext context, {int price}) {
+  ClipPath priceTag(BuildContext context, {double price}) {
     return ClipPath(
       clipper: PricerCliper(),
       child: Container(
