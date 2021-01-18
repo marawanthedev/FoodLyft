@@ -126,8 +126,10 @@ class _FoodMenu2State extends State<FoodMenu2> {
                                       image: loadedRestaurant.image,
                                       itemName: loadedRestaurant
                                           .itemsa[index].itemName,
-                                      desc: loadedRestaurant.description,
-                                      price: "50"),
+                                      desc: loadedRestaurant
+                                          .itemsa[index].description,
+                                      price:
+                                          loadedRestaurant.itemsa[index].price),
                                 ],
                               )),
                         );

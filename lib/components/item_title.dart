@@ -3,8 +3,9 @@ import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ItemTitle extends StatelessWidget {
-  final int numOfReviews,price;
-  final double rating ;
+  final int numOfReviews;
+  final double price;
+  final double rating;
   final String name;
   final RatingChangeCallback onRatingChanged;
 

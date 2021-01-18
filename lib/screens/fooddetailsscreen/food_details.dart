@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/models/restaurant.dart';
 import 'package:foodlyft/providers/restaurants.dart';
 import 'package:provider/provider.dart';
 import '../../components/item_title.dart';
@@ -10,13 +9,14 @@ import '../../screens/cart/cart.dart';
 class FoodDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final loaded = Provider.of<Restaurants>(context);
    
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
         title: Center(
             child: Text(
-          "Restaurant Name",
+           loaded.items[loaded.restaurantId].title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -84,15 +84,16 @@ class Body extends StatelessWidget {
                   name: loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName,
                   numOfReviews: 10,
                   rating: 4,
-                  price: 20,
+                  price: loaded.items[loaded.restaurantId].itemsa[loaded.ind].price,
                   onRatingChanged: (value) {},
                 ),
                 Text(
-                  "A hamburger (also burger for short) is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, smoked or flame broiled. ... A hamburger topped with cheese is called a cheeseburger",
-                  style: TextStyle(height: 1.5, color: aTextLightColor),
+                  loaded.items[loaded.restaurantId].itemsa[loaded.ind].description,
+                  style: TextStyle(height: 1.5, color: aTextLightColor,fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5),
                 Container(
+                  alignment: Alignment.bottomCenter,
                   // height: 40,
                   padding: EdgeInsets.all(20),
                   width: size.width * 0.8,
@@ -112,6 +113,7 @@ class Body extends StatelessWidget {
                         children: <Widget>[
                           Icon(Icons.add_shopping_cart),
                           Text(
+                            
                             "Add to Cart",
                             style: TextStyle(
                               color: Colors.white,

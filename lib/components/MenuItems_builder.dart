@@ -5,7 +5,7 @@ class ItemsBuilder extends StatelessWidget {
   final String image;
   final String itemName;
   final String desc;
-  final String price;
+  final double price;
 
   ItemsBuilder({this.image, this.itemName, this.desc, this.price});
 

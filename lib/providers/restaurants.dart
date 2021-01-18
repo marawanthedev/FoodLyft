@@ -16,24 +16,24 @@ class Restaurants with ChangeNotifier {
       itemsa: [
         MenuItems(
             resturantId: "r1",
-            itemName: "Shawerma",
-            description: "Tasty Shawerma Sarookh",
+            itemName: "Big Mac",
+            description: "Big Mac Sandwich",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r1",
+            itemName: "Cheese Burger",
+            description: "Cheese Burger pickles ",
             price: 10.0),
         MenuItems(
             resturantId: "r1",
-            itemName: "Shawerma",
-            description: "Tasty Shawerma Sarookh",
+            itemName: "Mac Chicken ",
+            description: "Chicken Sandwich  ",
             price: 10.0),
         MenuItems(
             resturantId: "r1",
-            itemName: "Shawerma",
-            description: "Tasty Shawerma Sarookh",
-            price: 10.0),
-        MenuItems(
-            resturantId: "r1",
-            itemName: "Shawerma",
-            description: "Tasty Shawerma Sarookh",
-            price: 10.0),
+            itemName: "5 piece nuggets",
+            description: "Crunchy Fried Nuggets",
+            price: 15.0),
       ],
       isTouched: true,
     ),
@@ -43,6 +43,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/pizza.png',
       description: "Desciprion 1",
       price: 15,
+      itemsa: [
+        MenuItems(
+            resturantId: "r2",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r2",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r2",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r2",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -51,6 +73,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/kfc.png',
       description: "Desciprion 1",
       price: 10,
+      itemsa: [
+        MenuItems(
+            resturantId: "r3",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r3",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r3",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r3",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -59,6 +103,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/carls.png',
       description: "Desciprion 1",
       price: 15,
+      itemsa: [
+        MenuItems(
+            resturantId: "r4",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r4",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r4",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r4",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -67,6 +133,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/Hayfa.png',
       description: "Desciprion 1",
       price: 35,
+      itemsa: [
+        MenuItems(
+            resturantId: "r5",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r5",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r5",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r5",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -75,6 +163,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/halab.jpg',
       description: "Desciprion 1",
       price: 41,
+      itemsa: [
+        MenuItems(
+            resturantId: "r6",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r6",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r6",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r6",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -83,6 +193,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
       price: 18,
+      itemsa: [
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -91,6 +223,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/bilad.png',
       description: "Desciprion 1",
       price: 18,
+      itemsa: [
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -99,6 +253,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/arab.jpg',
       description: "Desciprion 1",
       price: 18.5,
+      itemsa: [
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -107,6 +283,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/fastfood.jpg',
       description: "Desciprion 1",
       price: 14,
+      itemsa: [
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -115,6 +313,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
       price: 18,
+      itemsa: [
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -123,6 +343,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
       price: 17,
+      itemsa: [
+        MenuItems(
+            resturantId: "r12",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r12",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r12",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r12",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -131,6 +373,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
       price: 20,
+      itemsa: [
+        MenuItems(
+            resturantId: "r13",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r13",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r13",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r13",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -139,6 +403,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
       price: 20,
+      itemsa: [
+        MenuItems(
+            resturantId: "r14",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r14",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r14",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r14",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
     Restaurant(
@@ -147,6 +433,28 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
       price: 20,
+      itemsa: [
+        MenuItems(
+            resturantId: "r15",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r15",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r15",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r15",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
       isTouched: true,
     ),
   ];
