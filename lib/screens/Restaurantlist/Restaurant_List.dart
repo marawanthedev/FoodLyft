@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../screens/Restaurantlist/restaurants_grid.dart';
-import '../../models/restaurant.dart';
+import 'package:foodlyft/providers/restaurants.dart';
+import 'package:provider/provider.dart';
+import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
 
@@ -10,11 +11,14 @@ class RestaurantMenu extends StatefulWidget {
 }
 
 class _RestaurantMenuState extends State<RestaurantMenu> {
-
-  
-
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<Restaurants>(context);
+    data.getREstaurantByCategory();
+    data.getLists();
+
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       drawer: DrawerOptions(),
       appBar: AppBar(
@@ -70,32 +74,23 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
               ),
             ),
             Container(
-              height: 500,
-              child: RestaurantsGrid(),
-            )
+              height: height,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                addRepaintBoundaries: true,
+                itemBuilder: (context, index) {
+                  data.tempCategoryIndex = index;
+                  return CategoryRowBuilder(
+                      //categoryTitle: "Category Title",
+
+                      );
+                },
+                itemCount: data.restList.length,
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ListBuild extends StatelessWidget {
-  String title;
-  IconData icon;
-  ListBuild({this.title, this.icon});
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-      onPressed: () {},
-      child: ListTile(
-          leading: Icon(
-            icon,
-          ),
-          title: Text(
-            title,
-            style: TextStyle(fontSize: 20, color: aTextColor),
-          )),
     );
   }
 }

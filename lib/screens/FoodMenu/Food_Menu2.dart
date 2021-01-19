@@ -10,22 +10,22 @@ import '../../screens/Restaurantlist/Constants.dart';
 import 'package:provider/provider.dart';
 
 class FoodMenu2 extends StatefulWidget {
-  static const routeName = '/Food_Menu2';
-  String restaurantid;
-  FoodMenu2({this.restaurantid});
+  FoodMenu2({Key key}) : super(key: key);
 
   @override
   _FoodMenu2State createState() => _FoodMenu2State();
 }
 
 class _FoodMenu2State extends State<FoodMenu2> {
+  //final routName ="/Food_Menu2";
   @override
   Widget build(BuildContext context) {
     final loaded = Provider.of<Restaurants>(
       context,
-      listen: false,
+      listen: true,
     );
-    final loadedRestaurant = loaded.findById(widget.restaurantid);
+    //final loaded.restaurantObject = loaded.findById(
+    //  loaded.restList[loaded.tempCategoryIndex][loaded.tempItem].id);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -38,7 +38,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
             child: Stack(
               children: [
                 Image(
-                  image: AssetImage(loadedRestaurant.image),
+                  image: AssetImage(loaded.restaurantObject.image),
                   fit: BoxFit.cover,
                   height: height / 2,
                   width: width,
@@ -75,7 +75,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        loadedRestaurant.title,
+                        loaded.restaurantObject.title,
                         style: TextStyle(
                             fontSize: 26.0, fontWeight: FontWeight.bold),
                       ),
@@ -123,18 +123,18 @@ class _FoodMenu2State extends State<FoodMenu2> {
                               child: Column(
                                 children: <Widget>[
                                   ItemsBuilder(
-                                      image: loadedRestaurant.image,
-                                      itemName: loadedRestaurant
+                                      image: loaded.restaurantObject.image,
+                                      itemName: loaded.restaurantObject
                                           .itemsa[index].itemName,
-                                      desc: loadedRestaurant
+                                      desc: loaded.restaurantObject
                                           .itemsa[index].description,
                                       price:
-                                          loadedRestaurant.itemsa[index].price),
+                                          loaded.restaurantObject.itemsa[index].price),
                                 ],
                               )),
                         );
                       },
-                      itemCount: loadedRestaurant.itemsa.length,
+                      itemCount: loaded.restaurantObject.itemsa.length,
                     ),
                   ),
                 ],

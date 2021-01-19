@@ -33,6 +33,7 @@ void main() {
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: "/Restaurant_List",
+      // ignore: missing_return
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
@@ -66,10 +67,7 @@ void main() {
           case "/homepage_screen":
             return MaterialPageRoute(builder: (context) => HomePage());
           case "/Food_Menu2":
-            return MaterialPageRoute(
-                builder: (context) => FoodMenu2(
-                      restaurantid: settings.arguments,
-                    ));
+            return MaterialPageRoute(builder: (context) => FoodMenu2());
           case "/Restaurant_List":
             return MaterialPageRoute(builder: (context) => RestaurantMenu());
           case "/food_details":
