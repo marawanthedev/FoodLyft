@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodlyft/screens/cart/cart.dart';
 import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:provider/provider.dart';
+import 'providers/cart.dart';
 import 'screens/FoodMenu/Food_Menu2.dart';
 import 'screens/payment/payment_failed.dart';
 import 'screens/payment/payment_succesfull.dart';
@@ -29,10 +30,13 @@ void main() {
       ChangeNotifierProvider(
         create: (ctx) => UserAuthProvider(),
       ),
+      ChangeNotifierProvider(
+        create: (ctx) => Cart(),
+      ),
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash_screen",
+      initialRoute: "/Restaurant_List",
       // ignore: missing_return
       onGenerateRoute: (settings) {
         switch (settings.name) {

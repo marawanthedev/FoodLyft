@@ -118,20 +118,18 @@ class _FoodMenu2State extends State<FoodMenu2> {
                             print("Item$index");
                             print("Item ${loaded.restaurantId}");
                           },
-                          child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                children: <Widget>[
-                                  ItemsBuilder(
-                                      image: loaded.restaurantObject.image,
-                                      itemName: loaded.restaurantObject
-                                          .itemsa[index].itemName,
-                                      desc: loaded.restaurantObject
-                                          .itemsa[index].description,
-                                      price:
-                                          loaded.restaurantObject.itemsa[index].price),
-                                ],
-                              )),
+                          child: Column(
+                            children: <Widget>[
+                              ItemsBuilder(
+                                  image: loaded.restaurantObject.image,
+                                  itemName: loaded.restaurantObject
+                                      .itemsa[index].itemName,
+                                  desc: loaded.restaurantObject
+                                      .itemsa[index].description,
+                                  price:
+                                      loaded.restaurantObject.itemsa[index].price),
+                            ],
+                          ),
                         );
                       },
                       itemCount: loaded.restaurantObject.itemsa.length,

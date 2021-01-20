@@ -32,10 +32,15 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             color: appListColor,
           ),
         ),
-        actions: [
-          CircleAvatar(
-            backgroundColor: appListColor,
-            child: Icon(Icons.face),
+        actions: <Widget>[
+          PopupMenuButton(
+            onSelected: (selectedValue) {},
+            icon: Icon(Icons.more_vert, color: appListColor),
+            itemBuilder: (_) => [
+              PopupMenuItem(child: Text('Add Restaurant'), value: 0),
+              PopupMenuItem(child: Text('Add Category'), value: 1),
+              PopupMenuItem(child: Text('Delete Restaurant'), value: 2),
+            ],
           ),
         ],
         title: Center(
@@ -77,12 +82,13 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
               height: 1000,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
-                
+
                 itemBuilder: (context, index) {
                   data.tempCategoryIndex = index;
                   return CategoryRowBuilder();
                 },
-                itemCount: data.restList.length,     //To render the number of rows in the ListView According to the number of Categories Available
+                itemCount: data.restList
+                    .length, //To render the number of rows in the ListView According to the number of Categories Available
               ),
             ),
           ],
