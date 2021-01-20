@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
 import '../screens/Restaurantlist/Restaurant_List.dart';
 
 class DrawerOptions extends StatefulWidget {
@@ -7,9 +8,7 @@ class DrawerOptions extends StatefulWidget {
 }
 
 class _DrawerOptionsState extends State<DrawerOptions> {
-
-   void _navigate(target){
-
+  void _navigate(target) {
     Navigator.pushNamed(context, "/$target");
   }
 
@@ -20,6 +19,9 @@ class _DrawerOptionsState extends State<DrawerOptions> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: appMainColor,
+              ),
               accountName: Text("User Name"),
               accountEmail: Text("User Email"),
             ),
@@ -49,4 +51,3 @@ class _DrawerOptionsState extends State<DrawerOptions> {
     );
   }
 }
-

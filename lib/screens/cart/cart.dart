@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../providers/restaurants.dart';
+import 'package:provider/provider.dart';
 import "../../components/cartItem.dart";
 import "../../services/hexColor.dart";
 import "../../components/button.dart";
@@ -105,8 +107,9 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final loaded = Provider.of<Restaurants>(context);          //hena el loaded you should be able to access the loaded menu items in the details screen menaha 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white,                           // wa you use this     loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName or price    to get the price or item 
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,

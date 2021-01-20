@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/providers/restaurants.dart';
 import '../../components/categoryItem.dart';
-import '../../models/restaurant.dart';
 import 'package:provider/provider.dart';
-class RestaurantsGrid extends StatelessWidget {
-  
 
+class RestaurantsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final restaurantsData = Provider.of<Restaurants>(context);
     final restaurantss = restaurantsData.items;
     return GridView.builder(
@@ -16,9 +13,9 @@ class RestaurantsGrid extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       itemCount: restaurantss.length,
       itemBuilder: (ctx, i) => CategoryItem(
-        restaurantss[i].id,
-        restaurantss[i].title,
-        restaurantss[i].image,
+        id: restaurantss[i].id,
+        title: restaurantss[i].title,
+        image: restaurantss[i].image,
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
@@ -28,4 +25,3 @@ class RestaurantsGrid extends StatelessWidget {
     );
   }
 }
-

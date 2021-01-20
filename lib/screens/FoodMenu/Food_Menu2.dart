@@ -9,15 +9,23 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 import 'package:provider/provider.dart';
 
-class FoodMenu2 extends StatelessWidget {
-  static const routeName = '/Food_Menu2';
+class FoodMenu2 extends StatefulWidget {
+  FoodMenu2({Key key}) : super(key: key);
+
+  @override
+  _FoodMenu2State createState() => _FoodMenu2State();
+}
+
+class _FoodMenu2State extends State<FoodMenu2> {
+  //final routName ="/Food_Menu2";
   @override
   Widget build(BuildContext context) {
-    final restaurantId = ModalRoute.of(context).settings.arguments as String;
-    final loadedRestaurant = Provider.of<Restaurants>(
+    final loaded = Provider.of<Restaurants>(
       context,
-      listen: false,
-    ).findById(restaurantId);
+      listen: true,
+    );
+    //final loaded.restaurantObject = loaded.findById(
+    //  loaded.restList[loaded.tempCategoryIndex][loaded.tempItem].id);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -30,7 +38,7 @@ class FoodMenu2 extends StatelessWidget {
             child: Stack(
               children: [
                 Image(
-                  image: AssetImage(loadedRestaurant.image),
+                  image: AssetImage(loaded.restaurantObject.image),
                   fit: BoxFit.cover,
                   height: height / 2,
                   width: width,
@@ -67,7 +75,7 @@ class FoodMenu2 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        loadedRestaurant.title,
+                        loaded.restaurantObject.title,
                         style: TextStyle(
                             fontSize: 26.0, fontWeight: FontWeight.bold),
                       ),
@@ -105,26 +113,28 @@ class FoodMenu2 extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return MaterialButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FoodDetails()));
+                            loaded.ind = index;
+                            Navigator.pushNamed(context, "/food_details");
                             print("Item$index");
+                            print("Item ${loaded.restaurantId}");
                           },
                           child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
                               child: Column(
                                 children: <Widget>[
                                   ItemsBuilder(
-                                      image: loadedRestaurant.image,
-                                      itemName: loadedRestaurant.title,
-                                      desc: loadedRestaurant.description,
-                                      price: "50"),
+                                      image: loaded.restaurantObject.image,
+                                      itemName: loaded.restaurantObject
+                                          .itemsa[index].itemName,
+                                      desc: loaded.restaurantObject
+                                          .itemsa[index].description,
+                                      price:
+                                          loaded.restaurantObject.itemsa[index].price),
                                 ],
                               )),
                         );
                       },
-                      itemCount: 10,
+                      itemCount: loaded.restaurantObject.itemsa.length,
                     ),
                   ),
                 ],
