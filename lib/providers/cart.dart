@@ -31,7 +31,7 @@ class Cart with ChangeNotifier {
     String title,
   ) {
     if (_items.containsKey(productId)) {
-      // change quantity...
+      // change quantity
       _items.update(
         productId,
         (existingCartItem) => CartItem(

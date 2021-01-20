@@ -122,10 +122,7 @@ class Body extends StatelessWidget {
                     child: Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(
-                              context, "/cart"); // Hena el route for the cart
-                        },
+                        onTap: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
