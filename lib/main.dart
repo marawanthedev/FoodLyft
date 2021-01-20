@@ -32,7 +32,7 @@ void main() {
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/Signup",
+      initialRoute: "/Restaurant_List",
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
