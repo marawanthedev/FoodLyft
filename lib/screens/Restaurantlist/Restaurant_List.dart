@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
+import "../../providers/UserAuth.provider.dart";
 
 class RestaurantMenu extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
     final data = Provider.of<Restaurants>(context);
     data.getREstaurantByCategory();
     data.getLists();
+    var userAuthProvider = Provider.of<UserAuthProvider>(context);
 
     double height = MediaQuery.of(context).size.height;
 
@@ -32,17 +34,22 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             color: appListColor,
           ),
         ),
-        actions: <Widget>[
-          PopupMenuButton(
-            onSelected: (selectedValue) {},
-            icon: Icon(Icons.more_vert, color: appListColor),
-            itemBuilder: (_) => [
-              PopupMenuItem(child: Text('Add Restaurant'), value: 0),
-              PopupMenuItem(child: Text('Add Category'), value: 1),
-              PopupMenuItem(child: Text('Delete Restaurant'), value: 2),
-            ],
-          ),
-        ],
+        actions: userAuthProvider.isUserInAuth()
+            ? userAuthProvider.getUserInAuth().name.contains("admin")
+                ? <Widget>[
+                    PopupMenuButton(
+                      onSelected: (selectedValue) {},
+                      icon: Icon(Icons.more_vert, color: appListColor),
+                      itemBuilder: (_) => [
+                        PopupMenuItem(child: Text('Add Restaurant'), value: 0),
+                        PopupMenuItem(child: Text('Add Category'), value: 1),
+                        PopupMenuItem(
+                            child: Text('Delete Restaurant'), value: 2),
+                      ],
+                    ),
+                  ]
+                : null
+            : null,
         title: Center(
           child: Container(
             height: 55,

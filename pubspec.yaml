@@ -82,6 +82,7 @@ flutter:
     - assets/images/name.png
     - assets/images/phone.png
     - assets/images/nandos.jpg
+<<<<<<< HEAD
     - assets/images/beef shawerma.jpg
     - assets/images/bigmac.jpg
     - assets/images/bucket.png
@@ -105,6 +106,9 @@ flutter:
     - assets/images/shrimp pizza.jpg
     - assets/images/zinger.jpg
         
+=======
+    
+>>>>>>> b81af33a906d64ce0f3597f4ba02520628711c52
 
 
     # - images/a_dot_ham.jpeg
