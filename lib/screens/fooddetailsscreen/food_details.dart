@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/restaurants.dart';
+import '../../providers/cart.dart';
+import '../../providers/restaurants.dart';
 import 'package:provider/provider.dart';
 import '../../components/item_title.dart';
 import '../../screens/FoodMenu/Food_Menu2.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 import '../../screens/cart/cart.dart';
+import '../../components/badge.dart';
 
 class FoodDetails extends StatelessWidget {
   @override
@@ -32,10 +34,17 @@ class FoodDetails extends StatelessWidget {
           },
         ),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () {},
-            color: Colors.white,
+          Consumer<Cart>(
+            builder: (_, cart, ch) => Badge(
+              child: ch,
+              value: cart.itemCount.toString(),
+            ),
+            child: IconButton(
+              icon: Icon(
+                Icons.shopping_cart,
+              ),
+              onPressed: () {},
+            ),
           ),
           IconButton(
             icon: Icon(Icons.more_vert),
@@ -82,7 +91,8 @@ class Body extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ItemTitle(
-                  name: loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName,
+                  name: loaded
+                      .items[loaded.restaurantId].itemsa[loaded.ind].itemName,
                   numOfReviews: 10,
                   rating: 4,
                   price: loaded
@@ -90,7 +100,8 @@ class Body extends StatelessWidget {
                   onRatingChanged: (value) {},
                 ),
                 Text(
-                  loaded.items[loaded.restaurantId].itemsa[loaded.ind].description,
+                  loaded.items[loaded.restaurantId].itemsa[loaded.ind]
+                      .description,
                   style: TextStyle(
                       height: 1.5,
                       color: aTextLightColor,
@@ -112,8 +123,8 @@ class Body extends StatelessWidget {
                       color: Colors.transparent,
                       child: InkWell(
                         onTap: () {
-                            
-                            Navigator.pushNamed(context, "/cart");    // Hena el route for the cart 
+                          Navigator.pushNamed(
+                              context, "/cart"); // Hena el route for the cart
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
