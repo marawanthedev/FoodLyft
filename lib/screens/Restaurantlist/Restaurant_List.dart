@@ -74,7 +74,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
               ),
             ),
             Container(
-              height: 500,
+              height: 1000,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 
