@@ -6,38 +6,42 @@ class Restaurants with ChangeNotifier {
   var ind;
   int restaurantId;
   List<MenuItems> itemsa = [];
-  //Map restaurants = {
-  //  'Arab': [],
-  //  'Fast Food': [],
-  //  'Italian': [],
-  //};
 
   List<List<Restaurant>> restList = [];
   List<Restaurant> arabList = [];
   List<Restaurant> fastfoodList = [];
+  List<Restaurant> westernfoodList = [];
   int tempCategoryIndex;
   int tempItem;
   Restaurant restaurantObject;
+
   getREstaurantByCategory() {
+    // This Method Is used to get Restaurants by Category Title and Add the Specific Restaurants Inside this Category
     arabList.clear();
     fastfoodList.clear();
+    westernfoodList.clear();
     _items.forEach((e) {
       if (e.category == 'Arab') {
         arabList.add(e);
       } else if (e.category == 'Fast Food') {
         fastfoodList.add(e);
+      } else if (e.category == 'Western Food') {
+        westernfoodList.add(e);
       }
     });
   }
 
   getCategory() {
-    return restList[tempCategoryIndex][0].category;
+    return restList[tempCategoryIndex][0]
+        .category; //To Print each Category Title
   }
 
   getLists() {
-    restList.clear();
+    restList
+        .clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
     restList.add(arabList);
     restList.add(fastfoodList);
+    restList.add(westernfoodList);
   }
 
   List<Restaurant> _items = [
@@ -202,7 +206,7 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/halab.jpg',
       description: "Desciprion 1",
       price: 41,
-      category: "Italian",
+      category: "Arab",
       itemsa: [
         MenuItems(
             resturantId: "r6",
@@ -229,10 +233,11 @@ class Restaurants with ChangeNotifier {
     ),
     Restaurant(
       id: 'r7',
-      title: "Italian",
-      image: 'assets/images/italian.jpg',
+      title: "Bilad",
+      image: 'assets/images/bilad.png',
       description: "Desciprion 1",
       price: 18,
+      category: "Arab",
       itemsa: [
         MenuItems(
             resturantId: "r7",
@@ -257,19 +262,138 @@ class Restaurants with ChangeNotifier {
       ],
       isTouched: true,
     ),
+    Restaurant(
+      id: 'r7',
+      title: "Italian",
+      image: 'assets/images/italian.jpg',
+      description: "Desciprion 1",
+      price: 18,
+      category: "Western Food",
+      itemsa: [
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r7",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
+      isTouched: true,
+    ),
+    Restaurant(
+      id: 'r8',
+      title: "Mexican",
+      image: 'assets/images/breakfast.jpg',
+      description: "Desciprion 1",
+      price: 18,
+      category: "Western Food",
+      itemsa: [
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r8",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
+      isTouched: true,
+    ),
+    Restaurant(
+      id: 'r9',
+      title: "Hadrmawt",
+      image: 'assets/images/hadrmawt.png',
+      description: "Desciprion 1",
+      price: 10,
+      category: "Arab",
+      itemsa: [
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r9",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
+      isTouched: true,
+    ),
+    Restaurant(
+      id: 'r10',
+      title: "Nando's",
+      image: 'assets/images/nandos.jpg',
+      description: "Desciprion 1",
+      price: 10,
+      category: "Western Food",
+      itemsa: [
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
+      isTouched: true,
+    ),
   ];
 
   List<Restaurant> get items {
     return [..._items];
   }
 
-  //Restaurant findById(String id) {
-  //  restaurantId = int.parse(id.split("")[1]) - 1;
-  //  print("This is the index ${id}");
-  //  return _items.firstWhere((rest) => rest.id == id);
-  //}
-
   checkList(String id) {
+    //To Check each Restaurant inside the items and return each restaurant to the restaurantObject using Restaurant Id
     restaurantId = int.parse(id.split("")[1]) - 1;
     for (var item in _items) {
       if (item.id == id) {

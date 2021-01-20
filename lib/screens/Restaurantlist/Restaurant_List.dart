@@ -73,19 +73,19 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                 ),
               ),
             ),
-            Container(
-              height: height,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                addRepaintBoundaries: true,
-                itemBuilder: (context, index) {
-                  data.tempCategoryIndex = index;
-                  return CategoryRowBuilder(
-                      //categoryTitle: "Category Title",
-
-                      );
-                },
-                itemCount: data.restList.length,
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                height: 500,
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  
+                  itemBuilder: (context, index) {
+                    data.tempCategoryIndex = index;
+                    return CategoryRowBuilder();
+                  },
+                  itemCount: data.restList.length,     //To render the number of rows in the ListView According to the number of Categories Available
+                ),
               ),
             ),
           ],

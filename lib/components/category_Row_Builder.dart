@@ -33,17 +33,19 @@ class CategoryRowBuilder extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  CategoryItem(
-                    id: data.restList[data.tempCategoryIndex][index].id,
-                    image: data.restList[data.tempCategoryIndex][index].image,
-                    title: data.restList[data.tempCategoryIndex][index].title,
-                    isTouched: true,
-                    index: index,
-                  ),
-                ],
+              return Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Row(
+                  children: <Widget>[
+                    CategoryItem(
+                      id: data.restList[data.tempCategoryIndex][index].id,
+                      image: data.restList[data.tempCategoryIndex][index].image,
+                      title: data.restList[data.tempCategoryIndex][index].title,
+                      isTouched: true,
+                      index: index,
+                    ),
+                  ],
+                ),
               );
             },
             itemCount: data.restList[data.tempCategoryIndex].length,

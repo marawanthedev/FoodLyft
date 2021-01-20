@@ -62,10 +62,10 @@ class ItemTitle extends StatelessWidget {
         alignment: Alignment.topCenter,
         padding: EdgeInsets.symmetric(vertical: 15),
         height: 66,
-        width: 65,
+        width: 90,
         color: appMainColor,
         child: Text(
-          "\Rm$price",
+          "\Rm.$price",
           style: Theme.of(context).textTheme.headline6.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

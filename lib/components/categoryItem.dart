@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/providers/restaurants.dart';
-import 'package:foodlyft/screens/FoodMenu/Food_Menu2.dart';
 import 'package:provider/provider.dart';
 import '../screens/Restaurantlist/Constants.dart';
 
@@ -47,10 +46,19 @@ class _CategoryItemState extends State<CategoryItem> {
               height: 100,
               width: 150,
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(widget.image), fit: BoxFit.fill),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10)),
+                image: DecorationImage(
+                    image: AssetImage(widget.image), fit: BoxFit.fill),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(

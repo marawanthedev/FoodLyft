@@ -10,13 +10,13 @@ class FoodDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loaded = Provider.of<Restaurants>(context);
-   
+
     return Scaffold(
-      backgroundColor: black,
+      backgroundColor: appMainColor,
       appBar: AppBar(
         title: Center(
             child: Text(
-           loaded.items[loaded.restaurantId].title,
+          loaded.items[loaded.restaurantId].title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -50,19 +50,20 @@ class FoodDetails extends StatelessWidget {
 }
 
 class Body extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     final loaded = Provider.of<Restaurants>(context);
     Size size = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        Image.asset(
-          "assets/images/fastfood.jpg",
-          height: size.height * 0.4,
-          // width: double.infinity,
-          // fit: BoxFit.fill,
-          scale: 1.5,
+        Container(
+          child: Image.asset(
+            loaded.items[loaded.restaurantId].image,
+            height: size.height * 0.45,
+            width: size.width,
+            fit: BoxFit.fill,
+            scale: 1.5,
+          ),
         ),
         SizedBox(
           height: 10,
@@ -81,47 +82,55 @@ class Body extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ItemTitle(
-                  name: loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName,
+                  name: loaded
+                      .items[loaded.restaurantId].itemsa[loaded.ind].itemName,
                   numOfReviews: 10,
                   rating: 4,
-                  price: loaded.items[loaded.restaurantId].itemsa[loaded.ind].price,
+                  price: loaded
+                      .items[loaded.restaurantId].itemsa[loaded.ind].price,
                   onRatingChanged: (value) {},
                 ),
                 Text(
-                  loaded.items[loaded.restaurantId].itemsa[loaded.ind].description,
-                  style: TextStyle(height: 1.5, color: aTextLightColor,fontWeight: FontWeight.bold),
+                  loaded.items[loaded.restaurantId].itemsa[loaded.ind]
+                      .description,
+                  style: TextStyle(
+                      height: 1.5,
+                      color: aTextLightColor,
+                      fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5),
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  // height: 40,
-                  padding: EdgeInsets.all(20),
-                  width: size.width * 0.8,
-                  decoration: BoxDecoration(
-                    color: appMainColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CartScreen()));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(Icons.add_shopping_cart),
-                          Text(
-                            
-                            "Add to Cart",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    // height: 40,
+                    padding: EdgeInsets.all(20),
+                    width: size.width * 0.8,
+                    decoration: BoxDecoration(
+                      color: appMainColor,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CartScreen()));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.add_shopping_cart),
+                            Text(
+                              "Add to Cart",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
