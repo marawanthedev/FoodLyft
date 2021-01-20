@@ -36,7 +36,7 @@ void main() {
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/Restaurant_List",
+      initialRoute: "/splash_screen",
       // ignore: missing_return
       onGenerateRoute: (settings) {
         switch (settings.name) {
