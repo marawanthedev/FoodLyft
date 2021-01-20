@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/restaurants.dart';
+import 'package:foodlyft/providers/restaurants.provider.dart';
 import 'package:provider/provider.dart';
 import '../../components/category_Row_Builder.dart';
 import './Constants.dart';

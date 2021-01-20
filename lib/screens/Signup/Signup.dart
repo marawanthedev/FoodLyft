@@ -5,7 +5,7 @@ import 'dart:async';
 import "../../components/formInput.dart";
 import "../../components/socialMediaBar.dart";
 import '../../models/user.dart';
-import "../../providers/UserAuth_Provider.dart";
+import '../../providers/UserAuth.provider.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override

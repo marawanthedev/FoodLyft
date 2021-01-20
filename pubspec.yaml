@@ -82,6 +82,8 @@ flutter:
     - assets/images/name.png
     - assets/images/phone.png
     - assets/images/nandos.jpg
+    - assets/images/nandos.jpg
+
 
     # - images/a_dot_ham.jpeg
     # An image asset can refer to one or more resolution-specific "variants", see

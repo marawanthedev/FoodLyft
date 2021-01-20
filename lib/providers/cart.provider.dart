@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/models/menu.dart';
+import 'package:foodlyft/models/restaurant.dart';
+import 'package:provider/provider.dart';
 
 class CartItem {
   final String id;
@@ -14,26 +17,26 @@ class CartItem {
   });
 }
 
-class Cart with ChangeNotifier {
+class CartProvider with ChangeNotifier {
   Map<String, CartItem> _items = {};
-
   Map<String, CartItem> get items {
     return {..._items};
   }
 
   int get itemCount {
-    return _items.length;
+    int count = 0;
+    _items.forEach((key, value) {
+      count += value.quantity;
+    });
+    return count;
   }
 
-  void addItem(
-    String productId,
-    double price,
-    String title,
-  ) {
-    if (_items.containsKey(productId)) {
+  void addItem(MenuItems menuItem) {
+    print(menuItem.itemName);
+    if (_items.containsKey(menuItem.itemName)) {
       // change quantity...
       _items.update(
-        productId,
+        menuItem.itemName,
         (existingCartItem) => CartItem(
           id: existingCartItem.id,
           title: existingCartItem.title,
@@ -43,11 +46,11 @@ class Cart with ChangeNotifier {
       );
     } else {
       _items.putIfAbsent(
-        productId,
+        menuItem.itemName,
         () => CartItem(
           id: DateTime.now().toString(),
-          title: title,
-          price: price,
+          title: menuItem.itemName,
+          price: menuItem.price,
           quantity: 1,
         ),
       );
