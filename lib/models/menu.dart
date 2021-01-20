@@ -3,11 +3,12 @@ class MenuItems {
   String description;
   double price;
   String resturantId;
+  String image;
   // List items = [];
 
   // MenuItems({this.items});
 
-  MenuItems({this.itemName, this.description, this.price, this.resturantId});
+  MenuItems({this.itemName, this.description, this.price, this.resturantId,this.image});
 
   // MenuItems.fromJson(Map<String, dynamic> json)
   //     : this(

@@ -79,7 +79,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
               ),
             ),
             Container(
-              height: 1000,
+              height: 500,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
 
@@ -87,8 +87,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                   data.tempCategoryIndex = index;
                   return CategoryRowBuilder();
                 },
-                itemCount: data.restList
-                    .length, //To render the number of rows in the ListView According to the number of Categories Available
+                itemCount: data.restList .length, //To render the number of rows in the ListView According to the number of Categories Available
               ),
             ),
           ],
