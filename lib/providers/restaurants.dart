@@ -17,8 +17,8 @@ class Restaurants with ChangeNotifier {
 
   getREstaurantByCategory() {
     // This Method Is used to get Restaurants by Category Title and Add the Specific Restaurants Inside this Category
-    arabList.clear();
     fastfoodList.clear();
+    arabList.clear();
     westernfoodList.clear();
     _items.forEach((e) {
       if (e.category == 'Arab') {
@@ -37,11 +37,11 @@ class Restaurants with ChangeNotifier {
   }
 
   getLists() {
-    restList
-        .clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
-    restList.add(arabList);
+    restList.clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
     restList.add(fastfoodList);
+    restList.add(arabList);
     restList.add(westernfoodList);
+    
   }
 
   List<Restaurant> _items = [
@@ -263,43 +263,12 @@ class Restaurants with ChangeNotifier {
       isTouched: true,
     ),
     Restaurant(
-      id: 'r7',
-      title: "Italian",
-      image: 'assets/images/italian.jpg',
-      description: "Desciprion 1",
-      price: 18,
-      category: "Western Food",
-      itemsa: [
-        MenuItems(
-            resturantId: "r7",
-            itemName: "Large Pizza",
-            description: "SuperSupreme",
-            price: 20.0),
-        MenuItems(
-            resturantId: "r7",
-            itemName: "Large Pizza",
-            description: "SuperSupreme",
-            price: 10.0),
-        MenuItems(
-            resturantId: "r7",
-            itemName: "Large Pizza",
-            description: "SuperSupreme",
-            price: 10.0),
-        MenuItems(
-            resturantId: "r7",
-            itemName: "Large Pizza",
-            description: "SuperSupreme",
-            price: 15.0),
-      ],
-      isTouched: true,
-    ),
-    Restaurant(
       id: 'r8',
-      title: "Mexican",
-      image: 'assets/images/breakfast.jpg',
+      title: "Hadrmawt",
+      image: 'assets/images/hadrmawt.png',
       description: "Desciprion 1",
-      price: 18,
-      category: "Western Food",
+      price: 10,
+      category: "Arab",
       itemsa: [
         MenuItems(
             resturantId: "r8",
@@ -326,11 +295,11 @@ class Restaurants with ChangeNotifier {
     ),
     Restaurant(
       id: 'r9',
-      title: "Hadrmawt",
-      image: 'assets/images/hadrmawt.png',
+      title: "Italian",
+      image: 'assets/images/italian.jpg',
       description: "Desciprion 1",
-      price: 10,
-      category: "Arab",
+      price: 18,
+      category: "Western Food",
       itemsa: [
         MenuItems(
             resturantId: "r9",
@@ -357,10 +326,10 @@ class Restaurants with ChangeNotifier {
     ),
     Restaurant(
       id: 'r10',
-      title: "Nando's",
-      image: 'assets/images/nandos.jpg',
+      title: "Mexican",
+      image: 'assets/images/breakfast.jpg',
       description: "Desciprion 1",
-      price: 10,
+      price: 18,
       category: "Western Food",
       itemsa: [
         MenuItems(
@@ -380,6 +349,37 @@ class Restaurants with ChangeNotifier {
             price: 10.0),
         MenuItems(
             resturantId: "r10",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 15.0),
+      ],
+      isTouched: true,
+    ),
+    Restaurant(
+      id: 'r11',
+      title: "Nando's",
+      image: 'assets/images/nandos.jpg',
+      description: "Desciprion 1",
+      price: 10,
+      category: "Western Food",
+      itemsa: [
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 20.0),
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r11",
+            itemName: "Large Pizza",
+            description: "SuperSupreme",
+            price: 10.0),
+        MenuItems(
+            resturantId: "r11",
             itemName: "Large Pizza",
             description: "SuperSupreme",
             price: 15.0),

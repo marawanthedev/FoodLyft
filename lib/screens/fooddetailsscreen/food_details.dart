@@ -91,8 +91,7 @@ class Body extends StatelessWidget {
                   onRatingChanged: (value) {},
                 ),
                 Text(
-                  loaded.items[loaded.restaurantId].itemsa[loaded.ind]
-                      .description,
+                  loaded.items[loaded.restaurantId].itemsa[loaded.ind].description,
                   style: TextStyle(
                       height: 1.5,
                       color: aTextLightColor,
