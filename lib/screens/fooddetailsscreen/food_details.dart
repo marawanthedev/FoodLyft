@@ -82,8 +82,7 @@ class Body extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ItemTitle(
-                  name: loaded
-                      .items[loaded.restaurantId].itemsa[loaded.ind].itemName,
+                  name: loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName,
                   numOfReviews: 10,
                   rating: 4,
                   price: loaded

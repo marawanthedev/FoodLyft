@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../providers/restaurants.dart';
+import 'package:provider/provider.dart';
 import "../../components/cartItem.dart";
 import "../../services/hexColor.dart";
 import "../../components/button.dart";
@@ -105,6 +107,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final loaded = Provider.of<Restaurants>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
