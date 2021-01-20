@@ -112,8 +112,8 @@ class Body extends StatelessWidget {
                       color: Colors.transparent,
                       child: InkWell(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CartScreen()));
+                            
+                            Navigator.pushNamed(context, "/cart");    // Hena el route for the cart 
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
