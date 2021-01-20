@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../services/hexColor.dart';
-import "../../providers/restaurants.dart";
+import '../../providers/restaurants.provider.dart';
 
 class PaymentSuceeded extends StatefulWidget {
   @override

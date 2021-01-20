@@ -6,7 +6,7 @@ class CartItem extends StatelessWidget {
   String image;
   final bool isTouched;
   final price;
-  final quantity;
+  final quantity, heroTag;
   var color, appMainColor;
   Function increaseQuantity, decreaseQuantity, deleteItem;
 
@@ -20,7 +20,8 @@ class CartItem extends StatelessWidget {
       this.increaseQuantity,
       this.decreaseQuantity,
       this.quantity,
-      this.price});
+      this.price,
+      this.heroTag});
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +86,7 @@ class CartItem extends StatelessWidget {
                                 height: 30,
                                 margin: EdgeInsets.only(right: 10),
                                 child: FloatingActionButton.extended(
+                                  heroTag: "btn1-$heroTag",
                                   onPressed: decreaseQuantity,
                                   label: Icon(Icons.remove),
                                   icon: null,
@@ -101,6 +103,7 @@ class CartItem extends StatelessWidget {
                                 height: 30,
                                 margin: EdgeInsets.only(left: 10),
                                 child: FloatingActionButton.extended(
+                                  heroTag: "btn2-$heroTag",
                                   onPressed: increaseQuantity,
                                   label: Icon(Icons.add),
                                   icon: null,

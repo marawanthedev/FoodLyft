@@ -37,11 +37,11 @@ class Restaurants with ChangeNotifier {
   }
 
   getLists() {
-    restList.clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
+    restList
+        .clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
     restList.add(fastfoodList);
     restList.add(arabList);
     restList.add(westernfoodList);
-    
   }
 
   List<Restaurant> _items = [
@@ -390,6 +390,10 @@ class Restaurants with ChangeNotifier {
 
   List<Restaurant> get items {
     return [..._items];
+  }
+
+  MenuItems getItem(int restaurantIndex, int itemIndex) {
+    return _items[restaurantIndex].itemsa[itemIndex];
   }
 
   checkList(String id) {

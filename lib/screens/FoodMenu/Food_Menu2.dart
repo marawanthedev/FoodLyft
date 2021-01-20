@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../components/MenuItems_builder.dart';
-import '../../providers/restaurants.dart';
+import '../../providers/restaurants.provider.dart';
 import '../../screens/Restaurantlist/Restaurant_List.dart';
 import '../../screens/fooddetailsscreen/food_details.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -100,7 +100,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
                     ],
                   ),
                   Text(
-                    "Closes at 11 pmmm",
+                    "Closes at 11 pm",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 14.0,
@@ -114,20 +114,24 @@ class _FoodMenu2State extends State<FoodMenu2> {
                         return MaterialButton(
                           onPressed: () {
                             loaded.ind = index;
-                            Navigator.pushNamed(context, "/food_details");
+                            Navigator.pushNamed(
+                              context,
+                              "/food_details",
+                            );
                             print("Item$index");
                             print("Item ${loaded.restaurantId}");
                           },
                           child: Column(
                             children: <Widget>[
                               ItemsBuilder(
+                                  productId: index,
                                   image: loaded.restaurantObject.image,
-                                  itemName: loaded.restaurantObject
-                                      .itemsa[index].itemName,
-                                  desc: loaded.restaurantObject
-                                      .itemsa[index].description,
-                                  price:
-                                      loaded.restaurantObject.itemsa[index].price),
+                                  itemName: loaded
+                                      .restaurantObject.itemsa[index].itemName,
+                                  desc: loaded.restaurantObject.itemsa[index]
+                                      .description,
+                                  price: loaded
+                                      .restaurantObject.itemsa[index].price),
                             ],
                           ),
                         );

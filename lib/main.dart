@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:foodlyft/screens/cart/cart.dart';
 import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:provider/provider.dart';
-import 'providers/cart.dart';
+import 'providers/cart.provider.dart';
 import 'screens/FoodMenu/Food_Menu2.dart';
 import 'screens/payment/payment_failed.dart';
 import 'screens/payment/payment_succesfull.dart';
 import 'screens/payment/payment_form.dart';
 import "./screens/Login/login.dart";
 import "./screens/Signup/Signup.dart";
-import './providers/restaurants.dart';
+import 'providers/restaurants.provider.dart';
 // import "./services/router.dart" as router;
 import 'screens/admin/new_restaurant.dart';
 import 'screens/admin/edit-restaurant.dart';
@@ -19,7 +19,7 @@ import './screens/HomePage/homepage_screen.dart';
 import './screens/splash/splash_screen.dart';
 import './screens/Restaurantlist/Restaurant_List.dart';
 import "./screens/Profile_Screens/Profile.dart";
-import "./providers/UserAuth_Provider.dart";
+import 'providers/UserAuth.provider.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -31,7 +31,7 @@ void main() {
         create: (ctx) => UserAuthProvider(),
       ),
       ChangeNotifierProvider(
-        create: (ctx) => Cart(),
+        create: (ctx) => CartProvider(),
       ),
     ],
     child: MaterialApp(
