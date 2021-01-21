@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  shared_preferences: ^0.5.12+4
   cupertino_icons: ^1.0.0
   http: ^0.12.2
   image_picker: ^0.6.7+17
@@ -96,11 +97,59 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto/Roboto-Thin.ttf
 
     - family: Poppins
       fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Black.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-BlackItalic.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-BoldItalic.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Italic.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplaySC-Black.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplaySC-BlackItalic.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplaySC-Bold.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplaySC-BoldItalic.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplaySC-Italic.otf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplaySC-Regular.otf
+
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans/OpenSans-Bold.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-BoldItalic.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-ExtraBold.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Italic.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Light.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-LightItalic.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Regular.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Semibold.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Semibolditalic.ttf
+
+    - family: JosefinSans
+      fonts:
+        - asset: assets/fonts/JosefinSans/JosefinSans-BoldItalic.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-Bold.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-Italic.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-Light.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-LightItalic.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-Regular.ttf    
+        - asset: assets/fonts/JosefinSans/JosefinSans-SemiBold.ttf    
+        - asset: assets/fonts/JosefinSans/JosefinSans-SemiBoldItalic.ttf    
+        - asset: assets/fonts/JosefinSans/JosefinSans-Thin.ttf    
+        - asset: assets/fonts/JosefinSans/JosefinSans-ThinItalic.ttf    
+
   # fonts:
   #   - family: Trajan Pro
   #   fonts:

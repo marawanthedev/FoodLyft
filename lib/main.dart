@@ -19,8 +19,10 @@ import './screens/splash/splash_screen.dart';
 import './screens/Restaurantlist/Restaurant_List.dart';
 import "./screens/Profile_Screens/Profile.dart";
 import "./providers/UserAuth_Provider.dart";
+import 'screens/settings/settings_screen.dart';
 
 void main() {
+  String fontFamily = 'Roboto';
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -31,8 +33,10 @@ void main() {
       ),
     ],
     child: MaterialApp(
+      theme: ThemeData(fontFamily: fontFamily),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/Signup",
+      // initialRoute: "/splash_screen",
+      initialRoute: "/settings_screen",
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
@@ -73,6 +77,8 @@ void main() {
             return MaterialPageRoute(builder: (context) => FoodDetails());
           case "/profile":
             return MaterialPageRoute(builder: (context) => Profile());
+          case "/settings_screen":
+            return MaterialPageRoute(builder: (context) => Settings());
         }
       },
     ),
