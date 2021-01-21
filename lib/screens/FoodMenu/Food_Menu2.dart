@@ -124,7 +124,6 @@ class _FoodMenu2State extends State<FoodMenu2> {
                           child: Column(
                             children: <Widget>[
                               ItemsBuilder(
-                                  productId: index,
                                   image: loaded
                                       .restaurantObject.itemsa[index].image,
                                   itemName: loaded
