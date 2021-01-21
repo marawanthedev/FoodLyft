@@ -3,8 +3,9 @@ import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ItemTitle extends StatelessWidget {
-  final int numOfReviews,price;
-  final double rating ;
+  final int numOfReviews;
+  final double price;
+  final double rating;
   final String name;
   final RatingChangeCallback onRatingChanged;
 
@@ -54,17 +55,17 @@ class ItemTitle extends StatelessWidget {
     );
   }
 
-  ClipPath priceTag(BuildContext context, {int price}) {
+  ClipPath priceTag(BuildContext context, {double price}) {
     return ClipPath(
       clipper: PricerCliper(),
       child: Container(
         alignment: Alignment.topCenter,
         padding: EdgeInsets.symmetric(vertical: 15),
         height: 66,
-        width: 65,
+        width: 90,
         color: appMainColor,
         child: Text(
-          "\Rm$price",
+          "\Rm.$price",
           style: Theme.of(context).textTheme.headline6.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

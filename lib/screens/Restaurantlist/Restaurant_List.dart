@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../screens/Restaurantlist/restaurants_grid.dart';
-import '../../models/restaurant.dart';
+import 'package:foodlyft/providers/restaurants.provider.dart';
+import 'package:provider/provider.dart';
+import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
+import "../../providers/UserAuth.provider.dart";
 
 class RestaurantMenu extends StatefulWidget {
   @override
@@ -10,11 +12,15 @@ class RestaurantMenu extends StatefulWidget {
 }
 
 class _RestaurantMenuState extends State<RestaurantMenu> {
-
-  
-
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<Restaurants>(context);
+    data.getREstaurantByCategory();
+    data.getLists();
+    var userAuthProvider = Provider.of<UserAuthProvider>(context);
+
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       drawer: DrawerOptions(),
       appBar: AppBar(
@@ -28,12 +34,22 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             color: appListColor,
           ),
         ),
-        actions: [
-          CircleAvatar(
-            backgroundColor: appListColor,
-            child: Icon(Icons.face),
-          ),
-        ],
+        actions: userAuthProvider.isUserInAuth()
+            ? userAuthProvider.getUserInAuth().name.contains("admin")
+                ? <Widget>[
+                    PopupMenuButton(
+                      onSelected: (selectedValue) {},
+                      icon: Icon(Icons.more_vert, color: appListColor),
+                      itemBuilder: (_) => [
+                        PopupMenuItem(child: Text('Add Restaurant'), value: 0),
+                        PopupMenuItem(child: Text('Add Category'), value: 1),
+                        PopupMenuItem(
+                            child: Text('Delete Restaurant'), value: 2),
+                      ],
+                    ),
+                  ]
+                : null
+            : null,
         title: Center(
           child: Container(
             height: 55,
@@ -71,31 +87,19 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             ),
             Container(
               height: 500,
-              child: RestaurantsGrid(),
-            )
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+
+                itemBuilder: (context, index) {
+                  data.tempCategoryIndex = index;
+                  return CategoryRowBuilder();
+                },
+                itemCount: data.restList .length, //To render the number of rows in the ListView According to the number of Categories Available
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ListBuild extends StatelessWidget {
-  String title;
-  IconData icon;
-  ListBuild({this.title, this.icon});
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-      onPressed: () {},
-      child: ListTile(
-          leading: Icon(
-            icon,
-          ),
-          title: Text(
-            title,
-            style: TextStyle(fontSize: 20, color: aTextColor),
-          )),
     );
   }
 }

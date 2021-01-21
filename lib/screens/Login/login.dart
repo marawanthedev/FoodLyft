@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/UserAuth_Provider.dart';
+import 'package:foodlyft/providers/UserAuth.provider.dart';
 import 'package:provider/provider.dart';
 import "../../services/hexColor.dart";
 import "../../components/formInput.dart";

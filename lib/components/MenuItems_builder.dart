@@ -5,9 +5,11 @@ class ItemsBuilder extends StatelessWidget {
   final String image;
   final String itemName;
   final String desc;
-  final String price;
+  final double price;
+  final int productId;
 
-  ItemsBuilder({this.image, this.itemName, this.desc, this.price});
+  ItemsBuilder(
+      {this.image, this.itemName, this.desc, this.price, this.productId});
 
   @override
   Widget build(BuildContext context) {
