@@ -82,7 +82,34 @@ flutter:
     - assets/images/name.png
     - assets/images/phone.png
     - assets/images/nandos.jpg
-    - assets/images/nandos.jpg
+    - assets/images/beefshawerma.jpg
+    - assets/images/bigmac.jpg
+    - assets/images/bucket.png
+    - assets/images/casadia.jpg
+    - assets/images/CheeseBurger.jpg
+    - assets/images/Chickenburger.jpg
+    - assets/images/fries.jpg    
+    - assets/images/Kabab.jpg
+    - assets/images/kabsa.jpg
+    - assets/images/mandi.jpg
+    - assets/images/nacho.jpg
+    - assets/images/nacho1.jpg
+    - assets/images/nuggets.jpg
+    - assets/images/pasta1.jpg
+    - assets/images/shawerma.jpg
+    - assets/images/zinger.jpg
+    - assets/images/pizzahut1.jpg
+    - assets/images/pepperoni.jpg
+    - assets/images/chickenpizza.jpg
+    - assets/images/fruitpizza.jpg
+    - assets/images/carlsjr1.jpg
+    - assets/images/carlsjr2.jpg
+    - assets/images/carlsjr3.jpg
+    - assets/images/carlsjr4.jpg
+    - assets/images/italianpizza.jpg
+    - assets/images/grilled1chicken.jpg
+    - assets/images/grilledchicken.jpg
+        
 
 
     # - images/a_dot_ham.jpeg
