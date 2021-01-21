@@ -24,7 +24,7 @@ import 'providers/UserAuth.provider.dart';
 import 'screens/settings/settings_screen.dart';
 
 void main() {
-  String fontFamily = 'Roboto';
+  
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -40,7 +40,8 @@ void main() {
     child: MaterialApp(
       // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash_screen",
+      initialRoute: "/Restaurant_List",
+      
       // ignore: missing_return
       onGenerateRoute: (settings) {
         switch (settings.name) {
