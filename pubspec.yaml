@@ -82,7 +82,6 @@ flutter:
     - assets/images/name.png
     - assets/images/phone.png
     - assets/images/nandos.jpg
-<<<<<<< HEAD
     - assets/images/beef shawerma.jpg
     - assets/images/bigmac.jpg
     - assets/images/bucket.png
@@ -90,11 +89,7 @@ flutter:
     - assets/images/CheeseBurger.jpg
     - assets/images/chicken kabab.jpg
     - assets/images/Chickenburger.jpg
-    - assets/images/fries.jpg
-    - assets/images/grilled 1chicken.jpg
-    - assets/images/grilled chicken.jpg
-    - assets/images/italian pizza.jpg
-    - assets/images/italian pizza.jpg
+    - assets/images/fries.jpg    
     - assets/images/Kabab.jpg
     - assets/images/kabsa.jpg
     - assets/images/mandi.jpg
@@ -103,12 +98,8 @@ flutter:
     - assets/images/nuggets.jpg
     - assets/images/pasta1.jpg
     - assets/images/shawerma.jpg
-    - assets/images/shrimp pizza.jpg
     - assets/images/zinger.jpg
         
-=======
-    
->>>>>>> b81af33a906d64ce0f3597f4ba02520628711c52
 
 
     # - images/a_dot_ham.jpeg
