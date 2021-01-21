@@ -6,10 +6,8 @@ class ItemsBuilder extends StatelessWidget {
   final String itemName;
   final String desc;
   final double price;
-  final int productId;
 
-  ItemsBuilder(
-      {this.image, this.itemName, this.desc, this.price, this.productId});
+  ItemsBuilder({this.image, this.itemName, this.desc, this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +63,16 @@ class ItemsBuilder extends StatelessWidget {
               ),
             ),
             Positioned(
-              child: Image(
-                image: AssetImage(image),
-                height: 100.0,
-                width: 100.0,
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration:  BoxDecoration(
+                  shape: BoxShape.circle,
+                  image:  DecorationImage(
+                    fit:BoxFit.fill,
+                    image:  AssetImage(image)
+                  )
+                ),
               ),
             )
           ],
