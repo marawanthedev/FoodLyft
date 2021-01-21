@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
 import 'package:foodlyft/screens/cart/cart.dart';
 import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:provider/provider.dart';
 import 'providers/cart.provider.dart';
-import 'providers/dark_theme_provider.dart';
 import 'screens/FoodMenu/Food_Menu2.dart';
 import 'screens/payment/payment_failed.dart';
 import 'screens/payment/payment_succesfull.dart';
@@ -24,6 +24,7 @@ import 'providers/UserAuth.provider.dart';
 import 'screens/settings/settings_screen.dart';
 
 void main() {
+  String fontFamily = 'Roboto';
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -35,18 +36,9 @@ void main() {
       ChangeNotifierProvider(
         create: (ctx) => CartProvider(),
       ),
-      ChangeNotifierProvider(
-        create: (ctx) => DarkThemeProvider(),
-      ),
     ],
     child: MaterialApp(
-      darkTheme: ThemeData.dark(),
-      // theme: ThemeData(fontFamily: Settings(fontFamily: [index].,)),
-      // darkTheme: ThemeData.dark(),
-      //Faty el seneen
-      // routes: <String, WidgetBuilder>{
-      //   AGENDA: (BuildContext context) => AgendaScreen(),
-      // },
+      // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
       debugShowCheckedModeBanner: false,
       initialRoute: "/Restaurant_List",
       // ignore: missing_return
@@ -55,9 +47,11 @@ void main() {
           case "/":
           case "/payment_form":
             return MaterialPageRoute(builder: (context) => PaymentForm());
+
           case "/payment_suceeded":
             return MaterialPageRoute(
                 builder: (context) => PaymentSuceeded(settings.arguments));
+
           case "/payment_failed":
             return MaterialPageRoute(
                 builder: (context) => PaymentFailed(settings.arguments));
