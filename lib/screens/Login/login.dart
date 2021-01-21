@@ -21,6 +21,7 @@ class LoginScreen extends StatefulWidget {
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
   var userAuthProvider;
+
 }
 
 class _LoginScreenState extends State<LoginScreen> {

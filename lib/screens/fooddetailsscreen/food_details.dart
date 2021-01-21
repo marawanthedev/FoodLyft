@@ -69,6 +69,7 @@ class _FoodDetailsState extends State<FoodDetails> {
               height: size.height * 0.45,
               width: size.width,
               fit: BoxFit.fill,
+              alignment: Alignment.center,
               scale: 1.5,
             ),
           ),
