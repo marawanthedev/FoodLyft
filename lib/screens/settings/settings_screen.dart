@@ -3,28 +3,28 @@ import 'package:flutter/material.dart';
 import '../Restaurantlist/Constants.dart';
 
 class Settings extends StatefulWidget {
-  Settings({Key key}) : super(key: key);
+  String selectedFont;
+  List<String> fontFamily = <String>[
+    'JosefinSans',
+    'OpenSans',
+    'PlayfairDisplay',
+    'Poppins',
+    'Roboto'
+  ];
+
+  Settings({this.selectedFont, this.fontFamily});
   @override
   _SettingsState createState() => new _SettingsState();
-
-  //To dynamically change the fonts
-  static void setAppFontFamily(
-      BuildContext context, String _selectedFontFamily) {
-    _SettingsState state = context.findAncestorStateOfType();
-  }
 }
 
 class _SettingsState extends State<Settings> {
-  // List<String> _fontFamily = [
-  //   'JosefinSans',
-  //   'OpenSans',
-  //   'PlayfairDisplay',
-  //   'Poppins',
-  //   'Roboto'
-  // ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var data;
+    return //MaterialApp(
+        //theme: ThemeData(fontFamily: selectedFont),
+        //home:
+        Scaffold(
       appBar: AppBar(
         backgroundColor: appMainColor,
         title: Text('Settings'),
@@ -37,6 +37,36 @@ class _SettingsState extends State<Settings> {
             Text('Font',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             Text('Please select the app font from the list'),
+
+            //Dropdown Menu with Font List
+
+            DropdownButton<String>(
+              hint: Text("Select font"),
+              value: data.selectedFont,
+              onChanged: (String value) {
+                setState(() {
+                  data.selectedFont = value;
+                });
+              },
+              items: data.fontFamily.map((String font) {
+                return DropdownMenuItem<String>(
+                  value: font,
+                  child: Row(
+                    children: <Widget>[SizedBox(width: 10), Text(font)],
+                  ),
+                );
+              }).toList(),
+            ),
+            // RaisedButton(
+            //   onPressed: () {
+            //     setState(() {});
+            //   },
+            //   child: Text('Change Font'),
+            // ),
+
+            // Text('Themeeee',
+            //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+            // Text('Please select the app font from the list'),
           ],
         ),
       ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
+import 'package:foodlyft/screens/settings/settings_screen.dart';
 import '../screens/Restaurantlist/Restaurant_List.dart';
 import '../screens/Restaurantlist/Constants.dart';
+import 'dart:async';
 
 class DrawerOptions extends StatefulWidget {
   @override
@@ -15,91 +17,84 @@ class _DrawerOptionsState extends State<DrawerOptions> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // appBar: AppBar(
-        //   leading: IconButton(
-        //     icon: Icon(Icons.arrow_back),
-        //     onPressed: () => Navigator.pop(context),
-        //   ),
-        // ),
-        // body: Center(),
-        Drawer(
-      child: SafeArea(
-        child: Column(
-          children: [
-            // Builder(
-            //   builder: (BuildContext context) {
-            //     return IconButton(
-            //       icon: const Icon(Icons.arrow_back),
-            //       onPressed: () {
-            //         Navigator.pop(context);
-            //       },
-            //     );
-            //   },
-            // ),
-            Container(
-              color: appMainColor,
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_back,
-                    size: 30,
-                    color: Colors.white,
+    return StreamBuilder(
+      stream: bloc.darkThemeEnabled,
+      builder: (context, snapshot) => Drawer(
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Container(
+                color: appMainColor,
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-            ),
-
-            UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: appMainColor,
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: appMainColor,
+                ),
+                accountName: Text("User Name"),
+                accountEmail: Text("User Email"),
               ),
-              // currentAccountPicture: new Container(
-              //   margin: const EdgeInsets.only(bottom: 40.0),
-              //   width: 10.0,
-              //   height: 10.0,
-              //   decoration: new BoxDecoration(
-              //     shape: BoxShape.circle,
-              //     image: new DecorationImage(
-              //         fit: BoxFit.fill,
-              //         image: AssetImage('/assets/images/user.png')),
-              //   ),
-              // ),
-              accountName: Text("User Name"),
-              accountEmail: Text("User Email"),
-            ),
-            ListTile(
-              title: Text("Profile"),
-              leading: Icon(Icons.person),
-              onTap: () => _navigate("profile"),
-            ),
-            ListTile(
-              title: Text("Address"),
-              leading: Icon(Icons.location_city),
-              onTap: () => print("Address"),
-            ),
-            ListTile(
-              title: Text("Notifications"),
-              leading: Icon(Icons.notification_important),
-              onTap: () => print('not'),
-            ),
-            ListTile(
-              title: Text("History"),
-              leading: Icon(Icons.history),
-              onTap: () => print('History'),
-            ),
-            ListTile(
-              title: Text("Settings"),
-              leading: Icon(Icons.settings),
-              onTap: () => print('Settings'),
-            ),
-          ],
+              ListTile(
+                title: Text("Profile"),
+                leading: Icon(Icons.person),
+                onTap: () => _navigate("profile"),
+              ),
+              ListTile(
+                title: Text("Address"),
+                leading: Icon(Icons.location_city),
+                onTap: () => print("Address"),
+              ),
+              ListTile(
+                title: Text("Notifications"),
+                leading: Icon(Icons.notification_important),
+                onTap: () => print('not'),
+              ),
+              ListTile(
+                title: Text("History"),
+                leading: Icon(Icons.history),
+                onTap: () => print('History'),
+              ),
+              ListTile(
+                title: Text("History"),
+                leading: Switch(
+                  value: snapshot.data,
+                  onChanged: bloc.changeTheme,
+                ),
+                onTap: () => print('History'),
+              ),
+              ListTile(
+                title: Text("Settings"),
+                leading: Icon(Icons.settings),
+                // onTap: () => Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => Settings()),
+                // ),
+                onTap: () => _navigate("settings_screen"),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+class Bloc {
+  final _themeController = StreamController<bool>();
+  get changeTheme => _themeController.sink.add;
+  get darkThemeEnabled => _themeController.stream;
+}
+
+final bloc = Bloc();
