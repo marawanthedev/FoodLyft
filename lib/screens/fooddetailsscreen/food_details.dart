@@ -153,7 +153,8 @@ class _FoodDetailsState extends State<FoodDetails> {
                             widget.cartProvider.addItem(
                                 widget.restaurantProvider.getItem(
                                     widget.restaurantProvider.restaurantId,
-                                    widget.restaurantProvider.ind));
+                                    widget.restaurantProvider.ind)
+                                    );
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
