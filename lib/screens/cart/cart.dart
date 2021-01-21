@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/providers/cart.provider.dart';
 import '../../providers/restaurants.provider.dart';
 import 'package:provider/provider.dart';
 import "../../components/cartItem.dart";
@@ -7,25 +8,9 @@ import "../../components/button.dart";
 
 class CartScreen extends StatefulWidget {
   static const routeName = '/Food_Menu2';
+  var cartProvider;
   @override
   _CartScreenState createState() => _CartScreenState();
-
-  var items = [
-    {
-      "title": "Chiptole",
-      "price": 23.5,
-      "imgSrc": "assets/images/burger-1.png",
-      "press": () => "gg",
-      "quantity": 1
-    },
-    {
-      "title": "Chiptole",
-      "price": 20.5,
-      "imgSrc": "assets/images/burger-2.png",
-      "press": () => "gg",
-      "quantity": 1
-    }
-  ];
 
   final containerWidth = 350.0;
 
@@ -43,38 +28,48 @@ class _CartScreenState extends State<CartScreen> {
       fontFamily: "Poppins",
       fontWeight: FontWeight.normal);
 
-  Widget getCartItems(items) {
-    print("getting");
+  Widget getCartItems() {
+    // widget.cartProvider.items
+    //     .forEach((key, value) => {print(key), print(value.title)});
+
     resetSubTotal();
     List<Widget> list = new List<Widget>();
 
-    for (var i = 0; i < widget.items.length; i++) {
-      updateSubTotal(widget.items[i]['price'], widget.items[i]['quantity']);
+// ProviderCartItem({
+//     @required this.id,
+//     @required this.title,
+//     @required this.quantity,
+//     @required this.price,
+//     @required this.imgSrc,
+//   });
+
+    for (var i = 0; i < widget.cartProvider.items.length; i++) {
+      updateSubTotal(widget.cartProvider.items[i].price,
+          widget.cartProvider.items[i].quantity);
 
       list.add(CartItem(
         heroTag: "$i",
-        image: widget.items[i]['imgSrc'],
+        image: widget.cartProvider.items[i].imgSrc,
         isTouched: i == 0 ? true : false,
-        title: widget.items[i]['title'],
+        title: widget.cartProvider.items[i].title,
         deleteItem: () {
           this.setState(() {
-            widget.items.removeAt(i);
+            widget.cartProvider.deleteItem(i);
           });
         },
-        quantity: widget.items[i]['quantity'],
-        price: widget.items[i]['price'],
+        quantity: widget.cartProvider.items[i].quantity,
+        price: widget.cartProvider.items[i].price,
         increaseQuantity: () {
-          int currentQuantity = widget.items[i]['quantity'];
-          widget.items[i]['quantity'] = currentQuantity + 1;
+          widget.cartProvider.increaseQuantity(i);
           setState(() {});
         },
         decreaseQuantity: () {
-          int currentQuantity = widget.items[i]['quantity'];
+          int currentQuantity = widget.cartProvider.items[i].quantity;
 
           if (currentQuantity == 1) {
-            widget.items.removeAt(i);
+            widget.cartProvider.deleteItem(i);
           } else {
-            widget.items[i]['quantity'] = currentQuantity - 1;
+            widget.cartProvider.decreaseQuantity(i);
           }
 
           setState(() {});
@@ -86,7 +81,6 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   void updateSubTotal(itemPrice, itemQuantity) {
-    print("called");
     subTotal += (itemPrice * itemQuantity);
   }
 
@@ -108,6 +102,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    widget.cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
       backgroundColor: Colors
           .white, // wa you use this     loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName or price    to get the price or item
@@ -139,7 +134,7 @@ class _CartScreenState extends State<CartScreen> {
               alignment: Alignment.centerLeft,
               child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child: Container(child: getCartItems(widget.items))),
+                  child: Container(child: getCartItems())),
             ),
             Container(
               height: widget.cartPriceDetailsHeight,
