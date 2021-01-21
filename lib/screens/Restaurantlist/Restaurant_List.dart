@@ -94,7 +94,8 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                   data.tempCategoryIndex = index;
                   return CategoryRowBuilder();
                 },
-                itemCount: data.restList .length, //To render the number of rows in the ListView According to the number of Categories Available
+                itemCount: data.restList
+                    .length, //To render the number of rows in the ListView According to the number of Categories Available
               ),
             ),
           ],

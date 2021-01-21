@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
 import 'package:foodlyft/screens/cart/cart.dart';
 import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +21,10 @@ import './screens/splash/splash_screen.dart';
 import './screens/Restaurantlist/Restaurant_List.dart';
 import "./screens/Profile_Screens/Profile.dart";
 import 'providers/UserAuth.provider.dart';
+import 'screens/settings/settings_screen.dart';
 
 void main() {
+  String fontFamily = 'Roboto';
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -35,6 +38,7 @@ void main() {
       ),
     ],
     child: MaterialApp(
+      // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
       debugShowCheckedModeBanner: false,
       initialRoute: "/Restaurant_List",
       // ignore: missing_return
@@ -78,6 +82,8 @@ void main() {
             return MaterialPageRoute(builder: (context) => FoodDetails());
           case "/profile":
             return MaterialPageRoute(builder: (context) => Profile());
+          case "/settings_screen":
+            return MaterialPageRoute(builder: (context) => Settings());
         }
       },
     ),
