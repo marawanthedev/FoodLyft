@@ -193,7 +193,8 @@ class _CartScreenState extends State<CartScreen> {
                 height: 50.0,
                 buttonText: "Proceed to Payment",
                 backgroundColor: HexColor("F2A22C"),
-                onPressed: () => print("PRESSED"),
+                onPressed: () =>
+                    {Navigator.pushNamed(context, "/payment_form")},
                 setState: () {},
               ),
             )
