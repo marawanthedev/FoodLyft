@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:foodlyft/components/categoryItemadmin.dart';
+import 'package:foodlyft/providers/restaurants.dart';
+import '../../components/categoryItem.dart';
+import 'package:provider/provider.dart';
+
+class AdminGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final restaurantsData = Provider.of<Restaurants>(context);
+    final restaurantss = restaurantsData.items;
+    return GridView.builder(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.all(10.0),
+      itemCount: restaurantss.length,
+      itemBuilder: (ctx, i) => CategoryItem2(
+        id: restaurantss[i].id,
+        title: restaurantss[i].title,
+        image: restaurantss[i].image,
+      ),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 5,
+      ),
+    );
+  }
+}
