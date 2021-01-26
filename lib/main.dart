@@ -5,7 +5,7 @@ import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 import 'package:provider/provider.dart';
 import 'providers/cart.provider.dart';
 import 'screens/FoodMenu/Food_Menu2.dart';
-import 'screens/payment/payment_failed.dart';
+import 'screens/payment/paymentFailed/payment_failed.dart';
 import 'screens/payment/payment_succesfull.dart';
 import 'screens/payment/payment_form.dart';
 import "./screens/Login/login.dart";
@@ -40,7 +40,7 @@ void main() {
     child: MaterialApp(
       // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/login",
+      initialRoute: "/payment_form",
       // ignore: missing_return
       onGenerateRoute: (settings) {
         switch (settings.name) {
@@ -56,8 +56,7 @@ void main() {
             return MaterialPageRoute(
                 builder: (context) => PaymentFailed(settings.arguments));
           case "/login":
-            return MaterialPageRoute(
-                builder: (context) => LoginScreen([]));
+            return MaterialPageRoute(builder: (context) => LoginScreen([]));
           case "/Signup":
             return MaterialPageRoute(builder: (context) => SignUpScreen());
           case "/cart":

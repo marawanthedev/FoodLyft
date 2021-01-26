@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "../screens/payment/payment_form.dart";
-import "../screens/payment/payment_failed.dart";
+import '../screens/payment/paymentFailed/payment_failed.dart';
 import "../screens/payment/payment_succesfull.dart";
 
 Route<dynamic> generateRoute(RouteSettings settings) {
