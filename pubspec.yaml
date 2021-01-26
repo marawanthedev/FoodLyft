@@ -30,6 +30,9 @@ dependencies:
   provider: ^4.3.2+4
   sliding_up_panel: ^1.0.2
   smooth_star_rating: ^1.0.4
+  firebase_auth: ^0.14.0+5
+  cloud_firestore: ^0.12.9+4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -89,7 +92,7 @@ flutter:
     - assets/images/casadia.jpg
     - assets/images/CheeseBurger.jpg
     - assets/images/Chickenburger.jpg
-    - assets/images/fries.jpg    
+    - assets/images/fries.jpg
     - assets/images/Kabab.jpg
     - assets/images/kabsa.jpg
     - assets/images/mandi.jpg
@@ -110,8 +113,6 @@ flutter:
     - assets/images/italianpizza.jpg
     - assets/images/grilled1chicken.jpg
     - assets/images/grilledchicken.jpg
-        
-
 
     # - images/a_dot_ham.jpeg
     # An image asset can refer to one or more resolution-specific "variants", see
@@ -174,11 +175,11 @@ flutter:
         - asset: assets/fonts/JosefinSans/JosefinSans-Italic.ttf
         - asset: assets/fonts/JosefinSans/JosefinSans-Light.ttf
         - asset: assets/fonts/JosefinSans/JosefinSans-LightItalic.ttf
-        - asset: assets/fonts/JosefinSans/JosefinSans-Regular.ttf    
-        - asset: assets/fonts/JosefinSans/JosefinSans-SemiBold.ttf    
-        - asset: assets/fonts/JosefinSans/JosefinSans-SemiBoldItalic.ttf    
-        - asset: assets/fonts/JosefinSans/JosefinSans-Thin.ttf    
-        - asset: assets/fonts/JosefinSans/JosefinSans-ThinItalic.ttf    
+        - asset: assets/fonts/JosefinSans/JosefinSans-Regular.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-SemiBold.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-SemiBoldItalic.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-Thin.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-ThinItalic.ttf
 
   # fonts:
   #   - family: Trajan Pro
