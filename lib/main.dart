@@ -40,9 +40,9 @@ void main() {
     child: MaterialApp(
       // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash_screen",
+      initialRoute: "/login",
       // ignore: missing_return
-      onGenerateRoute: (settings) { 
+      onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
           case "/payment_form":

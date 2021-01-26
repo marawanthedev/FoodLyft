@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/Restaurantlist/restruant_admin.dart';
+// import 'package:foodlyft/screens/Restaurantlist/restruant_admin.dart';
 import '../../screens/Restaurantlist/restaurants_grid.dart';
 import '../../models/restaurant.dart';
 
@@ -7,7 +7,7 @@ import '../../components/drawer_Options.dart';
 import '../Restaurantlist/Constants.dart';
 import '../Restaurantlist/Constants.dart';
 import 'new_restaurant.dart';
-import 'new_restaurant.dart';
+// import 'new_restaurant.dart';
 
 class AdminPage extends StatefulWidget {
   @override
@@ -97,7 +97,7 @@ class _AdminPageState extends State<AdminPage> {
                       ),
                       Container(
                         height: 500,
-                        child: AdminGrid(),
+                        // child: AdminGrid(),
                       )
                     ],
                   ),
@@ -253,7 +253,7 @@ Container scaffold() {
           ),
           Container(
             height: 500,
-            child: AdminGrid(),
+            // child: AdminGrid(),
           )
         ],
       ),
