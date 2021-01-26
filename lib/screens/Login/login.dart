@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
     widget.userInfo['email'] = widget.emailCtrl.text;
     widget.userInfo['password'] = widget.passwordCtrl.text;
 
-    print(widget.users);
+   
 
     validateLoginInput();
   }

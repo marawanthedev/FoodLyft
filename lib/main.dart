@@ -57,7 +57,7 @@ void main() {
                 builder: (context) => PaymentFailed(settings.arguments));
           case "/login":
             return MaterialPageRoute(
-                builder: (context) => LoginScreen(settings.arguments));
+                builder: (context) => LoginScreen([]));
           case "/Signup":
             return MaterialPageRoute(builder: (context) => SignUpScreen());
           case "/cart":

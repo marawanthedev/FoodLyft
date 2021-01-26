@@ -21,11 +21,23 @@ class Footer extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text(
-                  "Sign up.",
-                  style: TextStyle(
-                      color: Colors.black, fontSize: 20, fontFamily: 'Roboto'),
-                ),
+                RaisedButton(
+                  color: Colors.white,
+                  elevation: 0,
+                  highlightElevation: 0,
+                  focusElevation: 0,
+                  onPressed: () {
+                    print("gg");
+                    Navigator.pushNamed(context, "/Signup");
+                  },
+                  child: Text(
+                    "Sign up.",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontFamily: 'Roboto'),
+                  ),
+                )
               ],
             )),
         Container(

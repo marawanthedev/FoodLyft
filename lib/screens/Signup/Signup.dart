@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "../../services/hexColor.dart";
-import 'dart:async';
 import "../../components/formInput.dart";
 import "../../components/socialMediaBar.dart";
 import '../../models/user.dart';
 import '../../providers/UserAuth.provider.dart';
+import "./widgets/appBar.dart";
+import "./widgets/footer.dart";
+import "./widgets/formDivider.dart";
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -24,7 +26,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   _navigateToLoginScreen() {
-    Navigator.pushNamed(context, "/login", arguments: widget.users);
+    Navigator.pushNamed(context, "/login");
   }
 
   void populateSignUpInfo() {
@@ -71,23 +73,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         padding: EdgeInsets.only(top: 20, bottom: 20),
         child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: AppBar(
-                backgroundColor: Colors.white,
-                iconTheme: IconThemeData(
-                  color: Colors.black, //change your color here
-                ),
-                elevation: 0,
-                title: Container(
-                  margin: EdgeInsets.only(left: 50),
-                  child: Text(
-                    "Create Account",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Roboto',
-                        fontSize: 25,
-                        fontWeight: FontWeight.normal),
-                  ),
-                )),
+            appBar: PreferredSize(
+                child: CustomAppBar(), preferredSize: Size.fromHeight(60)),
             body: Builder(
               builder: (ctx) => SingleChildScrollView(
                 child: Container(
@@ -109,34 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Center(
                           child: Container(
                         margin: EdgeInsets.only(top: 40),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 40.0),
-                              child: Container(
-                                height: 1.0,
-                                width: 115.0,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "or",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 40.0),
-                              child: Container(
-                                height: 1.0,
-                                width: 115.0,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
+                        child: FormDivider(),
                       )),
                       Center(
                         child: Container(
@@ -332,42 +292,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                          margin: EdgeInsets.only(top: 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Have an account?",
-                                style: TextStyle(
-                                    color: HexColor("123C69"),
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto'),
-                              ),
-                              RaisedButton(
-                                onPressed: () {
-                                  // Validate returns true if the form is valid, otherwise false.
-                                  _navigateToLoginScreen();
-                                },
-                                elevation: 0,
-                                hoverElevation: 0,
-                                focusElevation: 0,
-                                highlightElevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(0),
-                                    side: BorderSide(
-                                      color: Colors.white,
-                                    )),
-                                child: Text("Login",
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 20)),
-                                color: Colors.white,
-                              ),
-                            ],
-                          )),
+                      CustomFooter(),
                     ],
                   ),
                 ),
