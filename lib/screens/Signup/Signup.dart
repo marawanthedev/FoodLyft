@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import "../../services/hexColor.dart";
-import "../../components/formInput.dart";
-import "../../components/socialMediaBar.dart";
-import '../../models/user.dart';
-import '../../providers/UserAuth.provider.dart';
-import "./widgets/appBar.dart";
-import "./widgets/footer.dart";
-import "./widgets/formDivider.dart";
+import "./helpers/dependencies.dart";
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -25,10 +16,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  _navigateToLoginScreen() {
-    Navigator.pushNamed(context, "/login");
-  }
-
   void populateSignUpInfo() {
     print("pops");
     widget.userInfo['email'] = widget.emailCtrl.text;

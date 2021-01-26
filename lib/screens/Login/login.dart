@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/UserAuth.provider.dart';
-import 'package:provider/provider.dart';
-import "../../services/hexColor.dart";
-import "../../components/formInput.dart";
-import "../../components/socialMediaBar.dart";
-import '../../models/user.dart';
-import "../Restaurantlist/Restaurant_List.dart";
-import "./widgets/appBar.dart";
-import "./widgets/formDivider.dart";
-import "./widgets/footer.dart";
+import "./helpers/dependencies.dart";
 
 class LoginScreen extends StatefulWidget {
   List<User> users;
@@ -30,8 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
   void populateLoginInfo() {
     widget.userInfo['email'] = widget.emailCtrl.text;
     widget.userInfo['password'] = widget.passwordCtrl.text;
-
-   
 
     validateLoginInput();
   }
@@ -86,8 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           'facebook': () => {print("Facebook")},
                           'twitter': () => {print("twitter")},
                         },
-                      )
-                      ),
+                      )),
                       Center(
                           child: Container(
                         margin: EdgeInsets.only(top: 40),

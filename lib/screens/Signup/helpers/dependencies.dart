@@ -1,0 +1,10 @@
+export 'package:flutter/material.dart';
+export 'package:provider/provider.dart';
+export "../../../services/hexColor.dart";
+export "../../../components/formInput.dart";
+export "../../../components/socialMediaBar.dart";
+export '../../../models/user.dart';
+export '../../../providers/UserAuth.provider.dart';
+export "./../widgets/appBar.dart";
+export "./../widgets/footer.dart";
+export "./../widgets/formDivider.dart";

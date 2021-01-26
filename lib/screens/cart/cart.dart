@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/cart.provider.dart';
-import '../../providers/restaurants.provider.dart';
-import 'package:provider/provider.dart';
-import "../../components/cartItem.dart";
-import "../../services/hexColor.dart";
-import "../../components/button.dart";
-import "./widgets/appBar.dart";
-import "./helpers/methods.dart";
+import "./helpers/dependencies.dart";
 
 class CartScreen extends StatefulWidget {
   static const routeName = '/Food_Menu2';
@@ -31,8 +23,6 @@ class _CartScreenState extends State<CartScreen> {
       fontWeight: FontWeight.normal);
 
   Widget getCartItems() {
-   
-
     subTotal = resetSubTotal();
     List<Widget> list = new List<Widget>();
 
@@ -77,8 +67,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     widget.cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
-      backgroundColor: Colors
-          .white, 
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: CustomAppBar(),
