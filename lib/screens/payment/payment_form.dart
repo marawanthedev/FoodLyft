@@ -25,10 +25,6 @@ class _PaymentFormState extends State<PaymentForm>
   void getData() async {}
   @override
   Widget build(BuildContext context) {
-    print("payment formss");
-
-    
-
     return Container(
         height: 100,
         color: Colors.white,

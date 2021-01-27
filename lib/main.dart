@@ -1,8 +1,12 @@
 import "./app/main_dependecies.dart";
 import "./app/router.dart" as router;
+import "./app/dependencies.dart" as dep;
 
-void main() {
+void main() async {
   // String fontFamily = 'Roboto';
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dep.init();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -18,7 +22,7 @@ void main() {
     child: MaterialApp(
         // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
         debugShowCheckedModeBanner: false,
-        initialRoute: "/payment_form",
+        initialRoute: "/Signup",
         // ignore: missing_return
         onGenerateRoute: router.createRoute),
   ));

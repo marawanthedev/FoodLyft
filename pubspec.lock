@@ -275,6 +275,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.5"
+  service_locator:
+    dependency: "direct main"
+    description:
+      name: service_locator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   shared_preferences:
     dependency: "direct main"
     description:

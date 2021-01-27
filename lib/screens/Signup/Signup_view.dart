@@ -1,8 +1,12 @@
+import 'package:foodlyft/app/dependencies.dart';
+
 import 'helpers/dependencies.dart';
+import "../../services/UserAuth/userAuth_service.dart";
 
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
+
   final _formKey = GlobalKey<FormState>();
   var userInfo = {"email": "", "password": ""};
   List<User> users = List<User>();
@@ -16,6 +20,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  // object type is related to abstract class = Getit var name 
+  UserAuthService viewModel = dependency();
+
   void populateSignUpInfo() {
     print("pops");
     widget.userInfo['email'] = widget.emailCtrl.text;
@@ -25,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     addUserToDB();
   }
 
-  void addUserToDB() {
+  void addUserToDB() async {
     print("Adding checking user to db");
     if (!duplicateUserInfo()) {
       widget.userAuthProvider.addUser(User(
@@ -35,6 +42,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
         phoneNumber: widget.userInfo['number'],
         imageSrc: null,
       ));
+      viewModel.addUser(User(
+        email: widget.userInfo['email'],
+        password: widget.userInfo['password'],
+        name: widget.userInfo['name'],
+        phoneNumber: widget.userInfo['number'],
+        imageSrc: null,
+      ));
+
       print("userAdded");
       widget.users.forEach((user) => {print(user.email), print(user.password)});
     } else {

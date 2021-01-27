@@ -10,7 +10,20 @@ class SignupViewModel extends Viewmodel {
   SignupViewModel();
   UserAuthService get dataService => dependency();
 
-  void addUser(User user) {
+  void addUser(User user) async {
+    print("model adding in progress");
+    if (user == null) return;
+    turnBusy();
+    // UserAuthService.addUser(user);
+    // final newUser = await UserAuthService.addUser(user);
+    final newUser = await dataService.addUser(user);
+    users.add(newUser);
+    turnIdle();
+  }
 
+  void getUsers() async {
+    turnBusy();
+    users = await dataService.getUsersList();
+    turnIdle();
   }
 }
