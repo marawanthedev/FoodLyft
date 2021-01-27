@@ -8,6 +8,7 @@ class SignupViewModel extends Viewmodel {
   List<User> users;
 
   SignupViewModel();
+  // also concrete class
   UserAuthService get dataService => dependency();
 
   void addUser(User user) async {
