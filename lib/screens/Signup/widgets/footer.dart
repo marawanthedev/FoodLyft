@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "./loginButton.dart";
-import "../../../services/hexColor.dart";
+import '../../../services/general/hexColor.dart';
 
 class CustomFooter extends StatelessWidget {
   @override

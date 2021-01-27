@@ -1,8 +1,8 @@
-import "./app/dependencies.dart";
+import "./app/main_dependecies.dart";
 import "./app/router.dart" as router;
 
 void main() {
-  String fontFamily = 'Roboto';
+  // String fontFamily = 'Roboto';
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -18,7 +18,7 @@ void main() {
     child: MaterialApp(
         // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
         debugShowCheckedModeBanner: false,
-        initialRoute: "/",
+        initialRoute: "/payment_form",
         // ignore: missing_return
         onGenerateRoute: router.createRoute),
   ));

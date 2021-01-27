@@ -1,23 +1,22 @@
-export 'package:flutter/material.dart';
-export 'package:foodlyft/screens/Restaurantlist/Constants.dart';
-export 'package:foodlyft/screens/cart/cart.dart';
-export 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
-export 'package:provider/provider.dart';
-export '../providers/cart.provider.dart';
-export '../screens/FoodMenu/Food_Menu2.dart';
-export '../screens/payment/paymentFailed/payment_failed.dart';
-export '../screens/payment/paymentSuceeded/payment_succesfull.dart';
-export '../screens/payment/payment_form.dart';
-export "../screens/Login/login.dart";
-export "../screens/Signup/Signup.dart";
-export '../providers/restaurants.provider.dart';
-export '../screens/admin/new_restaurant.dart';
-export '../screens/admin/edit-restaurant.dart';
-export '../screens/admin/dialog/back_home_dialog.dart';
-export '../screens/admin/dialog/delete_dialog.dart';
-export '../screens/HomePage/homepage_screen.dart';
-export '../screens/splash/splash_screen.dart';
-export '../screens/Restaurantlist/Restaurant_List.dart';
-export "../screens/Profile_Screens/Profile.dart";
-export '../providers/UserAuth.provider.dart';
-export '../screens/settings/settings_screen.dart';
+import 'package:get_it/get_it.dart';
+import '../services/UserAuth/userAuth_service.dart';
+import "../services/UserAuth/userAuth_service_firebase.dart";
+
+GetIt dependency = GetIt.instance;
+
+void init() {
+  // Services
+  // dependency.registerLazySingleton(() => RestService());
+
+  dependency
+      .registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
+
+  // dependency
+  // .registerLazySingleton<LoginService>(() => LoginServiceFirebase());
+
+  // dependency.registerLazySingleton<UserService>(() => UserServiceRest());
+
+  // // Viewmodels
+  // dependency.registerLazySingleton(() => LoginViewmodel());
+  // dependency.registerLazySingleton(() => TodolistViewmodel());
+}

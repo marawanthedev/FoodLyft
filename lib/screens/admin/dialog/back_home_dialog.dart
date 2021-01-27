@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/button.dart';
 import 'package:foodlyft/screens/admin/AdminPage.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 
 class Back_Home_Dialog extends StatefulWidget {
   @override

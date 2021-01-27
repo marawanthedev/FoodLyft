@@ -1,4 +1,4 @@
-import "./dependencies.dart";
+import "./main_dependecies.dart";
 
 Route<dynamic> createRoute(RouteSettings settings) {
   switch (settings.name) {

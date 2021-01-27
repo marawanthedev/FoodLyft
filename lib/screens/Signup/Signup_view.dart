@@ -1,4 +1,4 @@
-import "./helpers/dependencies.dart";
+import 'helpers/dependencies.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override

@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:foodlyft/services/hexColor.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'dialog/back_home_dialog.dart';

@@ -1,5 +1,5 @@
 export 'package:flutter/material.dart';
-export '../../../../services/hexColor.dart';
+export '../../../../services/general/hexColor.dart';
 export '../widgets/footer.dart';
 export '../widgets/mainText.dart';
 export '../widgets/paymentInfo.dart';

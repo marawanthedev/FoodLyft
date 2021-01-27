@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/button.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 
 import '../AdminPage.dart';
 

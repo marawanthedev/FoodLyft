@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 
 class CartItem extends StatelessWidget {
   final String title;

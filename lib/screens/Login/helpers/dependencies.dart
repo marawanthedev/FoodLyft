@@ -1,7 +1,7 @@
 export 'package:flutter/material.dart';
 export 'package:foodlyft/providers/UserAuth.provider.dart';
 export 'package:provider/provider.dart';
-export "../../../services/hexColor.dart";
+export '../../../services/general/hexColor.dart';
 export "../../../components/formInput.dart";
 export "../../../components/socialMediaBar.dart";
 export'../../../models/user.dart';
