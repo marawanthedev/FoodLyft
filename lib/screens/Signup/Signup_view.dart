@@ -22,57 +22,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   // object type is related to abstract class = Getit var name
-  UserAuthService viewModel = dependency();
 
-  User populateSignUpInfo() {
-    final user = User(
-      email: widget.emailCtrl.text,
-      password: widget.passwordCtrl.text,
-      name: widget.nameCtrl.text,
-      phoneNumber: widget.numberCtrl.text,
-      imageSrc: null,
-    );
-
-    return user;
-    // addUserToDB();
-  }
-
-  void addUserToDB() async {
-    print("Adding checking user to db");
-    if (!duplicateUserInfo()) {
-      widget.userAuthProvider.addUser(User(
-        email: widget.userInfo['email'],
-        password: widget.userInfo['password'],
-        name: widget.userInfo['name'],
-        phoneNumber: widget.userInfo['number'],
-        imageSrc: null,
-      ));
-
-      // viewModel.addUser(User(
-      //   email: widget.userInfo['email'],
-      //   password: widget.userInfo['password'],
-      //   name: widget.userInfo['name'],
-      //   phoneNumber: widget.userInfo['number'],
-      //   imageSrc: null,
-      // ));
-      // viewModel.getUsersList();
-
-      print("userAdded");
-      widget.users.forEach((user) => {print(user.email), print(user.password)});
-    } else {
-      print("Duplicate User");
-    }
-  }
-
-  bool duplicateUserInfo() {
-    bool duplicate = false;
-    if (widget.users != null) {
-      widget.users.forEach((user) => {
-            if (user.email == widget.userInfo['email']) {duplicate = true}
-          });
-    }
-    return duplicate;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +38,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               value: dependency<SignupViewModel>(),
               child:
                   Consumer<SignupViewModel>(builder: (context, viewmodel, _) {
-                
                 return Builder(
                   builder: (ctx) => SingleChildScrollView(
-                    
                     child: Container(
                       width: 450,
                       margin: EdgeInsets.only(top: 20),
@@ -282,15 +230,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                   backgroundColor:
                                                       HexColor("F2A22C"),
                                                 ));
-                                           
-                                                 viewmodel.addUser(
-                                                      User(
-      email: widget.emailCtrl.text,
-      password: widget.passwordCtrl.text,
-      name: widget.nameCtrl.text,
-      phoneNumber: widget.numberCtrl.text,
-      imageSrc: null,
-    ));
+
+                                                viewmodel.addUser(User(
+                                                  email: widget.emailCtrl.text,
+                                                  password:
+                                                      widget.passwordCtrl.text,
+                                                  name: widget.nameCtrl.text,
+                                                  phoneNumber:
+                                                      widget.numberCtrl.text,
+                                                  imageSrc: null,
+                                                ));
                                                 // this.setState(() {
                                                 //   viewmodel.addUser(
                                                 //       populateSignUpInfo());

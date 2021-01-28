@@ -8,7 +8,7 @@ export '../screens/FoodMenu/Food_Menu2.dart';
 export '../screens/payment/paymentFailed/payment_failed.dart';
 export '../screens/payment/paymentSuceeded/payment_succesfull.dart';
 export '../screens/payment/payment_form.dart';
-export "../screens/Login/login.dart";
+export "../screens/Login/login_view.dart";
 export '../screens/Signup/Signup_view.dart';
 export '../providers/restaurants.provider.dart';
 export '../screens/admin/new_restaurant.dart';
