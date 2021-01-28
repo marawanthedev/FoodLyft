@@ -17,13 +17,13 @@ class UserAuthServiceFirebase implements UserAuthService {
     // firebase.patch(collection: "users",documentId: )
   }
   Future<List<User>> getUsersList() async {
-    final usersList = await firebase.get(collection: "users");
-
-    var usersMap = usersList.documents.map((document) {
-      var documentData = document.data;
-      documentData['id'] = document.documentID;
-      return documentData;
-    }).toList();
-    return usersMap;
+    List users = await firebase.get(collection: "users");
+    if (users != null) {
+      print("users not null");
+      var usersMap = users.map((user) => User.fromJson(user)
+      ).toList();
+      return usersMap;
+    }
+   
   }
 }

@@ -16,6 +16,7 @@ void init() async {
 
   dependency
       .registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
+  dependency.registerLazySingleton(() => SignupViewModel());
 
   // dependency
   // .registerLazySingleton<LoginService>(() => LoginServiceFirebase());

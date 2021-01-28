@@ -11,7 +11,7 @@ class FirebaseService {
   FirebaseService._constructor();
 
   Future get({String collection, String documentId}) async {
-    print("gettig");
+    print("getting");
     if (collection != null) {
       CollectionReference collectionReference =
           Firestore.instance.collection(collection);
@@ -20,20 +20,27 @@ class FirebaseService {
         var snapshot = await collectionReference.document(documentId).get();
         var data = snapshot.data;
         if (data != null) {
-          print(data);
-          // return data;
+          return data;
         }
       } else {
         // getting all documents within a collection
         var snapshot = await collectionReference.getDocuments();
-        var dataMap = snapshot.documents.map((document) {
-          var documentData = document.data;
-          documentData['id'] = document.documentID;
-          return documentData;
-        }).toList();
+          List documents=List();
+          snapshot.documents.forEach((doc) {
 
-        print(dataMap);
-        // return dataMap;
+            var documentData=doc.data;
+            documentData['id']=doc.documentID;
+            documents.add(documentData);
+          });
+
+         
+        // var dataMap = snapshot.documents.map((document) {
+        //   var documentData = document.data;
+        //   documentData['id'] = document.documentID;
+        //   return documentData;
+        // }).toList();
+
+        return documents;
       }
     }
   }
