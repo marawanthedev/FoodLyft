@@ -14,8 +14,7 @@ void init() async {
 
   dependency.registerLazySingleton(() => FirebaseService());
 
-  dependency
-      .registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
+  dependency.registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
   dependency.registerLazySingleton(() => SignupViewModel());
 
   // dependency
