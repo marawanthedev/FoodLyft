@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../services/hexColor.dart';
+import '../../../services/general/hexColor.dart';
 
 class CashPayment extends StatelessWidget {
   @override

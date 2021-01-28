@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/button.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/screens/admin/AdminPage.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 
 class Back_Home_Dialog extends StatefulWidget {
   @override
@@ -59,7 +60,10 @@ class _Back_Home_DialogState extends State<Back_Home_Dialog> {
                     fontSize: 16,
                     backgroundColor: HexColor('F2A22C')),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AdminPage()));
+              },
             ),
           ])
         ]),

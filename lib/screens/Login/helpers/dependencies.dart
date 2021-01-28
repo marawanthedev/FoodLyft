@@ -1,0 +1,11 @@
+export 'package:flutter/material.dart';
+export 'package:foodlyft/providers/UserAuth.provider.dart';
+export 'package:provider/provider.dart';
+export '../../../services/general/hexColor.dart';
+export "../../../components/formInput.dart";
+export "../../../components/socialMediaBar.dart";
+export'../../../models/user.dart';
+export "../../Restaurantlist/Restaurant_List.dart";
+export "./../widgets/appBar.dart";
+export "./../widgets/formDivider.dart";
+export "./../widgets/footer.dart";

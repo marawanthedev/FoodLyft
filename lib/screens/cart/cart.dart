@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/cart.provider.dart';
-import '../../providers/restaurants.provider.dart';
-import 'package:provider/provider.dart';
-import "../../components/cartItem.dart";
-import "../../services/hexColor.dart";
-import "../../components/button.dart";
+import "./helpers/dependencies.dart";
 
 class CartScreen extends StatefulWidget {
   static const routeName = '/Food_Menu2';
@@ -29,23 +23,12 @@ class _CartScreenState extends State<CartScreen> {
       fontWeight: FontWeight.normal);
 
   Widget getCartItems() {
-    // widget.cartProvider.items
-    //     .forEach((key, value) => {print(key), print(value.title)});
-
-    resetSubTotal();
+    subTotal = resetSubTotal();
     List<Widget> list = new List<Widget>();
 
-// ProviderCartItem({
-//     @required this.id,
-//     @required this.title,
-//     @required this.quantity,
-//     @required this.price,
-//     @required this.imgSrc,
-//   });
-
     for (var i = 0; i < widget.cartProvider.items.length; i++) {
-      updateSubTotal(widget.cartProvider.items[i].price,
-          widget.cartProvider.items[i].quantity);
+      subTotal = updateSubTotal(widget.cartProvider.items[i].price,
+          widget.cartProvider.items[i].quantity, subTotal);
 
       list.add(CartItem(
         heroTag: "$i",
@@ -80,49 +63,14 @@ class _CartScreenState extends State<CartScreen> {
         mainAxisAlignment: MainAxisAlignment.start, children: list);
   }
 
-  void updateSubTotal(itemPrice, itemQuantity) {
-    subTotal += (itemPrice * itemQuantity);
-  }
-
-  double getPickUpCharge() {
-    return (subTotal * 0.05).roundToDouble();
-  }
-
-  double getTax() {
-    return (subTotal * 0.02).roundToDouble();
-  }
-
-  void resetSubTotal() {
-    subTotal = 0;
-  }
-
-  double getTotal() {
-    return getTax() + subTotal + getPickUpCharge();
-  }
-
   @override
   Widget build(BuildContext context) {
     widget.cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
-      backgroundColor: Colors
-          .white, // wa you use this     loaded.items[loaded.restaurantId].itemsa[loaded.ind].itemName or price    to get the price or item
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Container(
-            padding: EdgeInsets.only(left: 100),
-            child: Text(
-              "Cart",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Poppins',
-                  fontSize: 22.5,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1),
-            )),
-        iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
-        ),
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: CustomAppBar(),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -157,7 +105,7 @@ class _CartScreenState extends State<CartScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Pick-Up Charge", style: fadedStyle),
-                  Text("\$ ${getPickUpCharge()}", style: boldedStyle)
+                  Text("\$ ${getPickUpCharge(subTotal)}", style: boldedStyle)
                 ],
               ),
             ),
@@ -169,7 +117,7 @@ class _CartScreenState extends State<CartScreen> {
                 children: [
                   Text("Tax", style: fadedStyle),
                   Text(
-                    "\$ ${getTax()}",
+                    "\$ ${getTax(subTotal)}",
                     style: boldedStyle,
                   )
                 ],
@@ -182,7 +130,7 @@ class _CartScreenState extends State<CartScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Total", style: boldedStyle),
-                  Text("\$ ${getTotal()}", style: boldedStyle)
+                  Text("\$ ${getTotal(subTotal)}", style: boldedStyle)
                 ],
               ),
             ),

@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:foodlyft/providers/UserAuth.provider.dart';
-import 'package:provider/provider.dart';
-import "../../services/hexColor.dart";
-import "../../components/formInput.dart";
-import "../../components/socialMediaBar.dart";
-import '../../models/user.dart';
-import "../Restaurantlist/Restaurant_List.dart";
+import "./helpers/dependencies.dart";
 
 class LoginScreen extends StatefulWidget {
   List<User> users;
@@ -21,15 +14,12 @@ class LoginScreen extends StatefulWidget {
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
   var userAuthProvider;
-
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   void populateLoginInfo() {
     widget.userInfo['email'] = widget.emailCtrl.text;
     widget.userInfo['password'] = widget.passwordCtrl.text;
-
-    print(widget.users);
 
     validateLoginInput();
   }
@@ -63,23 +53,10 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: EdgeInsets.only(top: 20, bottom: 20),
         child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: AppBar(
-                backgroundColor: Colors.white,
-                iconTheme: IconThemeData(
-                  color: Colors.black, //change your color here
-                ),
-                elevation: 0,
-                title: Container(
-                  margin: EdgeInsets.only(left: 100),
-                  child: Text(
-                    "Login ",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Roboto',
-                        fontSize: 25,
-                        fontWeight: FontWeight.normal),
-                  ),
-                )),
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(60),
+              child: CustomAppBar(),
+            ),
             body: Builder(
               builder: (ctx) => SingleChildScrollView(
                 child: Container(
@@ -101,33 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Center(
                           child: Container(
                         margin: EdgeInsets.only(top: 40),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 40.0),
-                              child: Container(
-                                height: 1.0,
-                                width: 115.0,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "or",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 40.0),
-                              child: Container(
-                                height: 1.0,
-                                width: 115.0,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
+                        child: PreferredSize(
+                          child: FormDivider(),
+                          preferredSize: Size.fromHeight(70),
                         ),
                       )),
                       Center(
@@ -241,44 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "First Time here?",
-                                style: TextStyle(
-                                    color: HexColor("123C69"),
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto'),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "Sign up.",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto'),
-                              ),
-                            ],
-                          )),
-                      Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Forgot password?",
-                                style: TextStyle(
-                                    color: HexColor("123C69"),
-                                    fontSize: 20,
-                                    fontFamily: 'Roboto'),
-                              )
-                            ],
-                          ))
+                      Footer()
                     ],
                   ),
                 ),

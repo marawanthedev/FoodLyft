@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:foodlyft/services/hexColor.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'dialog/back_home_dialog.dart';
@@ -14,15 +14,6 @@ class Edit_restaurant extends StatefulWidget {
 }
 
 class _Edit_restaurantState extends State<Edit_restaurant> {
-  File _image;
-  final picker = ImagePicker();
-  Future getImage() async {
-    final pickerImage = await picker.getImage(source: ImageSource.gallery);
-    setState(() {
-      _image = File(pickerImage.path);
-    });
-  }
-
   String _name;
   String _email;
   String _password;
