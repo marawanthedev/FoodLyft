@@ -134,7 +134,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       .validate()) {
                                                     // If the form is valid, display a snackbar. In the real world,
                                                     // you'd often call a server or save the information in a database.
-
                                                     Scaffold.of(ctx)
                                                         .showSnackBar(SnackBar(
                                                       content: Text(
@@ -146,16 +145,36 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       backgroundColor:
                                                           HexColor("F2A22C"),
                                                     ));
-                                                    this.setState(() {
-                                                      viewmodel.validateLoginInput(
-                                                          User(
-                                                              email: widget
-                                                                  .emailCtrl
-                                                                  .text,
-                                                              password: widget
-                                                                  .passwordCtrl
-                                                                  .text),
-                                                          context);
+                                                    this.setState(() async {
+                                                      if (await viewmodel
+                                                          .validateLoginInput(
+                                                        User(
+                                                            email: widget
+                                                                .emailCtrl.text,
+                                                            password: widget
+                                                                .passwordCtrl
+                                                                .text),
+                                                      )) {
+                                                        Scaffold.of(ctx)
+                                                            .showSnackBar(
+                                                                SnackBar(
+                                                          content: Text(
+                                                            'Login Successfull',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                          backgroundColor:
+                                                              HexColor(
+                                                                  "F2A22C"),
+                                                        ));
+                                                        Timer(
+                                                            Duration(
+                                                                seconds: 2),
+                                                            () => viewmodel
+                                                                .navigate(
+                                                                    context));
+                                                      }
                                                     });
                                                   }
                                                 },

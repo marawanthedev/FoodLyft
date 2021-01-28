@@ -9,3 +9,4 @@ export "./../widgets/appBar.dart";
 export "./../widgets/footer.dart";
 export "./../widgets/formDivider.dart";
 export "../Signup_viewmodel.dart";
+export 'dart:async';

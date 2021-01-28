@@ -23,7 +23,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   // object type is related to abstract class = Getit var name
 
-
   @override
   Widget build(BuildContext context) {
     widget.userAuthProvider = Provider.of<UserAuthProvider>(context);
@@ -213,7 +212,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           width: 400,
                                           height: 50,
                                           child: RaisedButton(
-                                            onPressed: () {
+                                            onPressed: () async {
                                               // Validate returns true if the form is valid, otherwise false.
                                               if (widget._formKey.currentState
                                                   .validate()) {
@@ -230,8 +229,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                   backgroundColor:
                                                       HexColor("F2A22C"),
                                                 ));
-
-                                                viewmodel.addUser(User(
+                                                final user = User(
                                                   email: widget.emailCtrl.text,
                                                   password:
                                                       widget.passwordCtrl.text,
@@ -239,12 +237,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                   phoneNumber:
                                                       widget.numberCtrl.text,
                                                   imageSrc: null,
-                                                ));
-                                                // this.setState(() {
-                                                //   viewmodel.addUser(
-                                                //       populateSignUpInfo());
-                                                // }
-                                                // );
+                                                );
+                                                if (!await viewmodel
+                                                    .checkForDuplicity(user)) {
+                                                  Scaffold.of(ctx)
+                                                      .showSnackBar(SnackBar(
+                                                    content: Text(
+                                                      'Signup successfull',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    backgroundColor:
+                                                        HexColor("F2A22C"),
+                                                  ));
+                                                  Timer(
+                                                      Duration(seconds: 2),
+                                                      () => viewmodel
+                                                          .addUser(user));
+                                                } else {
+                                                  Scaffold.of(ctx)
+                                                      .showSnackBar(SnackBar(
+                                                    content: Text(
+                                                      'Email Address is already in use',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    backgroundColor:
+                                                        HexColor("F2A22C"),
+                                                  ));
+                                                }
                                               }
                                             },
                                             shape: RoundedRectangleBorder(

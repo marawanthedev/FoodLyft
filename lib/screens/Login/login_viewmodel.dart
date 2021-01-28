@@ -6,32 +6,35 @@ import "../Restaurantlist/Restaurant_List.dart";
 import 'helpers/dependencies.dart';
 
 class LoginViewModel extends Viewmodel {
-  List<User> users = List<User>();
 
   LoginViewModel();
   // also concrete class
   UserAuthService get dataService => dependency();
 
-  Future<bool> validateLoginInput(User user, context) async {
-    turnBusy();
+  void navigate(context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RestaurantMenu()));
+  }
 
+  Future<bool> validateLoginInput(User user) async {
+    turnBusy();
+    bool info_is_correct = false;
     final users = await getUsers();
     if (users != null) {
       users.forEach((_user) {
         if (_user.email == user.email) {
           if (_user.password == user.password) {
             turnIdle();
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => RestaurantMenu()));
-          } else {
-            return;
+            info_is_correct = true;
+            return info_is_correct;
           }
         }
       });
-    } else {
-      turnIdle();
+      return info_is_correct;
     }
+
     turnIdle();
+    return info_is_correct;
   }
 
   Future<List<User>> getUsers() async {
