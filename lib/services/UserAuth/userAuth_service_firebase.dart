@@ -5,11 +5,18 @@ import "../../app/dependencies.dart";
 
 class UserAuthServiceFirebase implements UserAuthService {
   final firebase = dependency<FirebaseService>();
-
+  User userInAuth;
   Future<User> addUser(User user) async {
-    print("model adding rest in progress");
 
     firebase.post(collection: "users", data: user.toJson());
+  }
+
+  void addUserInAuth(User user) {
+    userInAuth = user;
+  }
+
+  User getUserInAuth() {
+    return userInAuth;
   }
 
   Future<User> updateUserInfo(
@@ -19,11 +26,8 @@ class UserAuthServiceFirebase implements UserAuthService {
   Future<List<User>> getUsersList() async {
     List users = await firebase.get(collection: "users");
     if (users != null) {
-      print("users not null");
-      var usersMap = users.map((user) => User.fromJson(user)
-      ).toList();
+      var usersMap = users.map((user) => User.fromJson(user)).toList();
       return usersMap;
     }
-   
   }
 }

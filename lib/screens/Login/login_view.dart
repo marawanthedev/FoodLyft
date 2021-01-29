@@ -8,18 +8,14 @@ class LoginScreen extends StatefulWidget {
   LoginScreen(this.users);
   _LoginScreenState createState() => _LoginScreenState();
   final _formKey = GlobalKey<FormState>();
-
   bool paymentSuceeded = true;
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
-  var userAuthProvider;
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    widget.userAuthProvider = Provider.of<UserAuthProvider>(context);
-
     return Container(
         color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -46,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Center(
                                 child: SocialMediaAppBar(
                               onPressedFunctions: {
-                                'google': () => viewmodel.getUsers(),
+                                'google': () => {print("google")},
                                 'facebook': () => {print("Facebook")},
                                 'twitter': () => {print("twitter")},
                               },
@@ -168,6 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                               HexColor(
                                                                   "F2A22C"),
                                                         ));
+                                                        
                                                         Timer(
                                                             Duration(
                                                                 seconds: 2),

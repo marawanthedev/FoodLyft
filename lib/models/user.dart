@@ -16,7 +16,7 @@ class User {
             password: json['password'],
             address: json['address'],
             phoneNumber: json['phoneNumber'],
-            name: json['imageSrc']);
+            name: json['name']);
 
  Map<String, dynamic> toJson() =>
       {'email': email, 'password':password, 'address': address,'phoneNumber': phoneNumber,'name': name}; 

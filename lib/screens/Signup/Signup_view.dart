@@ -1,8 +1,5 @@
 import 'package:foodlyft/app/dependencies.dart';
-
 import 'helpers/dependencies.dart';
-import "../../services/UserAuth/userAuth_service.dart";
-import "./Signup_viewmodel.dart" as viewModel;
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -17,7 +14,6 @@ class SignUpScreen extends StatefulWidget {
   final confrimPasswordCtrl = TextEditingController();
   final nameCtrl = TextEditingController();
   final numberCtrl = TextEditingController();
-  var userAuthProvider;
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
@@ -25,7 +21,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    widget.userAuthProvider = Provider.of<UserAuthProvider>(context);
     return Container(
         color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),

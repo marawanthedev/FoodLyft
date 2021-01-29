@@ -28,7 +28,6 @@ class _PaymentSuceededState extends State<PaymentSuceeded> {
   @override
   Widget build(BuildContext context) {
     final testProvider = Provider.of<Restaurants>(context);
-    print(testProvider.items);
     return Container(
       padding: new EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),
       color: Colors.white,

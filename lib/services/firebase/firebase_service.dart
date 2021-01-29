@@ -11,7 +11,6 @@ class FirebaseService {
   FirebaseService._constructor();
 
   Future get({String collection, String documentId}) async {
-    print("getting");
     if (collection != null) {
       CollectionReference collectionReference =
           Firestore.instance.collection(collection);
@@ -46,8 +45,6 @@ class FirebaseService {
   }
 
   Future post({String collection, dynamic data}) async {
-    print("posting in progress");
-
     if (collection != null && data != null) {
       return await Firestore.instance.collection(collection).document().setData(data);
     }
