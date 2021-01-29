@@ -8,18 +8,14 @@ class LoginScreen extends StatefulWidget {
   LoginScreen(this.users);
   _LoginScreenState createState() => _LoginScreenState();
   final _formKey = GlobalKey<FormState>();
-
   bool paymentSuceeded = true;
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
-  var userAuthProvider;
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    widget.userAuthProvider = Provider.of<UserAuthProvider>(context);
-
     return Container(
         color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -46,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Center(
                                 child: SocialMediaAppBar(
                               onPressedFunctions: {
-                                'google': () => viewmodel.getUsers(),
+                                'google': () => {print("google")},
                                 'facebook': () => {print("Facebook")},
                                 'twitter': () => {print("twitter")},
                               },
@@ -134,7 +130,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       .validate()) {
                                                     // If the form is valid, display a snackbar. In the real world,
                                                     // you'd often call a server or save the information in a database.
-
                                                     Scaffold.of(ctx)
                                                         .showSnackBar(SnackBar(
                                                       content: Text(
@@ -146,16 +141,37 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       backgroundColor:
                                                           HexColor("F2A22C"),
                                                     ));
-                                                    this.setState(() {
-                                                      viewmodel.validateLoginInput(
-                                                          User(
-                                                              email: widget
-                                                                  .emailCtrl
-                                                                  .text,
-                                                              password: widget
-                                                                  .passwordCtrl
-                                                                  .text),
-                                                          context);
+                                                    this.setState(() async {
+                                                      if (await viewmodel
+                                                          .validateLoginInput(
+                                                        User(
+                                                            email: widget
+                                                                .emailCtrl.text,
+                                                            password: widget
+                                                                .passwordCtrl
+                                                                .text),
+                                                      )) {
+                                                        Scaffold.of(ctx)
+                                                            .showSnackBar(
+                                                                SnackBar(
+                                                          content: Text(
+                                                            'Login Successfull',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                          backgroundColor:
+                                                              HexColor(
+                                                                  "F2A22C"),
+                                                        ));
+                                                        
+                                                        Timer(
+                                                            Duration(
+                                                                seconds: 2),
+                                                            () => viewmodel
+                                                                .navigate(
+                                                                    context));
+                                                      }
                                                     });
                                                   }
                                                 },

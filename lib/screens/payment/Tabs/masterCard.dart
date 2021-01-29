@@ -32,7 +32,6 @@ class _MasterCardPaymentState extends State<MasterCardPayment> {
   }
 
   void _navigate() {
-    print("navigate");
     Navigator.pushNamed(context,
         widget.paymentSuceeded ? "/payment_suceeded" : "/payment_failed",
         arguments: widget.paymentInfo);

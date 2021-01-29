@@ -9,10 +9,6 @@ GetIt dependency = GetIt.instance;
 
 void init() async {
   // Services
-  // dependency.registerLazySingleton(() => RestService());
-  print("registerd");
-  // await setupLocator();
-
   dependency.registerLazySingleton(() => FirebaseService());
 
   dependency.registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());

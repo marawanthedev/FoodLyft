@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/providers/restaurants.provider.dart';
 import 'package:provider/provider.dart';
 import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
-import "../../providers/UserAuth.provider.dart";
 
 class RestaurantMenu extends StatefulWidget {
+  User user;
+  RestaurantMenu({this.user});
   @override
   _RestaurantMenuState createState() => _RestaurantMenuState();
 }
@@ -17,25 +19,24 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
     final data = Provider.of<Restaurants>(context);
     data.getREstaurantByCategory();
     data.getLists();
-    var userAuthProvider = Provider.of<UserAuthProvider>(context);
 
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      drawer: DrawerOptions(),
+      drawer: DrawerOptions(user:widget.user),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
           onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DrawerOptions())),
+              MaterialPageRoute(builder: (context) => DrawerOptions(user:widget.user))),
           child: Icon(
             Icons.sort,
             color: appListColor,
           ),
         ),
-        actions: userAuthProvider.isUserInAuth()
-            ? userAuthProvider.getUserInAuth().name.contains("admin")
+        actions: widget.user.name!=null
+            ? widget.user.name.contains("admin")
                 ? <Widget>[
                     PopupMenuButton(
                       onSelected: (selectedValue) {},
