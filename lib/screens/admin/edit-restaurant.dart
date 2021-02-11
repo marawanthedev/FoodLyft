@@ -1,6 +1,9 @@
 import 'dart:io';
-
+import 'package:path/path.dart' as Path;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/admin/services/database.dart';
 import 'package:foodlyft/services/hexColor.dart';
 import 'package:foodlyft/services/hexColor.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,20 +12,49 @@ import 'dialog/back_home_dialog.dart';
 import 'dialog/delete_dialog.dart';
 
 class Edit_restaurant extends StatefulWidget {
+  final String title;
+  final String image;
+  final String email;
+  final String password;
+  final DocumentReference dId;
+  const Edit_restaurant(
+      {Key key, this.title, this.image, this.email, this.password, this.dId})
+      : super(key: key);
   @override
   _Edit_restaurantState createState() => _Edit_restaurantState();
 }
 
 class _Edit_restaurantState extends State<Edit_restaurant> {
-  String _name;
-  String _email;
-  String _password;
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Database database = Database();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  File imagePicked;
+  final picker = ImagePicker();
+  Future getImage() async {
+    final pickerImage = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      imagePicked = File(pickerImage.path);
+    });
+  }
+
+  updateRestaurent(url) async {
+    Map<String, String> data = {
+      "img": url,
+      "restaurant_name": name.text,
+      "email": email.text,
+      "password": password.text
+    };
+    database.updateRestaurentInfo(data);
+  }
+
   Widget _buildName() {
     return TextFormField(
-      decoration: InputDecoration(labelText: ''),
+      decoration: InputDecoration(hintText: "Name: " + widget.title),
       validator: (String value) {
         if (value.isEmpty) {
           return 'Name is Required';
@@ -30,15 +62,13 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
 
         return null;
       },
-      onSaved: (String value) {
-        _name = value;
-      },
+      controller: name,
     );
   }
 
   Widget _buildEmail() {
     return TextFormField(
-      decoration: InputDecoration(labelText: ''),
+      decoration: InputDecoration(hintText: "Email: " + widget.email),
       validator: (String value) {
         if (value.isEmpty) {
           return 'Email is Required';
@@ -52,15 +82,13 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
 
         return null;
       },
-      onSaved: (String value) {
-        _email = value;
-      },
+      controller: email,
     );
   }
 
   Widget _buildPassword() {
     return TextFormField(
-      decoration: InputDecoration(labelText: ''),
+      decoration: InputDecoration(hintText: "Password: " + widget.password),
       keyboardType: TextInputType.visiblePassword,
       validator: (String value) {
         if (value.isEmpty) {
@@ -69,9 +97,7 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
 
         return null;
       },
-      onSaved: (String value) {
-        _password = value;
-      },
+      controller: password,
     );
   }
 
@@ -113,10 +139,28 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
               decoration: BoxDecoration(
                 color: Colors.black12,
               ),
-              child: Container(
-                height: 60.0,
-                width: 60.0,
-                margin: EdgeInsets.fromLTRB(330, 140, 0, 0),
+              child: Stack(
+                children: [
+                  Positioned(
+                    child: Center(
+                      child: imagePicked == null
+                          ? Image(
+                              image: NetworkImage(widget.image),
+                            )
+                          : Center(child: Image.file(imagePicked)),
+                    ),
+                  ),
+                  Positioned(
+                    right: 0.0,
+                    bottom: 0.0,
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        getImage();
+                      },
+                      child: Icon(Icons.camera_alt),
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -148,18 +192,18 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
                                 style:
                                     TextStyle(color: Colors.red, fontSize: 16),
                               ),
-                              onPressed: () {
-                                if (!_formKey.currentState.validate()) {
-                                  return;
-                                }
+                              onPressed: () async {
+                                await FirebaseFirestore.instance
+                                    .runTransaction((Transaction mt) async {
+                                  mt.delete(widget.dId);
+                                });
 
-                                _formKey.currentState.save();
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                       builder: (_) => Delete_Dialog()),
                                 );
-                                print(_name);
-                                print(_email);
+                                // print(_name);
+                                // print(_email);
 
                                 //Send to API
                               },
@@ -179,18 +223,25 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 16),
                               ),
-                              onPressed: () {
-                                if (!_formKey.currentState.validate()) {
-                                  return;
-                                }
+                              onPressed: () async {
+                                if (!_formKey.currentState.validate()) {}
+                                await database
+                                    .uploadResturantImage(imagePicked);
+                                final ref = FirebaseStorage.instance
+                                    .ref()
+                                    .child("Restaurant Image")
+                                    .child(
+                                        'image/${Path.basename(imagePicked.path)}');
+                                final url = await ref.getDownloadURL();
+                                updateRestaurent(url);
 
                                 _formKey.currentState.save();
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                       builder: (_) => Back_Home_Dialog()),
                                 );
-                                print(_name);
-                                print(_email);
+                                // print(_name);
+                                // print(_email);
 
                                 //Send to API
                               },

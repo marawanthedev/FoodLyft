@@ -1,7 +1,11 @@
 import 'dart:ffi';
 import 'dart:io';
-
+import 'package:foodlyft/screens/admin/AdminPage.dart';
+import 'package:path/path.dart' as Path;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:foodlyft/screens/admin/services/database.dart';
 import 'package:foodlyft/services/hexColor.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,6 +17,10 @@ class New_Restaurant extends StatefulWidget {
 }
 
 class _New_RestaurantState extends State<New_Restaurant> {
+  Database database = Database();
+
+  //final formKey = GlobalKey<FormState>();
+
   File _image;
   final picker = ImagePicker();
   Future getImage() async {
@@ -22,11 +30,21 @@ class _New_RestaurantState extends State<New_Restaurant> {
     });
   }
 
-  String _name;
-  String _email;
-  String _password;
+  addNewRestaurent(url) async {
+    Map<String, String> data = {
+      "img": url,
+      "restaurant_name": name.text,
+      "email": email.text,
+      "password": password.text
+    };
+    database.uploadRestaurentInfo(data);
+  }
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
 
   Widget _buildName() {
     return Padding(
@@ -53,9 +71,7 @@ class _New_RestaurantState extends State<New_Restaurant> {
 
           return null;
         },
-        onSaved: (String value) {
-          _name = value;
-        },
+        controller: name,
       ),
     );
   }
@@ -91,9 +107,7 @@ class _New_RestaurantState extends State<New_Restaurant> {
 
           return null;
         },
-        onSaved: (String value) {
-          _email = value;
-        },
+        controller: email,
       ),
     );
   }
@@ -124,9 +138,7 @@ class _New_RestaurantState extends State<New_Restaurant> {
 
           return null;
         },
-        onSaved: (String value) {
-          _password = value;
-        },
+        controller: password,
       ),
     );
   }
@@ -175,8 +187,7 @@ class _New_RestaurantState extends State<New_Restaurant> {
                     Positioned(
                       child: _image == null
                           ? Text("No Image Selected")
-                          : Image.file(_image),
-                      width: 420.0,
+                          : Center(child: Image.file(_image)),
                     ),
                     Positioned(
                       right: 0.0,
@@ -219,16 +230,10 @@ class _New_RestaurantState extends State<New_Restaurant> {
                                     color: HexColor('F2A22C'), fontSize: 16),
                               ),
                               onPressed: () {
-                                if (!_formKey.currentState.validate()) {
-                                  return;
-                                }
-
-                                _formKey.currentState.save();
-
-                                print(_name);
-                                print(_email);
-
-                                //Send to API
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AdminPage()));
                               },
                             ),
                           ),
@@ -246,18 +251,23 @@ class _New_RestaurantState extends State<New_Restaurant> {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 16),
                               ),
-                              onPressed: () {
-                                if (!_formKey.currentState.validate()) {
-                                  return;
-                                }
-
+                              onPressed: () async {
+                                if (!_formKey.currentState.validate()) {}
+                                await database.uploadResturantImage(_image);
+                                final ref = FirebaseStorage.instance
+                                    .ref()
+                                    .child("Restaurant Image")
+                                    .child(
+                                        'image/${Path.basename(_image.path)}');
+                                final url = await ref.getDownloadURL();
+                                addNewRestaurent(url);
                                 _formKey.currentState.save();
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                       builder: (_) => Back_Home_Dialog()),
                                 );
-                                print(_name);
-                                print(_email);
+                                // print(_name);
+                                // print(_email);
 
                                 //Send to API
                               },
