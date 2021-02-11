@@ -23,19 +23,21 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      drawer: DrawerOptions(user:widget.user),
+      drawer: DrawerOptions(user: widget.user),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
-          onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DrawerOptions(user:widget.user))),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DrawerOptions(user: widget.user))),
           child: Icon(
             Icons.sort,
             color: appListColor,
           ),
         ),
-        actions: widget.user.name!=null
+        actions: widget.user.name != null
             ? widget.user.name.contains("admin")
                 ? <Widget>[
                     PopupMenuButton(

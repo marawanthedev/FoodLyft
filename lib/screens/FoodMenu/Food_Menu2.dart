@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../components/MenuItems_builder.dart';
 import '../../providers/restaurants.provider.dart';
 import '../../screens/Restaurantlist/Restaurant_List.dart';
-import '../../screens/fooddetailsscreen/food_details.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 import 'package:provider/provider.dart';

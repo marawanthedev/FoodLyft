@@ -1,3 +1,4 @@
+import 'package:foodlyft/app/main_dependecies.dart';
 import 'package:get_it/get_it.dart';
 import '../services/UserAuth/userAuth_service.dart';
 import "../services/firebase/firebase_service.dart";
@@ -11,10 +12,16 @@ void init() async {
   // Services
   dependency.registerLazySingleton(() => FirebaseService());
 
-  dependency.registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
+  dependency
+      .registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
   dependency.registerLazySingleton(() => SignupViewModel());
   dependency.registerLazySingleton(() => LoginViewModel());
+  dependency.registerLazySingleton(() => RestaurantMenu());
+  dependency.registerLazySingleton(() => FoodMenu2());
+  dependency.registerLazySingleton(() => FoodDetails());
+
   
+
   // dependency
   // .registerLazySingleton<LoginService>(() => LoginServiceFirebase());
 
