@@ -32,13 +32,6 @@ class FirebaseService {
             documents.add(documentData);
           });
 
-         
-        // var dataMap = snapshot.documents.map((document) {
-        //   var documentData = document.data;
-        //   documentData['id'] = document.documentID;
-        //   return documentData;
-        // }).toList();
-
         return documents;
       }
     }

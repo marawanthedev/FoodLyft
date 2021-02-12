@@ -4,7 +4,6 @@ import "../../services/UserAuth/userAuth_service.dart";
 import '../../app/dependencies.dart';
 import "../Restaurantlist/Restaurant_List.dart";
 import 'helpers/dependencies.dart';
-import "../../providers/UserAuth.provider.dart";
 
 class LoginViewModel extends Viewmodel {
   // UserAuthProvider userAuthProvider= new UserAuthProvider();
@@ -14,7 +13,9 @@ class LoginViewModel extends Viewmodel {
   UserAuthService get dataService => dependency();
   void navigate(context) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => RestaurantMenu(user:currentUser)));
+        context,
+        MaterialPageRoute(
+            builder: (context) => RestaurantMenu(user: currentUser)));
   }
 
   Future<bool> validateLoginInput(User user) async {
@@ -27,7 +28,7 @@ class LoginViewModel extends Viewmodel {
           if (_user.password == user.password) {
             turnIdle();
             dataService.addUserInAuth(_user);
-            currentUser=_user;
+            currentUser = _user;
             infoIsCorrect = true;
             return infoIsCorrect;
           }

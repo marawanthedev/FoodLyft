@@ -4,6 +4,7 @@ import "../services/firebase/firebase_service.dart";
 import "../services/UserAuth/userAuth_service_firebase.dart";
 import "../screens/Signup/Signup_viewmodel.dart";
 import "../screens/Login/login_viewmodel.dart";
+import "../screens/Profile_Screens/Profile_viewmodel.dart";
 
 GetIt dependency = GetIt.instance;
 
@@ -15,7 +16,10 @@ void init() async {
       .registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
   dependency.registerLazySingleton(() => SignupViewModel());
   dependency.registerLazySingleton(() => LoginViewModel());
-  
+  dependency.registerLazySingleton(() => ProfileViewModel());
+
+  // dependency.registerLazySingleton(() => ProfileViewModel());
+
   // dependency
   // .registerLazySingleton<LoginService>(() => LoginServiceFirebase());
 

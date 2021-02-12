@@ -18,6 +18,6 @@ export '../screens/admin/dialog/delete_dialog.dart';
 export '../screens/HomePage/homepage_screen.dart';
 export '../screens/splash/splash_screen.dart';
 export '../screens/Restaurantlist/Restaurant_List.dart';
-export "../screens/Profile_Screens/Profile.dart";
+export '../screens/Profile_Screens/Profile_view.dart';
 export '../providers/UserAuth.provider.dart';
 export '../screens/settings/settings_screen.dart';

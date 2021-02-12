@@ -76,7 +76,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                   color: Color.fromRGBO(255, 167, 39, 1),
                 ),
                 hintText: 'What do people call you?',
-                labelText: '${userInAuth.name}',
+                labelText: '${userInAuth != null ?userInAuth.name:""}',
                 focusColor: Color.fromRGBO(255, 167, 39, 1),
               ),
             ),
@@ -88,7 +88,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                   color: Color.fromRGBO(255, 167, 39, 1),
                 ),
                 hintText: 'What is your email address?',
-                labelText: '${userInAuth.email}',
+                labelText: '${userInAuth != null ?userInAuth.email:""}',
               ),
             ),
             TextFormField(
@@ -99,7 +99,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                   color: Color.fromRGBO(255, 167, 39, 1),
                 ),
                 hintText: 'What is your phone number?',
-                labelText: '${userInAuth.phoneNumber}',
+                labelText: '${userInAuth != null ?userInAuth.phoneNumber:""}',
               ),
             ),
             SizedBox(
