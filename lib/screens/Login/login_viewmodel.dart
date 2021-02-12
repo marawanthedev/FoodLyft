@@ -2,7 +2,7 @@ import 'package:foodlyft/screens/viewmodel.dart';
 import "../../models/user.dart";
 import "../../services/UserAuth/userAuth_service.dart";
 import '../../app/dependencies.dart';
-import "../Restaurantlist/Restaurant_List.dart";
+import "../Restaurantlist/Restaurant_List_view.dart";
 import 'helpers/dependencies.dart';
 import "../../providers/UserAuth.provider.dart";
 

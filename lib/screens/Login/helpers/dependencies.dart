@@ -4,7 +4,7 @@ export '../../../services/general/hexColor.dart';
 export "../../../components/formInput.dart";
 export "../../../components/socialMediaBar.dart";
 export '../../../models/user.dart';
-export "../../Restaurantlist/Restaurant_List.dart";
+export "../../Restaurantlist/Restaurant_List_view.dart";
 export "./../widgets/appBar.dart";
 export "./../widgets/formDivider.dart";
 export "./../widgets/footer.dart";

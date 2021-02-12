@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/providers/restaurants.provider.dart';
+import 'package:foodlyft/screens/Restaurantlist/Restaurant_List_viewmodel.dart';
+import 'package:foodlyft/screens/view.dart';
 import 'package:provider/provider.dart';
 import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
@@ -64,7 +66,11 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: View<RestaurantViewModel>(
+          initViewmodel: (viewmodel) => viewmodel.getRestaurantsList(),
+          builder: (context, viewmodel, _) {
+            final restaurants = viewmodel.restaurants;
+             return SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: <Widget>[
@@ -103,7 +109,8 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             ),
           ],
         ),
-      ),
+      );
+          }),
     );
   }
 }

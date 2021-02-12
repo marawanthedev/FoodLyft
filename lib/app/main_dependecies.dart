@@ -17,7 +17,7 @@ export '../screens/admin/dialog/back_home_dialog.dart';
 export '../screens/admin/dialog/delete_dialog.dart';
 export '../screens/HomePage/homepage_screen.dart';
 export '../screens/splash/splash_screen.dart';
-export '../screens/Restaurantlist/Restaurant_List.dart';
+export '../screens/Restaurantlist/Restaurant_List_view.dart';
 export "../screens/Profile_Screens/Profile.dart";
 export '../providers/UserAuth.provider.dart';
 export '../screens/settings/settings_screen.dart';
