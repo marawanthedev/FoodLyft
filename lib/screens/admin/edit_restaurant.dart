@@ -28,14 +28,14 @@ class _EditRestaurantState extends State<EditRestaurant> {
   }
 
   void _saveEdited() {
-   final isValid = _form.currentState.validate();
+    final isValid = _form.currentState.validate();
+    if (!isValid) {
+      return;
+    }
     _form.currentState.save();
-    print(_editedRestaurant.title);
-    print(_editedRestaurant.category);
-    print(_editedRestaurant.description);
-    print(_editedRestaurant.image);
-    print(_editedRestaurant.price);
-    print(_editedRestaurant.id);
+    Provider.of<Restaurants>(context, listen: false)
+        .addRestaurant(_editedRestaurant);
+    Navigator.of(context).pop();
   }
 
   Widget build(BuildContext context) {

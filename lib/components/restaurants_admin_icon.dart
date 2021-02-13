@@ -4,8 +4,9 @@ import '../app/main_dependecies.dart';
 class AdminRestaurantItem extends StatelessWidget {
   final String title;
   final String image;
+  final String id;
 
-  AdminRestaurantItem({this.title, this.image});
+  AdminRestaurantItem({this.title, this.image, this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,10 @@ class AdminRestaurantItem extends StatelessWidget {
                         children: <Widget>[
                           IconButton(
                             icon: Icon(Icons.edit),
-                            onPressed: () {},
+                            onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditRestaurant())),
                             color: Theme.of(context).primaryColor,
                           ),
                           IconButton(
