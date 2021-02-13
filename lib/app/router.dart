@@ -1,3 +1,5 @@
+import 'package:foodlyft/screens/Profile_Screens/Profile_view.dart';
+
 import "./main_dependecies.dart";
 
 Route<dynamic> createRoute(RouteSettings settings) {

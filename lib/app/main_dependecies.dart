@@ -15,13 +15,8 @@ export '../screens/admin/dialog/back_home_dialog.dart';
 export '../screens/admin/dialog/delete_dialog.dart';
 export '../screens/HomePage/homepage_screen.dart';
 export '../screens/splash/splash_screen.dart';
-<<<<<<< HEAD
-export '../screens/Restaurantlist/Restaurant_List.dart';
-export '../screens/Profile_Screens/Profile_view.dart';
-=======
 export '../screens/Restaurantlist/Restaurant_List_view.dart';
-export "../screens/Profile_Screens/Profile.dart";
->>>>>>> ef7250242ffc1191139fe28956f2385ca2b62f1f
+export "../screens/Profile_Screens/Profile_view.dart";
 export '../providers/UserAuth.provider.dart';
 export '../screens/settings/settings_screen.dart';
 export '../screens/admin/adminPage.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/app/main_dependecies.dart';
+import 'package:foodlyft/models/restaurant.dart';
 import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/providers/restaurants.provider.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List_viewmodel.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
+import "../../models/menu.dart";
 
 class RestaurantMenu extends StatefulWidget {
   User user;
@@ -22,7 +24,6 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
     final data = Provider.of<Restaurants>(context);
     data.getREstaurantByCategory();
     data.getLists();
-
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -40,20 +41,22 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             color: appListColor,
           ),
         ),
-        actions:  <Widget>[
-                    PopupMenuButton(
-                      onSelected: (selectedValue) {},
-                      icon: Icon(Icons.more_vert, color: appListColor),
-                      itemBuilder: (_) => [
-                        PopupMenuItem(child: 
-                        MaterialButton(child: Text('Edit Restaurants'),
-                        onPressed: () =>Navigator.push(context,MaterialPageRoute(
-                  builder: (context) => AdminPage())), 
-                        ), value: 0,),
-                        ],
-                    ),
-                  ]
-                ,
+        actions: <Widget>[
+          PopupMenuButton(
+            onSelected: (selectedValue) {},
+            icon: Icon(Icons.more_vert, color: appListColor),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                child: MaterialButton(
+                  child: Text('Edit Restaurants'),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AdminPage())),
+                ),
+                value: 0,
+              ),
+            ],
+          ),
+        ],
         title: Center(
           child: Container(
             height: 55,
@@ -68,47 +71,65 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
       body: View<RestaurantViewModel>(
           initViewmodel: (viewmodel) => viewmodel.getRestaurantsList(),
           builder: (context, viewmodel, _) {
+            viewmodel.addRestaurant(Restaurant(
+                id: 'r2',
+                title: "zeby",
+                image: "",
+                description: "zeby 3lek ya saad ya 5wal",
+                price: 25,
+                category: "el 5wlat",
+                itemsa: [
+                  MenuItems(
+                          resturantId: "r1",
+                          itemName: "Cheese Burger",
+                          description: "Cheese Burger pickles ",
+                          price: 10.0,
+                          image: "assets/images/CheeseBurger.jpg").toJson()
+                      
+                ]
+                ));
             final restaurants = viewmodel.restaurants;
-             return SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: <Widget>[
-            SafeArea(
-              child: Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(
-                    color: appListColor.withOpacity(0.40),
+            return SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: <Widget>[
+                  SafeArea(
+                    child: Container(
+                      margin: EdgeInsets.all(20),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(
+                          color: appListColor.withOpacity(0.40),
+                        ),
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          icon: Icon(Icons.search),
+                          hintText: "Search here",
+                          hintStyle: TextStyle(color: appListColor),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    icon: Icon(Icons.search),
-                    hintText: "Search here",
-                    hintStyle: TextStyle(color: appListColor),
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              height: 500,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
+                  Container(
+                    height: 500,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
 
-                itemBuilder: (context, index) {
-                  data.tempCategoryIndex = index;
-                  return CategoryRowBuilder();
-                },
-                itemCount: data.restList
-                    .length, //To render the number of rows in the ListView According to the number of Categories Available
+                      itemBuilder: (context, index) {
+                        data.tempCategoryIndex = index;
+                        return CategoryRowBuilder();
+                      },
+                      itemCount: data.restList
+                          .length, //To render the number of rows in the ListView According to the number of Categories Available
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
-      );
+            );
           }),
     );
   }

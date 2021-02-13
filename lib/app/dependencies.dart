@@ -27,18 +27,12 @@ void init() async {
 
   dependency.registerLazySingleton(() => SignupViewModel());
   dependency.registerLazySingleton(() => LoginViewModel());
-<<<<<<< HEAD
-  dependency.registerLazySingleton(() => ProfileViewModel());
-
-  // dependency.registerLazySingleton(() => ProfileViewModel());
-=======
   dependency.registerLazySingleton(() => FoodMenu2());
   dependency.registerLazySingleton(() => RestaurantViewModel());
   dependency.registerLazySingleton(() => FoodMenu2ViewModel());
 
 
   
->>>>>>> ef7250242ffc1191139fe28956f2385ca2b62f1f
 
   // dependency
   // .registerLazySingleton<LoginService>(() => LoginServiceFirebase());
