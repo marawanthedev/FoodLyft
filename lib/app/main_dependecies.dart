@@ -4,7 +4,7 @@ export 'package:foodlyft/screens/cart/cart.dart';
 export 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
 export 'package:provider/provider.dart';
 export '../providers/cart.provider.dart';
-export '../screens/FoodMenu/Food_Menu2.dart';
+export '../screens/FoodMenu/Food_Menu2_view.dart';
 export '../screens/payment/paymentFailed/payment_failed.dart';
 export '../screens/payment/paymentSuceeded/payment_succesfull.dart';
 export '../screens/payment/payment_form.dart';

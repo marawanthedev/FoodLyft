@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/FoodMenu/Food_Menu2.dart';
+import 'package:foodlyft/screens/FoodMenu/Food_Menu2_view.dart';
 import 'package:provider/provider.dart';
 import '../screens/Restaurantlist/Constants.dart';
 import '../screens/admin/edit-restaurant.dart';

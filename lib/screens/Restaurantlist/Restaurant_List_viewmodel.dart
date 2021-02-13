@@ -18,6 +18,9 @@ class RestaurantViewModel extends Viewmodel {
     turnIdle();
   }
 
+  Restaurant get restaurant => (restaurants != null) && (_selected != null)
+      ? restaurants[_selected]
+      : null;
   void getRestaurantsList() async {
     turnBusy();
     restaurants = await dataService.getRestaurantsList();
