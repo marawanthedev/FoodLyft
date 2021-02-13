@@ -22,7 +22,7 @@ void main() async {
     child: MaterialApp(
         // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
         debugShowCheckedModeBanner: false,
-        initialRoute: "/",
+        initialRoute: "/Restaurant_List",
         // ignore: missing_return
         onGenerateRoute: router.createRoute),
   ));

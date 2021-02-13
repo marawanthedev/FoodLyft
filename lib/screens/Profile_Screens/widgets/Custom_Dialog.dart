@@ -29,7 +29,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    //_controller = AnimationController(vsync: this);
   }
 
   @override
