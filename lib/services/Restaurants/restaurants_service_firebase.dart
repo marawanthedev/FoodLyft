@@ -25,12 +25,11 @@ class RestaurantsFirebaseService implements RestaurantsService {
   //     String title, String category, String image) async {}
 
   Future<List<Restaurant>> getRestaurantsList() async {
-    List restaurants = await firebase.get(collection: "restaurants");
-    if (restaurants != null) {
-      var restaurantsMap = restaurants
-          .map((restaurant) => Restaurant.fromJson(restaurant))
-          .toList();
-      return restaurantsMap;
-    }
+    final List restaurants = await firebase.get(collection: "restaurants");
+
+    var restaurantsMap = restaurants
+        .map((restaurant) => Restaurant.fromJson(restaurant))
+        .toList();
+    return restaurantsMap;
   }
 }

@@ -9,6 +9,7 @@ class RestaurantViewModel extends Viewmodel {
   int _selected;
   RestaurantViewModel();
   RestaurantsService get dataService => dependency();
+  
 
   void addRestaurant(Restaurant restaurant) async {
     turnBusy();
