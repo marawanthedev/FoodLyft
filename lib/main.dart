@@ -1,30 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
-import 'package:foodlyft/screens/cart/cart.dart';
-import 'package:foodlyft/screens/fooddetailsscreen/food_details.dart';
-import 'package:provider/provider.dart';
-import 'providers/cart.provider.dart';
-import 'screens/FoodMenu/Food_Menu2.dart';
-import 'screens/payment/payment_failed.dart';
-import 'screens/payment/payment_succesfull.dart';
-import 'screens/payment/payment_form.dart';
-import "./screens/Login/login.dart";
-import "./screens/Signup/Signup.dart";
-import 'providers/restaurants.provider.dart';
-// import "./services/router.dart" as router;
-import 'screens/admin/new_restaurant.dart';
-import 'screens/admin/edit-restaurant.dart';
-import 'screens/admin/dialog/back_home_dialog.dart';
-import 'screens/admin/dialog/delete_dialog.dart';
-import './screens/HomePage/homepage_screen.dart';
-import './screens/splash/splash_screen.dart';
-import './screens/Restaurantlist/Restaurant_List.dart';
-import "./screens/Profile_Screens/Profile.dart";
-import 'providers/UserAuth.provider.dart';
-import 'screens/settings/settings_screen.dart';
+import "./app/main_dependecies.dart";
+import "./app/router.dart" as router;
+import "./app/dependencies.dart" as dep;
 
-void main() {
-  String fontFamily = 'Roboto';
+void main() async {
+  // String fontFamily = 'Roboto';
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dep.init();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -38,6 +20,7 @@ void main() {
       ),
     ],
     child: MaterialApp(
+<<<<<<< HEAD
       // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
       debugShowCheckedModeBanner: false,
       initialRoute: "/Restaurant_List",
@@ -87,5 +70,12 @@ void main() {
         }
       },
     ),
+=======
+        // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
+        debugShowCheckedModeBanner: false,
+        initialRoute: "/Restaurant_List",
+        // ignore: missing_return
+        onGenerateRoute: router.createRoute),
+>>>>>>> 300deb723c6719b0bf6e69301b775233599efac9
   ));
 }

@@ -37,8 +37,7 @@ class Restaurants with ChangeNotifier {
   }
 
   getLists() {
-    restList
-        .clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
+    restList.clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
     restList.add(fastfoodList);
     restList.add(arabList);
     restList.add(westernfoodList);

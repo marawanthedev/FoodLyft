@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/models/user.dart';
-import 'package:foodlyft/screens/Signup/Signup.dart';
-import 'package:foodlyft/screens/Login/login.dart';
+import 'package:foodlyft/screens/Signup/Signup_view.dart';
+import 'package:foodlyft/screens/Login/login_view.dart';
 
 class HomePage extends StatefulWidget {
   List<User> users;
