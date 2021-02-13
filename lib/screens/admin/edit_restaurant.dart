@@ -28,7 +28,14 @@ class _EditRestaurantState extends State<EditRestaurant> {
   }
 
   void _saveEdited() {
+   final isValid = _form.currentState.validate();
     _form.currentState.save();
+    print(_editedRestaurant.title);
+    print(_editedRestaurant.category);
+    print(_editedRestaurant.description);
+    print(_editedRestaurant.image);
+    print(_editedRestaurant.price);
+    print(_editedRestaurant.id);
   }
 
   Widget build(BuildContext context) {
@@ -64,6 +71,12 @@ class _EditRestaurantState extends State<EditRestaurant> {
                         price: _editedRestaurant.price,
                         id: null,
                       );
+                    },
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please Enter a Name';
+                      }
+                      return null;
                     },
                   ),
                   TextFormField(
