@@ -42,7 +42,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: "/Restaurant_List",
       // ignore: missing_return
-      onGenerateRoute: (settings) { 
+      onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
           case "/payment_form":
