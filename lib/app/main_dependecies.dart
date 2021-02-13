@@ -22,4 +22,4 @@ export '../screens/settings/settings_screen.dart';
 export '../screens/admin/adminPage.dart';
 export '../components/restaurants_admin_icon.dart';
 export '../screens/admin/edit_restaurant.dart';
-
+export '../models/restaurant.dart';
