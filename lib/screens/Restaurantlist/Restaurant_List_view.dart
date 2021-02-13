@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/app/main_dependecies.dart';
 import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/providers/restaurants.provider.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List_viewmodel.dart';
@@ -39,22 +40,20 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             color: appListColor,
           ),
         ),
-        actions: widget.user.name != null
-            ? widget.user.name.contains("admin")
-                ? <Widget>[
+        actions:  <Widget>[
                     PopupMenuButton(
                       onSelected: (selectedValue) {},
                       icon: Icon(Icons.more_vert, color: appListColor),
                       itemBuilder: (_) => [
-                        PopupMenuItem(child: Text('Add Restaurant'), value: 0),
-                        PopupMenuItem(child: Text('Add Category'), value: 1),
-                        PopupMenuItem(
-                            child: Text('Delete Restaurant'), value: 2),
-                      ],
+                        PopupMenuItem(child: 
+                        MaterialButton(child: Text('Edit Restaurants'),
+                        onPressed: () =>Navigator.push(context,MaterialPageRoute(
+                  builder: (context) => AdminPage())), 
+                        ), value: 0,),
+                        ],
                     ),
                   ]
-                : null
-            : null,
+                ,
         title: Center(
           child: Container(
             height: 55,

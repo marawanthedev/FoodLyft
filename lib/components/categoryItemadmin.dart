@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/FoodMenu/Food_Menu2_view.dart';
-import 'package:provider/provider.dart';
 import '../screens/Restaurantlist/Constants.dart';
-import '../screens/admin/edit-restaurant.dart';
+
 
 class CategoryItem2 extends StatefulWidget {
   final String id;
@@ -32,10 +30,7 @@ class _CategoryItem2State extends State<CategoryItem2> {
       child: Column(
         children: <Widget>[
           InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Edit_restaurant()));
-            },
+            onTap: () {},
             child: Container(
               height: 100,
               width: 150,

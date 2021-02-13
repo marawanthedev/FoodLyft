@@ -1,9 +1,8 @@
-import 'package:foodlyft/app/dependencies.dart';
-import 'package:foodlyft/app/main_dependecies.dart';
-import 'package:foodlyft/models/restaurant.dart';
-import 'package:foodlyft/screens/admin/AdminPage.dart';
-import 'package:foodlyft/services/Restaurants/restaurants_service.dart';
-import 'package:foodlyft/services/firebase/firebase_service.dart';
+import '../../app/dependencies.dart';
+import '../../app/main_dependecies.dart';
+import '../../models/restaurant.dart';
+import '../../services/Restaurants/restaurants_service.dart';
+import '../../services/firebase/firebase_service.dart';
 
 class RestaurantsFirebaseService implements RestaurantsService {
   final firebase = dependency<FirebaseService>();

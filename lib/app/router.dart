@@ -3,6 +3,11 @@ import "./main_dependecies.dart";
 Route<dynamic> createRoute(RouteSettings settings) {
   switch (settings.name) {
     case "/":
+    case "/adminPage":
+      return MaterialPageRoute(builder: (context) => AdminPage());
+    case "/edit_restaurant":
+      return MaterialPageRoute(builder: (context) => EditRestaurant());
+
     case "/splash_screen":
       return MaterialPageRoute(builder: (context) => SplashScreen());
 
@@ -22,10 +27,6 @@ Route<dynamic> createRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => SignUpScreen());
     case "/cart":
       return MaterialPageRoute(builder: (context) => CartScreen());
-    case "/new_restaurant":
-      return MaterialPageRoute(builder: (context) => New_Restaurant());
-    case "/edit_restaurant":
-      return MaterialPageRoute(builder: (context) => Edit_restaurant());
     case "/back_home_dialog":
       return MaterialPageRoute(builder: (context) => Back_Home_Dialog());
     case "/delete_dialog":
