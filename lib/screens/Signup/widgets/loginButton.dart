@@ -15,8 +15,8 @@ class ToLoginBtn extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
           side: BorderSide(
-              // color: Colors.white,
-              )),
+            color: Colors.white,
+          )),
       child: Text("Login",
           style: TextStyle(
               //color: Colors.black,

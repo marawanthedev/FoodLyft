@@ -272,7 +272,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 )),
                                             child: Text("Signup",
                                                 style: TextStyle(
-                                                    //color: Colors.white,
+                                                    color: Colors.white,
                                                     fontFamily: 'Roboto',
                                                     fontWeight:
                                                         FontWeight.normal,
