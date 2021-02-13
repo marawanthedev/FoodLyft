@@ -29,7 +29,7 @@ void main() async {
             ),
             // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
             debugShowCheckedModeBanner: false,
-            initialRoute: "/Restaurant_List",
+            initialRoute: "/login",
             // ignore: missing_return
             onGenerateRoute: router.createRoute);
       },

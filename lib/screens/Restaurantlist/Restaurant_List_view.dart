@@ -29,7 +29,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
     return Scaffold(
       drawer: DrawerOptions(user: widget.user),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
           //onPressed: () => Navigator.push(
