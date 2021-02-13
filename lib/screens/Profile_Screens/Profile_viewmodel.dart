@@ -15,8 +15,6 @@ class ProfileViewModel extends Viewmodel {
     turnBusy();
     dataService.updateUserInfo(userId:userId,data:data);
     turnIdle();
-
-
   }
 }
 
