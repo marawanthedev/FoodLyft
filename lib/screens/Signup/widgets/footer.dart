@@ -13,7 +13,7 @@ class CustomFooter extends StatelessWidget {
             Text(
               "Have an account?",
               style: TextStyle(
-                  color: HexColor("123C69"),
+                  //color: HexColor("123C69"),
                   fontSize: 20,
                   fontFamily: 'Roboto'),
             ),

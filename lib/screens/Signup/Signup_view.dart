@@ -22,10 +22,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
+        //color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
         child: Scaffold(
-            backgroundColor: Colors.white,
+            // backgroundColor: Colors.white,
             appBar: PreferredSize(
                 child: CustomAppBar(), preferredSize: Size.fromHeight(60)),
             body: ChangeNotifierProvider.value(
@@ -272,7 +272,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 )),
                                             child: Text("Signup",
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    //color: Colors.white,
                                                     fontFamily: 'Roboto',
                                                     fontWeight:
                                                         FontWeight.normal,

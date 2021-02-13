@@ -15,15 +15,15 @@ class ToLoginBtn extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
           side: BorderSide(
-            color: Colors.white,
-          )),
+              // color: Colors.white,
+              )),
       child: Text("Login",
           style: TextStyle(
-              color: Colors.black,
+              //color: Colors.black,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.normal,
               fontSize: 20)),
-      color: Colors.white,
+      // color: Colors.white,
     );
   }
 }
