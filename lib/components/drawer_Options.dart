@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
-import 'package:foodlyft/screens/settings/settings_screen.dart';
+import "../app/main_dependecies.dart";
 
 class DrawerOptions extends StatefulWidget {
   User user;
   DrawerOptions({this.user});
   @override
   _DrawerOptionsState createState() => _DrawerOptionsState();
-
 }
 
 class _DrawerOptionsState extends State<DrawerOptions> {
@@ -18,8 +17,6 @@ class _DrawerOptionsState extends State<DrawerOptions> {
 
   @override
   Widget build(BuildContext context) {
-   
-
     return Drawer(
       child: SafeArea(
         child: Column(
@@ -45,9 +42,9 @@ class _DrawerOptionsState extends State<DrawerOptions> {
                 color: appMainColor,
               ),
               accountName: Text(
-                  "${widget.user.name!=null ? widget.user.name : 'UserName'}"),
+                  "${widget.user.name != null ? widget.user.name : 'UserName'}"),
               accountEmail: Text(
-                  "${widget.user.email!=null ? widget.user.email : 'Email'}"),
+                  "${widget.user.email != null ? widget.user.email : 'Email'}"),
             ),
             ListTile(
               title: Text("Profile"),
@@ -55,10 +52,9 @@ class _DrawerOptionsState extends State<DrawerOptions> {
               onTap: () => _navigate("profile"),
             ),
             ListTile(
-              title: Text("Address"),
-              leading: Icon(Icons.location_city),
-              onTap: () => print("gg")
-            ),
+                title: Text("Address"),
+                leading: Icon(Icons.location_city),
+                onTap: () => print("gg")),
             ListTile(
               title: Text("Notifications"),
               leading: Icon(Icons.notification_important),

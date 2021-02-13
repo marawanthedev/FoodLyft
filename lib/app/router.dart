@@ -1,4 +1,5 @@
 import 'package:foodlyft/screens/Profile_Screens/Profile_view.dart';
+import 'package:foodlyft/screens/settings/settings_screen.dart';
 
 import "./main_dependecies.dart";
 

@@ -32,6 +32,10 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
+          //onPressed: () => Navigator.push(
+          //    context,
+          //   MaterialPageRoute(
+          //       builder: (context) => DrawerOptions(user: widget.user))),
           onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -69,51 +73,56 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
         ),
       ),
       body: View<RestaurantViewModel>(
-          initViewmodel: (viewmodel) => viewmodel.getRestaurantsList(),
+          //  initViewmodel: (viewmodel) => viewmodel.getRestaurantsList(),
           builder: (context, viewmodel, _) {
-            final restaurants = viewmodel.restaurants;
-            return SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: <Widget>[
-                  SafeArea(
-                    child: Container(
-                      margin: EdgeInsets.all(20),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        border: Border.all(
-                          color: appListColor.withOpacity(0.40),
-                        ),
+        final restaurants = viewmodel.restaurants;
+        return SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                  onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Settings()),
                       ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          icon: Icon(Icons.search),
-                          hintText: "Search here",
-                          hintStyle: TextStyle(color: appListColor),
-                        ),
-                      ),
+                  child: Text('hi')),
+              SafeArea(
+                child: Container(
+                  margin: EdgeInsets.all(20),
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(
+                      color: appListColor.withOpacity(0.40),
                     ),
                   ),
-                  Container(
-                    height: 500,
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-
-                      itemBuilder: (context, index) {
-                        data.tempCategoryIndex = index;
-                        return CategoryRowBuilder();
-                      },
-                      itemCount: data.restList
-                          .length, //To render the number of rows in the ListView According to the number of Categories Available
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(Icons.search),
+                      hintText: "Search here",
+                      hintStyle: TextStyle(color: appListColor),
                     ),
                   ),
-                ],
+                ),
               ),
-            );
-          }),
+              Container(
+                height: 500,
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+
+                  itemBuilder: (context, index) {
+                    data.tempCategoryIndex = index;
+                    return CategoryRowBuilder();
+                  },
+                  itemCount: data.restList
+                      .length, //To render the number of rows in the ListView According to the number of Categories Available
+                ),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }
