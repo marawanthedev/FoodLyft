@@ -3,7 +3,7 @@ import '../../providers/cart.provider.dart';
 import '../../providers/restaurants.provider.dart';
 import 'package:provider/provider.dart';
 import '../../components/item_title.dart';
-import '../../screens/FoodMenu/Food_Menu2.dart';
+import '../../screens/FoodMenu/Food_Menu2_view.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 import '../../components/badge.dart';
 

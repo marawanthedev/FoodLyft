@@ -6,7 +6,7 @@ class Restaurant with ChangeNotifier {
   final String title;
   final String image;
   final String description;
-  final double price;
+  final int price;
   final String category;
   final bool isTouched;
   List<MenuItems> itemsa = [];
@@ -22,4 +22,21 @@ class Restaurant with ChangeNotifier {
     this.itemsa,
     // @required this.press,
   });
+
+  Restaurant.fromJson(Map<String, dynamic> json)
+      : this(
+            id: json['id'],
+            title: json['title'],
+            image: json['image'],
+            description: json['description'],
+            price: json['price'],
+            category: json['category']);
+
+  Map<String, dynamic> toJson() => {
+        'title': title,
+        'image': image,
+        'description': description,
+        'price': price,
+        'category': category
+      };
 }

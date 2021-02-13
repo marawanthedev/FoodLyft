@@ -19,6 +19,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: selectedFont),
       home: Scaffold(
         appBar: AppBar(

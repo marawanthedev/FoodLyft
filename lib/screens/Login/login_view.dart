@@ -72,7 +72,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                           controller: widget.emailCtrl,
                                           hideInputValue: false,
                                           prefixIcon: Image(
-                                              height: 30,
                                               image: AssetImage(
                                                 "assets/images/user.png",
                                               )),

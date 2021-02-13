@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/button.dart';
-import 'package:foodlyft/services/general/hexColor.dart';
-
-import '../AdminPage.dart';
+import '../../../services/general/hexColor.dart';
 
 class Delete_Dialog extends StatefulWidget {
   @override
@@ -50,10 +48,7 @@ class _Delete_DialogState extends State<Delete_Dialog> {
                   fontSize: 16,
                 ),
               ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AdminPage()));
-              },
+              onPressed: () {},
             ),
             SizedBox(
               width: 20,

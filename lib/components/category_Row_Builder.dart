@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodlyft/providers/restaurants.provider.dart';
 import 'package:provider/provider.dart';
 import '../components/categoryItem.dart';
-import '../screens/FoodMenu/Food_Menu2.dart';
+import '../screens/FoodMenu/Food_Menu2_view.dart';
 
 class CategoryRowBuilder extends StatelessWidget {
   //final String categoryTitle;
