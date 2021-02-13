@@ -71,23 +71,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
       body: View<RestaurantViewModel>(
           initViewmodel: (viewmodel) => viewmodel.getRestaurantsList(),
           builder: (context, viewmodel, _) {
-            viewmodel.addRestaurant(Restaurant(
-                id: 'r2',
-                title: "zeby",
-                image: "",
-                description: "zeby 3lek ya saad ya 5wal",
-                price: 25,
-                category: "el 5wlat",
-                itemsa: [
-                  MenuItems(
-                          resturantId: "r1",
-                          itemName: "Cheese Burger",
-                          description: "Cheese Burger pickles ",
-                          price: 10.0,
-                          image: "assets/images/CheeseBurger.jpg").toJson()
-                      
-                ]
-                ));
+           
             final restaurants = viewmodel.restaurants;
             return SingleChildScrollView(
               scrollDirection: Axis.vertical,

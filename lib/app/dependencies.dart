@@ -30,6 +30,9 @@ void init() async {
   dependency.registerLazySingleton(() => FoodMenu2());
   dependency.registerLazySingleton(() => RestaurantViewModel());
   dependency.registerLazySingleton(() => FoodMenu2ViewModel());
+  dependency.registerLazySingleton(() => ProfileViewModel());
+  
+
 
 
   

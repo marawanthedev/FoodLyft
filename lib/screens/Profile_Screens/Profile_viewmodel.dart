@@ -4,16 +4,19 @@ import '../../models/user.dart';
 import '../../app/dependencies.dart';
 
 class ProfileViewModel extends Viewmodel {
-  // UserAuthService get dataService => dependency();
   ProfileViewModel();
+  UserAuthService get dataService => dependency();
   User getUserInAuth() {
     turnBusy();
-//   final users = await dataService.getUsersList();
     turnIdle();
-    // return dataService.getUserInAuth();
+    return dataService.getUserInAuth();
+  }
+  void updateUserInfo(userId,data){
+    turnBusy();
+    dataService.updateUserInfo(userId:userId,data:data);
+    turnIdle();
+
+
   }
 }
 
-// turnBusy();
-//   final users = await dataService.getUsersList();
-//   turnIdle();
