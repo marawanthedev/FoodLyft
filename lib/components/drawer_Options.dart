@@ -32,7 +32,7 @@ class _DrawerOptionsState extends State<DrawerOptions> {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    padding:EdgeInsets.only(left:20,top:20),
+                    padding:EdgeInsets.all(1),
                     child:Icon(
                     Icons.arrow_back,
                     size: 30,
@@ -52,7 +52,7 @@ class _DrawerOptionsState extends State<DrawerOptions> {
               leading: Icon(Icons.person),
               onTap: () => _navigate("profile"),
             ),
-           
+          
             ListTile(
               title: Text("Settings"),
               leading: Icon(Icons.settings),

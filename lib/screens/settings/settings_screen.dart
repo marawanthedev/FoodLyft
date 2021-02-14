@@ -1,67 +1,37 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import '../Restaurantlist/Constants.dart';
+import 'package:foodlyft/services/DarkTheme/theme_changer.dart';
 
 class Settings extends StatefulWidget {
   @override
-  _SettingsState createState() => new _SettingsState();
+  _SettingsState createState() => _SettingsState();
 }
 
 class _SettingsState extends State<Settings> {
-  String selectedFont;
-  List<String> fontFamily = <String>[
-    'JosefinSans',
-    'OpenSans',
-    'PlayfairDisplay',
-    'Poppins',
-    'Roboto'
-  ];
+  bool _toggleTheme = false;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: selectedFont),
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: appMainColor,
-          title: Text('Settings'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Font',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
-              Text('Please select the app font from the list'),
-
-              //Dropdown Menu with Font List
-              DropdownButton<String>(
-                hint: Text("Select font"),
-                value: selectedFont,
-                onChanged: (String value) {
-                  setState(() {
-                    selectedFont = value;
-                  });
-                },
-                items: fontFamily.map((String font) {
-                  return DropdownMenuItem<String>(
-                      value: font,
-                      child: Row(
-                        children: <Widget>[SizedBox(width: 10), Text(font)],
-                      ));
-                }).toList(),
-              ),
-
-              // RaisedButton(
-              //   onPressed: () {
-              //     setState(() {});
-              //   },
-              //   child: Text('Change Font'),
-              // )
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
+      body: Column(
+        children: [
+          ListTile(
+            leading: Icon(Icons.brightness_2, size: 30.0),
+            title: Text('Dark Mode', style: TextStyle(fontSize: 18.0)),
+            trailing: Switch(
+              value: _toggleTheme,
+              onChanged: (value) {
+                ThemeBuilder.of(context).changeTheme();
+                _toggleTheme = value;
+              },
+            ),
           ),
-        ),
+          Divider(
+            thickness: 1.2,
+          ),
+        ],
       ),
     );
   }

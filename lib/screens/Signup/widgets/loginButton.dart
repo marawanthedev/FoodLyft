@@ -19,11 +19,11 @@ class ToLoginBtn extends StatelessWidget {
           )),
       child: Text("Login",
           style: TextStyle(
-              color: Colors.black,
+              //color: Colors.black,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.normal,
               fontSize: 20)),
-      color: Colors.white,
+      // color: Colors.white,
     );
   }
 }

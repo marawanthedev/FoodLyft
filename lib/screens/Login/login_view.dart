@@ -17,10 +17,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
+        //color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
         child: Scaffold(
-            backgroundColor: Colors.white,
+            //backgroundColor: Colors.white,
             appBar: PreferredSize(
               preferredSize: Size.fromHeight(60),
               child: CustomAppBar(),
@@ -73,8 +73,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           hideInputValue: false,
                                           prefixIcon: Image(
                                               image: AssetImage(
-                                                "assets/images/user.png",
-                                              )),
+                                            "assets/images/user.png",
+                                          )),
                                           placeHolder: 'Email',
                                           placeHolderStyle: TextStyle(
                                               fontSize: 20,
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                               HexColor(
                                                                   "F2A22C"),
                                                         ));
-                                                        
+
                                                         Timer(
                                                             Duration(
                                                                 seconds: 2),
