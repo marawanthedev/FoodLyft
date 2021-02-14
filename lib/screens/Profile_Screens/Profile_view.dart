@@ -73,7 +73,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                   child: Icon(
                                     Icons.arrow_back,
                                     size: 30,
-                                    color: Colors.white,
+                                    //color: Colors.white,
                                   ),
                                 ),
                                 SizedBox(
@@ -83,9 +83,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                   "Profile",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    //color: Colors.white
+                                  ),
                                 )
                               ]),
                         ),
