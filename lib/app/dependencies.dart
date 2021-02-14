@@ -24,6 +24,7 @@ void init() async {
   dependency.registerLazySingleton<UserAuthService>(() => UserAuthServiceFirebase());
   dependency.registerLazySingleton<RestaurantsService>(() => RestaurantsFirebaseService());
   dependency.registerLazySingleton<FoodMenu>(() => MenuItemsService());
+  
 
   dependency.registerLazySingleton(() => SignupViewModel());
   dependency.registerLazySingleton(() => LoginViewModel());

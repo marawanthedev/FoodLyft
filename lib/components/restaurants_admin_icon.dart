@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import '../app/main_dependecies.dart';
 
-class AdminRestaurantItem extends StatelessWidget {
+class AdminRestaurantItem extends StatefulWidget {
   final String title;
   final String image;
   final String id;
+  final bool isTouched;
+  var color;
+  int index;
 
-  AdminRestaurantItem({this.title, this.image, this.id});
+  AdminRestaurantItem(
+      {this.title,
+      this.image,
+      this.id,
+      this.isTouched,
+      this.color,
+      this.index});
 
+  @override
+  _AdminRestaurantItemState createState() => _AdminRestaurantItemState();
+}
+
+class _AdminRestaurantItemState extends State<AdminRestaurantItem> {
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Restaurants>(context);
@@ -47,10 +61,13 @@ class AdminRestaurantItem extends StatelessWidget {
                         children: <Widget>[
                           IconButton(
                             icon: Icon(Icons.edit),
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EditRestaurant())),
+                            onPressed: () {
+                              data.tempItem = widget.index;
+                              data.checkList(widget.id);
+                              // data.restaurantId = widget.id;
+                              print("my index is #${widget.id}");
+                              Navigator.pushNamed(context, "/edit_restaurant");
+                            },
                             color: Theme.of(context).primaryColor,
                           ),
                           IconButton(

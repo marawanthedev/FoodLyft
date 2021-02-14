@@ -55,6 +55,7 @@ class _AdminPageState extends State<AdminPage> {
             itemBuilder: (_, i) {
               data.tempCategoryIndex = i;
               return AdminRestaurantItem(
+                id: data.restList[data.tempCategoryIndex][i].id,
                 title: data.restList[data.tempCategoryIndex][i].title,
                 image: data.restList[data.tempCategoryIndex][i].image,
               );
