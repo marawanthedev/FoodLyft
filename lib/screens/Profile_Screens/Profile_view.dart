@@ -38,13 +38,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
     var userInAuth;
 
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: ChangeNotifierProvider.value(
         value: dependency<ProfileViewModel>(),
-        // child:
-        //     Consumer<SignupViewModel>(builder: (context, viewmodel, _) {
-        //   return Builder(
-        //     builder: (ctx) => SingleChildScrollView(
+       
         child: Consumer<ProfileViewModel>(builder: (context, viewmodel, _) {
           userInAuth = viewmodel.getUserInAuth();
           return SingleChildScrollView(
@@ -73,7 +70,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                   child: Icon(
                                     Icons.arrow_back,
                                     size: 30,
-                                    //color: Colors.white,
+                                    color: Colors.white,
                                   ),
                                 ),
                                 SizedBox(
@@ -85,7 +82,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                   style: TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
-                                    //color: Colors.white
+                                    color: Colors.white
                                   ),
                                 )
                               ]),
@@ -171,6 +168,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       //backgroundColor: Colors.transparent,
                                       child: Stack(children: <Widget>[
                                         Container(
+                                          
                                           padding: EdgeInsets.only(
                                               left: Constants.padding,
                                               top: Constants.avatarRadius +
@@ -181,17 +179,14 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                               top: Constants.avatarRadius),
                                           decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
-                                              color: Colors.grey[300],
+                                              color: Colors.white,
+                                              
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       Constants.padding),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.black,
-                                                    offset: Offset(0, 10),
-                                                    blurRadius: 10),
-                                              ]),
+                                              ),
                                           child: Column(
+                                          
                                             mainAxisSize: MainAxisSize.min,
                                             children: <Widget>[
                                               TextFormField(
@@ -263,7 +258,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                               EdgeInsets.all(3),
                                                           decoration:
                                                               BoxDecoration(
-                                                            //color: Colors.white,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .all(Radius
@@ -299,7 +294,6 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                     Expanded(
                                                       child: InkWell(
                                                         onTap: () {
-                                                          // print(nameController.text);
                                                           if (nameController
                                                               .text.isEmpty) {
                                                             nameController
@@ -336,8 +330,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                                     phoneController
                                                                         .text
                                                               });
-                                                          // userAuthProvider.updateAttributes(nameController.text,
-                                                          //     emailController.text, phoneController.text);
+                                                        
                                                           Navigator.pop(
                                                               context);
                                                         },

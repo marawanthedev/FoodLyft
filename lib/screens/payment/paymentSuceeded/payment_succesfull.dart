@@ -30,7 +30,7 @@ class _PaymentSuceededState extends State<PaymentSuceeded> {
     final testProvider = Provider.of<Restaurants>(context);
     return Container(
       padding: new EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),
-      //color: Colors.white,
+      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

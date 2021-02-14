@@ -12,7 +12,6 @@ class UserAuthServiceFirebase implements UserAuthService {
 
   void addUserInAuth(User user) {
     userInAuth = user;
-    print("user");
     print(getUserInAuth().name);
   }
 
