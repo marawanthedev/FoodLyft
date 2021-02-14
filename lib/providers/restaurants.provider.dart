@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodlyft/models/menu.dart';
 import '../models/restaurant.dart';
 
+
 class Restaurants with ChangeNotifier {
   var ind;
   int restaurantId;
@@ -15,6 +16,9 @@ class Restaurants with ChangeNotifier {
   int tempItem;
   Restaurant restaurantObject;
 
+
+
+  
   getREstaurantByCategory() {
     // This Method Is used to get Restaurants by Category Title and Add the Specific Restaurants Inside this Category
     fastfoodList.clear();
@@ -48,7 +52,9 @@ class Restaurants with ChangeNotifier {
     restList.add(arabList);
     restList.add(westernfoodList);
   }
-
+  void setItems(items){
+    _items=items;
+  }
   List<Restaurant> _items = [
     Restaurant(
       id: 'r1',

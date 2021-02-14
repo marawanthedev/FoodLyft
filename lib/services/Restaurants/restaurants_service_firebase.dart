@@ -14,7 +14,7 @@ class RestaurantsFirebaseService implements RestaurantsService {
   }
 
   Future deleteRestaurant({String id}) async {
-    await firebase.delete(documentId: id);
+    await firebase.delete(collection: "restaurants", documentId: id);
   }
 
   Restaurant getrestaurant() {
@@ -26,7 +26,6 @@ class RestaurantsFirebaseService implements RestaurantsService {
 
   Future<List<Restaurant>> getRestaurantsList() async {
     final List restaurants = await firebase.get(collection: "restaurants");
-
     var restaurantsMap = restaurants
         .map((restaurant) => Restaurant.fromJson(restaurant))
         .toList();
@@ -34,8 +33,12 @@ class RestaurantsFirebaseService implements RestaurantsService {
   }
 
   Future<Restaurant> updateRestaurantInfo(
-      {String restaurantId, String title,String description ,String image,String category}) async {
-        print("update restaurant info");
-    firebase.patch(collection: "restaurants",documentId: "id" );
+      {String restaurantId,
+      String title,
+      String description,
+      String image,
+      String category}) async {
+    print("update restaurant info");
+    firebase.patch(collection: "restaurants", documentId: "id");
   }
 }
