@@ -25,10 +25,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
 
   @override
   void didChangeDependencies() {
-    //if (_isInit) {
-    //  final loaded = Provider.of<Restaurants>(context, listen: true);
-    //}
-    //_isInit = false;
+    final loaded = Provider.of<Restaurants>(context, listen: true);
 
     super.didChangeDependencies();
   }
@@ -41,9 +38,9 @@ class _EditRestaurantState extends State<EditRestaurant> {
 
   bool _valid() {
     final isValid = _form.currentState.validate();
-    //if (!isValid) {
-    //  return;
-    // }
+    if (!isValid) {
+      return isValid;
+    }
     _form.currentState.save();
 
     Navigator.of(context).pop();
@@ -56,9 +53,10 @@ class _EditRestaurantState extends State<EditRestaurant> {
           title: Center(child: Text('Edit Restaurant')),
           backgroundColor: appMainColor,
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.save), onPressed: null
-                // _saveEdited,
-                )
+            IconButton(
+              icon: Icon(Icons.save),
+              onPressed: _valid,
+            )
           ],
         ),
         body: ChangeNotifierProvider.value(
@@ -75,7 +73,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
                         children: <Widget>[
                           TextFormField(
                             decoration:
-                                InputDecoration(labelText: 'Restaurant Name'),
+                                InputDecoration(labelText: 'Restaurant Title'),
                             textInputAction: TextInputAction.next,
                             onSaved: (value) {
                               _editedRestaurant = Restaurant(
@@ -162,7 +160,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                       description:
                                           _editedRestaurant.description,
                                       category: _editedRestaurant.category,
-                                      image: value,
+                                      image: "assets/images$value",
                                       itemsa: _editedRestaurant.itemsa,
                                       price: _editedRestaurant.price,
                                     );

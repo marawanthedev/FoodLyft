@@ -57,26 +57,26 @@ class _AdminRestaurantItemState extends State<AdminRestaurantItem> {
                   trailing: Container(
                     child: Container(
                       width: 100,
-                      child: Row(
-                        children: <Widget>[
-                          IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-                              data.tempItem = widget.index;
-                              data.checkList(widget.id);
-                              // data.restaurantId = widget.id;
-                              print("my index is #${widget.id}");
-                              Navigator.pushNamed(context, "/edit_restaurant");
-                            },
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.delete),
-                            onPressed: () {},
-                            color: Theme.of(context).errorColor,
-                          ),
-                        ],
-                      ),
+                      // child: Row(
+                      //   children: <Widget>[
+                      //     // IconButton(
+                      //     //   icon: Icon(Icons.edit),
+                      //     //   onPressed: () {
+                      //     //     data.tempItem = widget.index;
+                      //     //     data.checkList(widget.id);
+                      //     //     // data.restaurantId = widget.id;
+                      //     //     print("my index is #${widget.id}");
+                      //     //     Navigator.pushNamed(context, "/edit_restaurant");
+                      //     //   },
+                      //     //   color: Theme.of(context).primaryColor,
+                      //     // ),
+                      //     // IconButton(
+                      //     //   icon: Icon(Icons.delete),
+                      //     //   onPressed: ()=>{},
+                      //     //   color: Theme.of(context).errorColor,
+                      //     // ),
+                      //   ],
+                      // ),
                     ),
                   ),
                 ),

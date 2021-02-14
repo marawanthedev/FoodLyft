@@ -69,6 +69,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             value: dependency<RestaurantViewModel>(),
             child: Consumer<RestaurantViewModel>(
               builder: (context, viewmodel, _) {
+               
                 return Builder(
                   builder: (ctx) => SingleChildScrollView(
                     scrollDirection: Axis.vertical,

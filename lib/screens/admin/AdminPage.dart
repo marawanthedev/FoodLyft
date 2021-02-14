@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foodlyft/services/Restaurants/restaurants_service_firebase.dart';
 import '../../components/drawer_Options.dart';
 import '../../models/user.dart';
 import '../../app/main_dependecies.dart';
+import "../../services/Restaurants/restaurants_service.dart";
 
 class AdminPage extends StatefulWidget {
   User user;
@@ -17,7 +19,7 @@ class _AdminPageState extends State<AdminPage> {
     final data = Provider.of<Restaurants>(context);
     data.getREstaurantByCategory();
     data.getLists();
-
+    print(RestaurantsFirebaseService().getRestaurantsList());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
