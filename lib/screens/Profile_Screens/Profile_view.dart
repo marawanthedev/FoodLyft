@@ -38,7 +38,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
     var userInAuth;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: ChangeNotifierProvider.value(
         value: dependency<ProfileViewModel>(),
         // child:
@@ -167,7 +167,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                             Constants.padding),
                                       ),
                                       elevation: 0,
-                                      backgroundColor: Colors.transparent,
+                                      //backgroundColor: Colors.transparent,
                                       child: Stack(children: <Widget>[
                                         Container(
                                           padding: EdgeInsets.only(
@@ -180,7 +180,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                               top: Constants.avatarRadius),
                                           decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
-                                              color: Colors.white,
+                                              color: Colors.grey[300],
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       Constants.padding),
@@ -196,18 +196,19 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                               TextFormField(
                                                 controller: nameController,
                                                 decoration: InputDecoration(
-                                                  icon: Icon(
-                                                    Icons.person,
-                                                    color: Color.fromRGBO(
-                                                        255, 167, 39, 1),
-                                                  ),
-                                                  hintText:
-                                                      'What do people call you?',
-                                                  labelText:
-                                                      '${userInAuth != null ? userInAuth.name : ""}',
-                                                  focusColor: Color.fromRGBO(
-                                                      255, 167, 39, 1),
-                                                ),
+                                                    icon: Icon(
+                                                      Icons.person,
+                                                      color: Color.fromRGBO(
+                                                          255, 167, 39, 1),
+                                                    ),
+                                                    hintText:
+                                                        'What do people call you?',
+                                                    labelText:
+                                                        '${userInAuth != null ? userInAuth.name : ""}',
+                                                    /* focusColor: Color.fromRGBO(
+                                                      255, 167, 39, 1),*/
+                                                    focusColor: Color.fromRGBO(
+                                                        255, 0, 0, 10)),
                                               ),
                                               TextFormField(
                                                 controller: emailController,
@@ -261,7 +262,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                               EdgeInsets.all(3),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.white,
+                                                            //color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .all(Radius
@@ -281,13 +282,14 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                             child: Text(
                                                               'Cancel',
                                                               style: TextStyle(
-                                                                  fontSize: 20,
-                                                                  color: Color
-                                                                      .fromRGBO(
-                                                                          255,
-                                                                          167,
-                                                                          39,
-                                                                          1)),
+                                                                fontSize: 20,
+                                                                //color: Color
+                                                                //   .fromRGBO(
+                                                                //       255,
+                                                                //       167,
+                                                                //      39,
+                                                                //       1)
+                                                              ),
                                                             ),
                                                           ),
                                                         ),

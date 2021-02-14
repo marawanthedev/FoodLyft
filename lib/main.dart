@@ -12,7 +12,6 @@ void main() async {
       ChangeNotifierProvider(
         create: (ctx) => Restaurants(),
       ),
-      
       ChangeNotifierProvider(
         create: (ctx) => CartProvider(),
       ),

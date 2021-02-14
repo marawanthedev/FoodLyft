@@ -1,4 +1,3 @@
-
 import "./helpers/dependencies.dart";
 
 class PaymentFailed extends StatefulWidget {

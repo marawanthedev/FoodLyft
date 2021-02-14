@@ -15,7 +15,7 @@ class CustomerInfo extends StatelessWidget {
           fontSize: 20.5,
           fontFamily: mainFont,
           fontWeight: FontWeight.normal,
-          color: colors['black'],
+          color: Colors.green,
           decoration: TextDecoration.none,
         ),
       ),
