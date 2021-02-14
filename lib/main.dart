@@ -21,7 +21,7 @@ void main() async {
       ),
     ],
     child: theme.ThemeBuilder(
-      defaultBrightness: Brightness.light,
+      defaultBrightness: Brightness.dark,
       builder: (context, _brightness) {
         return MaterialApp(
             theme: ThemeData(

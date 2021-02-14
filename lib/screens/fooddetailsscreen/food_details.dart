@@ -29,13 +29,16 @@ class _FoodDetailsState extends State<FoodDetails> {
               .items[widget.restaurantProvider.restaurantId].title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         )),
-        backgroundColor: appMainColor,
+        // backgroundColor: appMainColor,
+        backgroundColor: white,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           //color: Colors.white,
+          color: Colors.black,
           onPressed: () {
             Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => FoodMenu2()));
@@ -47,6 +50,7 @@ class _FoodDetailsState extends State<FoodDetails> {
             child: IconButton(
                 icon: Icon(
                   Icons.shopping_cart,
+                  color: Colors.black,
                 ),
                 onPressed: () {
                   Navigator.pushNamed(context, "/cart");
@@ -56,6 +60,7 @@ class _FoodDetailsState extends State<FoodDetails> {
             icon: Icon(Icons.more_vert),
             onPressed: () {},
             //color: Colors.white,
+            color: Colors.black,
           ),
         ],
       ),
