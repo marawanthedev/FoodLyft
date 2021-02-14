@@ -3,7 +3,7 @@ import 'package:foodlyft/app/dependencies.dart';
 import 'package:foodlyft/app/main_dependecies.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List_viewmodel.dart';
 import '../../app/main_dependecies.dart';
-
+import "../../components/formInput.dart";
 class EditRestaurant extends StatefulWidget {
   @override
   _EditRestaurantState createState() => _EditRestaurantState();
@@ -21,7 +21,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
     itemsa: [],
     price: 0,
   );
-  var _isInit = true;
+
 
   @override
   void didChangeDependencies() {
@@ -39,15 +39,15 @@ class _EditRestaurantState extends State<EditRestaurant> {
     super.dispose();
   }
 
-  void _saveEdited() {
+  bool _valid() {
     final isValid = _form.currentState.validate();
     if (!isValid) {
       return;
     }
     _form.currentState.save();
-    Provider.of<Restaurants>(context, listen: false)
-        .addRestaurant(_editedRestaurant);
+ 
     Navigator.of(context).pop();
+    return isValid;
   }
 
   Widget build(BuildContext context) {
@@ -74,6 +74,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
                       scrollDirection: Axis.vertical,
                       child: Column(
                         children: <Widget>[
+
                           TextFormField(
                             decoration:
                                 InputDecoration(labelText: 'Restaurant Name'),
@@ -86,7 +87,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                 image: _editedRestaurant.image,
                                 itemsa: _editedRestaurant.itemsa,
                                 price: _editedRestaurant.price,
-                                id: null,
+                                
                               );
                             },
                             validator: (value) {
@@ -108,7 +109,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                 image: _editedRestaurant.image,
                                 itemsa: _editedRestaurant.itemsa,
                                 price: _editedRestaurant.price,
-                                id: null,
+                              
                               );
                             },
                           ),
@@ -125,7 +126,6 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                 image: _editedRestaurant.image,
                                 itemsa: _editedRestaurant.itemsa,
                                 price: _editedRestaurant.price,
-                                id: null,
                               );
                             },
                           ),
@@ -169,11 +169,22 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                       image: value,
                                       itemsa: _editedRestaurant.itemsa,
                                       price: _editedRestaurant.price,
-                                      id: null,
+                                      
                                     );
                                   },
                                   onFieldSubmitted: (_) {
-                                    _saveEdited();
+                                   
+                                  if(_valid())
+
+                                   viewmodel.addRestaurant(Restaurant(
+                                      title: _editedRestaurant.title,
+                                      description:
+                                          _editedRestaurant.description,
+                                      category: _editedRestaurant.category,
+                                      image:_editedRestaurant.image,
+                                      itemsa: _editedRestaurant.itemsa,
+                                      price: _editedRestaurant.price,
+                                    ));
                                   },
                                 ),
                               ),

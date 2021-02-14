@@ -12,6 +12,7 @@ class AdminEditViewModel extends Viewmodel {
   RestaurantsService get dataService => dependency();
 
   void addRestaurant(Restaurant restaurant) async {
+    print("viewmodel add rest");
     turnBusy();
     if (restaurant == null) return;
     await dataService.addRestaurant(restaurant);

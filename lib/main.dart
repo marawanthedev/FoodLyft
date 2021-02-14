@@ -26,7 +26,7 @@ void main() async {
             ),
             // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
             debugShowCheckedModeBanner: false,
-            initialRoute: "/splash_screen",
+            initialRoute: "/Restaurant_List",
             // ignore: missing_return
             onGenerateRoute: router.createRoute);
       },
