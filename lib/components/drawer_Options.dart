@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/screens/Restaurantlist/Constants.dart';
 import 'package:foodlyft/screens/settings/settings_screen.dart';
+import "../services/UserAuth/userAuth_service_firebase.dart";
 
 class DrawerOptions extends StatefulWidget {
-  User user;
-  DrawerOptions({this.user});
+  DrawerOptions();
   @override
   _DrawerOptionsState createState() => _DrawerOptionsState();
-
 }
 
 class _DrawerOptionsState extends State<DrawerOptions> {
@@ -18,8 +17,8 @@ class _DrawerOptionsState extends State<DrawerOptions> {
 
   @override
   Widget build(BuildContext context) {
-   
-
+    User user = UserAuthServiceFirebase().getUserInAuth();
+    print(user);
     return Drawer(
       child: SafeArea(
         child: Column(
@@ -32,11 +31,13 @@ class _DrawerOptionsState extends State<DrawerOptions> {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(
+                  child: Container(
+                    padding:EdgeInsets.only(left:20,top:20),
+                    child:Icon(
                     Icons.arrow_back,
                     size: 30,
                     color: Colors.white,
-                  ),
+                  ),)
                 ),
               ),
             ),
@@ -44,36 +45,14 @@ class _DrawerOptionsState extends State<DrawerOptions> {
               decoration: BoxDecoration(
                 color: appMainColor,
               ),
-              accountName: Text(
-                  "${widget.user.name!=null ? widget.user.name : 'UserName'}"),
-              accountEmail: Text(
-                  "${widget.user.email!=null ? widget.user.email : 'Email'}"),
+          
             ),
             ListTile(
               title: Text("Profile"),
               leading: Icon(Icons.person),
               onTap: () => _navigate("profile"),
             ),
-            ListTile(
-              title: Text("Address"),
-              leading: Icon(Icons.location_city),
-              onTap: () => print("gg")
-            ),
-            ListTile(
-              title: Text("Notifications"),
-              leading: Icon(Icons.notification_important),
-              onTap: () => print('not'),
-            ),
-            ListTile(
-              title: Text("History"),
-              leading: Icon(Icons.history),
-              onTap: () => print('History'),
-            ),
-            ListTile(
-              title: Text("History"),
-              leading: Icon(Icons.history),
-              onTap: () => print('History'),
-            ),
+           
             ListTile(
               title: Text("Settings"),
               leading: Icon(Icons.settings),

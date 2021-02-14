@@ -3,7 +3,6 @@ import "./app/router.dart" as router;
 import "./app/dependencies.dart" as dep;
 
 void main() async {
-  // String fontFamily = 'Roboto';
   WidgetsFlutterBinding.ensureInitialized();
 
   await dep.init();
@@ -22,7 +21,7 @@ void main() async {
     child: MaterialApp(
         // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
         debugShowCheckedModeBanner: false,
-        initialRoute: "/Restaurant_List",
+        initialRoute: "/splash_screen",
         // ignore: missing_return
         onGenerateRoute: router.createRoute),
   ));
