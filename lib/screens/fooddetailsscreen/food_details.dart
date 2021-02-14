@@ -21,7 +21,7 @@ class _FoodDetailsState extends State<FoodDetails> {
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: appMainColor,
+      // backgroundColor: appMainColor,
       appBar: AppBar(
         title: Center(
             child: Text(
@@ -35,7 +35,7 @@ class _FoodDetailsState extends State<FoodDetails> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          color: Colors.white,
+          //color: Colors.white,
           onPressed: () {
             Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => FoodMenu2()));
@@ -55,7 +55,7 @@ class _FoodDetailsState extends State<FoodDetails> {
           IconButton(
             icon: Icon(Icons.more_vert),
             onPressed: () {},
-            color: Colors.white,
+            //color: Colors.white,
           ),
         ],
       ),
@@ -81,7 +81,7 @@ class _FoodDetailsState extends State<FoodDetails> {
               width: double.infinity,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                //color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
@@ -92,23 +92,22 @@ class _FoodDetailsState extends State<FoodDetails> {
                   Padding(
                     padding: const EdgeInsets.only(right: 280),
                     child: Container(
-                width: 100,
-                height: 100,
-                decoration:  BoxDecoration(
-                    shape: BoxShape.circle,
-                    image:  DecorationImage(
-                      fit:BoxFit.fill,
-                      image:  AssetImage(
-                        widget.restaurantProvider
-                          .items[widget.restaurantProvider.restaurantId]
-                          .itemsa[widget.restaurantProvider.ind]
-                          .image,
-                      )
-                    )
-                ),
-              ),
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                widget
+                                    .restaurantProvider
+                                    .items[
+                                        widget.restaurantProvider.restaurantId]
+                                    .itemsa[widget.restaurantProvider.ind]
+                                    .image,
+                              ))),
+                    ),
                   ),
-                  
                   ItemTitle(
                     name: widget
                         .restaurantProvider
@@ -154,8 +153,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                             widget.cartProvider.addItem(
                                 widget.restaurantProvider.getItem(
                                     widget.restaurantProvider.restaurantId,
-                                    widget.restaurantProvider.ind)
-                                    );
+                                    widget.restaurantProvider.ind));
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
