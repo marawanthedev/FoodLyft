@@ -1,39 +1,67 @@
 import 'package:flutter/material.dart';
-import '../../screens/Restaurantlist/restaurants_grid.dart';
-import '../../models/restaurant.dart';
+import 'package:foodlyft/models/user.dart';
+import 'package:foodlyft/providers/restaurants.provider.dart';
+import 'package:provider/provider.dart';
+import '../../components/category_Row_Builder.dart';
+import '../admin/AdminPage.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
 
 class RestaurantMenu extends StatefulWidget {
+  User user;
+  RestaurantMenu({this.user});
   @override
   _RestaurantMenuState createState() => _RestaurantMenuState();
 }
 
 class _RestaurantMenuState extends State<RestaurantMenu> {
-
-  
-
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<Restaurants>(context);
+    data.getREstaurantByCategory();
+    data.getLists();
+
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      drawer: DrawerOptions(),
+      drawer: DrawerOptions(user: widget.user),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
         leading: FlatButton(
-          onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DrawerOptions())),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DrawerOptions(user: widget.user))),
           child: Icon(
             Icons.sort,
             color: appListColor,
           ),
         ),
-        actions: [
-          CircleAvatar(
-            backgroundColor: appListColor,
-            child: Icon(Icons.face),
-          ),
-        ],
+        actions: widget.user.name != null
+            ? widget.user.name.contains("admin")
+                ? <Widget>[
+                    PopupMenuButton(
+                      onSelected: (selectedValue) {},
+                      icon: Icon(Icons.more_vert, color: appListColor),
+                      itemBuilder: (_) => [
+                        PopupMenuItem(
+                          child: InkWell(
+                            child: (Text('Manage Resturant')),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AdminPage()));
+                            },
+                          ),
+                          value: 0,
+                        )
+                      ],
+                    ),
+                  ]
+                : null
+            : null,
         title: Center(
           child: Container(
             height: 55,
@@ -71,31 +99,20 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             ),
             Container(
               height: 500,
-              child: RestaurantsGrid(),
-            )
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+
+                itemBuilder: (context, index) {
+                  data.tempCategoryIndex = index;
+                  return CategoryRowBuilder();
+                },
+                itemCount: data.restList
+                    .length, //To render the number of rows in the ListView According to the number of Categories Available
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ListBuild extends StatelessWidget {
-  String title;
-  IconData icon;
-  ListBuild({this.title, this.icon});
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-      onPressed: () {},
-      child: ListTile(
-          leading: Icon(
-            icon,
-          ),
-          title: Text(
-            title,
-            style: TextStyle(fontSize: 20, color: aTextColor),
-          )),
     );
   }
 }

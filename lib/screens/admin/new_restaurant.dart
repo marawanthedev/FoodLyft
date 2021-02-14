@@ -5,10 +5,15 @@ import 'package:path/path.dart' as Path;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/admin/services/database.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/AdminServices.dart';
+
 import 'package:image_picker/image_picker.dart';
 
+import '../../services/firebase/firebase_service.dart';
+import '../../services/firebase/firebase_service.dart';
+import '../../services/firebase/firebase_service.dart';
+import '../../services/firebase/firebase_service.dart';
+import '../../services/general/hexColor.dart';
 import 'dialog/back_home_dialog.dart';
 
 class New_Restaurant extends StatefulWidget {
@@ -30,9 +35,8 @@ class _New_RestaurantState extends State<New_Restaurant> {
     });
   }
 
-  addNewRestaurent(url) async {
+  addNewRestaurent() async {
     Map<String, String> data = {
-      "img": url,
       "restaurant_name": name.text,
       "email": email.text,
       "password": password.text
@@ -254,13 +258,9 @@ class _New_RestaurantState extends State<New_Restaurant> {
                               onPressed: () async {
                                 if (!_formKey.currentState.validate()) {}
                                 await database.uploadResturantImage(_image);
-                                final ref = FirebaseStorage.instance
-                                    .ref()
-                                    .child("Restaurant Image")
-                                    .child(
-                                        'image/${Path.basename(_image.path)}');
-                                final url = await ref.getDownloadURL();
-                                addNewRestaurent(url);
+
+                                addNewRestaurent();
+
                                 _formKey.currentState.save();
                                 Navigator.of(context).push(
                                   MaterialPageRoute(

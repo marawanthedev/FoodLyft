@@ -2,30 +2,29 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../components/MenuItems_builder.dart';
-import '../../providers/restaurants.dart';
+import '../../providers/restaurants.provider.dart';
 import '../../screens/Restaurantlist/Restaurant_List.dart';
-import '../../screens/fooddetailsscreen/food_details.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../screens/Restaurantlist/Constants.dart';
 import 'package:provider/provider.dart';
 
 class FoodMenu2 extends StatefulWidget {
-  static const routeName = '/Food_Menu2';
-  String restaurantid;
-  FoodMenu2({this.restaurantid});
+  FoodMenu2({Key key}) : super(key: key);
 
   @override
   _FoodMenu2State createState() => _FoodMenu2State();
 }
 
 class _FoodMenu2State extends State<FoodMenu2> {
+  //final routName ="/Food_Menu2";
   @override
   Widget build(BuildContext context) {
     final loaded = Provider.of<Restaurants>(
       context,
-      listen: false,
+      listen: true,
     );
-    final loadedRestaurant = loaded.findById(widget.restaurantid);
+    //final loaded.restaurantObject = loaded.findById(
+    //  loaded.restList[loaded.tempCategoryIndex][loaded.tempItem].id);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -38,7 +37,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
             child: Stack(
               children: [
                 Image(
-                  image: AssetImage(loadedRestaurant.image),
+                  image: AssetImage(loaded.restaurantObject.image),
                   fit: BoxFit.cover,
                   height: height / 2,
                   width: width,
@@ -75,7 +74,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        loadedRestaurant.title,
+                        loaded.restaurantObject.title,
                         style: TextStyle(
                             fontSize: 26.0, fontWeight: FontWeight.bold),
                       ),
@@ -100,7 +99,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
                     ],
                   ),
                   Text(
-                    "Closes at 11 pmmm",
+                    "Closes at 11 pm",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 14.0,
@@ -114,27 +113,29 @@ class _FoodMenu2State extends State<FoodMenu2> {
                         return MaterialButton(
                           onPressed: () {
                             loaded.ind = index;
-                            Navigator.pushNamed(context, "/food_details");
+                            Navigator.pushNamed(
+                              context,
+                              "/food_details",
+                            );
                             print("Item$index");
                             print("Item ${loaded.restaurantId}");
                           },
-                          child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: Column(
-                                children: <Widget>[
-                                  ItemsBuilder(
-                                      image: loadedRestaurant.image,
-                                      itemName: loadedRestaurant
-                                          .itemsa[index].itemName,
-                                      desc: loadedRestaurant
-                                          .itemsa[index].description,
-                                      price:
-                                          loadedRestaurant.itemsa[index].price),
-                                ],
-                              )),
+                          child: Column(
+                            children: <Widget>[
+                              ItemsBuilder(
+                                  image: loaded
+                                      .restaurantObject.itemsa[index].image,
+                                  itemName: loaded
+                                      .restaurantObject.itemsa[index].itemName,
+                                  desc: loaded.restaurantObject.itemsa[index]
+                                      .description,
+                                  price: loaded
+                                      .restaurantObject.itemsa[index].price),
+                            ],
+                          ),
                         );
                       },
-                      itemCount: loadedRestaurant.itemsa.length,
+                      itemCount: loaded.restaurantObject.itemsa.length,
                     ),
                   ),
                 ],

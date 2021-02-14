@@ -6,6 +6,8 @@ import '../../models/restaurant.dart';
 import '../../components/drawer_Options.dart';
 import '../Restaurantlist/Constants.dart';
 import '../Restaurantlist/Constants.dart';
+import '../Restaurantlist/restaurants_grid.dart';
+import '../Restaurantlist/restruant_admin.dart';
 import 'new_restaurant.dart';
 import 'new_restaurant.dart';
 
@@ -23,10 +25,8 @@ class _AdminPageState extends State<AdminPage> {
           child: Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.white,
-                elevation: 10.0,
+                elevation: 20.0,
                 leading: InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DrawerOptions())),
                   child: Text(
                     'Admin',
                     style: TextStyle(
@@ -46,18 +46,6 @@ class _AdminPageState extends State<AdminPage> {
                         child: Icon(Icons.add),
                       )),
                 ],
-                bottom: TabBar(
-                  tabs: [
-                    Tab(
-                      child: Text('Resturants',
-                          style: TextStyle(color: Colors.black)),
-                    ),
-                    Tab(
-                      child:
-                          Text('Users', style: TextStyle(color: Colors.black)),
-                    ),
-                  ],
-                ),
                 title: Center(
                   child: Container(
                     height: 55,
@@ -95,10 +83,7 @@ class _AdminPageState extends State<AdminPage> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 500,
-                        child: AdminGrid(),
-                      )
+                      Container(height: 500, child: AdminGrid()),
                     ],
                   ),
                 ),

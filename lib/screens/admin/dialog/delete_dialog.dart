@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/components/button.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 
 import '../AdminPage.dart';
-import '../edit-restaurant.dart';
 
 class Delete_Dialog extends StatefulWidget {
   @override
@@ -65,16 +64,13 @@ class _Delete_DialogState extends State<Delete_Dialog> {
                 borderRadius: BorderRadius.circular(18.0),
               ),
               child: Text(
-                'Cancel',
+                'Delete',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     backgroundColor: HexColor('F2A22C')),
               ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AdminPage()));
-              },
+              onPressed: () {},
             ),
           ])
         ]),

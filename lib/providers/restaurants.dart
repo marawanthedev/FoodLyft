@@ -39,7 +39,7 @@ class Restaurants with ChangeNotifier {
     ),
     Restaurant(
       id: 'r2',
-      title: "Pizza Hut",
+      title: "Pizzat Hut",
       image: 'assets/images/pizza.png',
       description: "Desciprion 1",
       price: 15,

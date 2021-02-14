@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import "./formInput.dart";
-import "../services/hexColor.dart";
+import '../services/general/hexColor.dart';
 import "../components/button.dart";
 
 class PaymentForm extends StatelessWidget {

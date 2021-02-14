@@ -49,23 +49,23 @@ class ItemTitle extends StatelessWidget {
               ],
             ),
           ),
-          priceTag(context, price: price.toInt()),
+          priceTag(context, price: price),
         ],
       ),
     );
   }
 
-  ClipPath priceTag(BuildContext context, {int price}) {
+  ClipPath priceTag(BuildContext context, {double price}) {
     return ClipPath(
       clipper: PricerCliper(),
       child: Container(
         alignment: Alignment.topCenter,
         padding: EdgeInsets.symmetric(vertical: 15),
         height: 66,
-        width: 65,
+        width: 90,
         color: appMainColor,
         child: Text(
-          "\Rm$price",
+          "\Rm.$price",
           style: Theme.of(context).textTheme.headline6.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

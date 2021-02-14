@@ -3,11 +3,11 @@ import 'package:path/path.dart' as Path;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:foodlyft/screens/admin/services/database.dart';
-import 'package:foodlyft/services/hexColor.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/AdminServices.dart';
+
 import 'package:image_picker/image_picker.dart';
 
+import '../../services/general/hexColor.dart';
 import 'dialog/back_home_dialog.dart';
 import 'dialog/delete_dialog.dart';
 
@@ -42,9 +42,8 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
     });
   }
 
-  updateRestaurent(url) async {
+  updateRestaurent() async {
     Map<String, String> data = {
-      "img": url,
       "restaurant_name": name.text,
       "email": email.text,
       "password": password.text
@@ -142,15 +141,6 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
               child: Stack(
                 children: [
                   Positioned(
-                    child: Center(
-                      child: imagePicked == null
-                          ? Image(
-                              image: NetworkImage(widget.image),
-                            )
-                          : Center(child: Image.file(imagePicked)),
-                    ),
-                  ),
-                  Positioned(
                     right: 0.0,
                     bottom: 0.0,
                     child: FloatingActionButton(
@@ -193,7 +183,9 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
                                     TextStyle(color: Colors.red, fontSize: 16),
                               ),
                               onPressed: () async {
-                                await FirebaseFirestore.instance
+                                print(widget.dId);
+
+                                await Firestore.instance
                                     .runTransaction((Transaction mt) async {
                                   mt.delete(widget.dId);
                                 });
@@ -227,15 +219,15 @@ class _Edit_restaurantState extends State<Edit_restaurant> {
                                 if (!_formKey.currentState.validate()) {}
                                 await database
                                     .uploadResturantImage(imagePicked);
-                                final ref = FirebaseStorage.instance
-                                    .ref()
-                                    .child("Restaurant Image")
-                                    .child(
-                                        'image/${Path.basename(imagePicked.path)}');
-                                final url = await ref.getDownloadURL();
-                                updateRestaurent(url);
 
+                                updateRestaurent();
+
+                                await Firestore.instance
+                                    .runTransaction((Transaction mt) async {
+                                  mt.delete(widget.dId);
+                                });
                                 _formKey.currentState.save();
+
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                       builder: (_) => Back_Home_Dialog()),

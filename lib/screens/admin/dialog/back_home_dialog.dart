@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/components/button.dart';
 import 'package:foodlyft/screens/admin/AdminPage.dart';
-import 'package:foodlyft/services/hexColor.dart';
+import 'package:foodlyft/services/general/hexColor.dart';
 
 class Back_Home_Dialog extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _Back_Home_DialogState extends State<Back_Home_Dialog> {
           Padding(
             padding: const EdgeInsets.only(right: 16, left: 16),
             child: Text(
-              'Bilad AlRafedin added succesfully',
+              'Successful',
               style: TextStyle(color: Colors.black, fontSize: 17),
             ),
           ),
