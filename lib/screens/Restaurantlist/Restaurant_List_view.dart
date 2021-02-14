@@ -103,7 +103,6 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                           height: 500,
                           child: ListView.builder(
                             scrollDirection: Axis.vertical,
-
                             itemBuilder: (context, index) {
                               data.tempCategoryIndex = index;
                               return CategoryRowBuilder();

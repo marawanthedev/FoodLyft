@@ -11,8 +11,8 @@ class CustomAppBar extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       iconTheme: IconThemeData(
-        color: Colors.black, //change your color here
-      ),
+          //color: Colors.black, //change your color here
+          ),
       title: Text("Payment", style: TextStyle(color: Colors.black)),
       bottom: PreferredSize(
         child: CustomTabBar(controller),

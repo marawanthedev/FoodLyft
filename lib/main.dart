@@ -21,12 +21,12 @@ void main() async {
       ),
     ],
     child: theme.ThemeBuilder(
-      defaultBrightness: Brightness.dark,
+      defaultBrightness: Brightness.light,
       builder: (context, _brightness) {
         return MaterialApp(
             theme: ThemeData(
               brightness: _brightness,
-              /*
+/*
 darkTheme: ThemeData(
       brightness: Brightness.dark,
       backgroundColor: Colors.blue[700],
@@ -48,7 +48,7 @@ darkTheme: ThemeData(
             ),
             // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
             debugShowCheckedModeBanner: false,
-            initialRoute: "/Restaurant_List",
+            initialRoute: "/splash_screen",
             // ignore: missing_return
             onGenerateRoute: router.createRoute);
       },
