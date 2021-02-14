@@ -11,10 +11,10 @@ class ProfileViewModel extends Viewmodel {
     turnIdle();
     return dataService.getUserInAuth();
   }
-  void updateUserInfo(userId,data){
+
+  void updateUserInfo(userId, data) {
     turnBusy();
-    dataService.updateUserInfo(userId:userId,data:data);
+    dataService.updateUserInfo(userId: userId, data: data);
     turnIdle();
   }
 }
-
