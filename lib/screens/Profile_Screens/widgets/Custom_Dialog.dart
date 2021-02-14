@@ -3,14 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodlyft/providers/UserAuth.provider.dart';
 import 'package:provider/provider.dart';
-
+import "../../../services/firebase/firebase_service.dart";
 class Constants {
   Constants._();
   static const double padding = 20;
   static const double avatarRadius = 45;
+  
 }
 
 class CustomDialogBoxState extends StatefulWidget {
+  final userInAuth;
+  final viewmodel;
+  CustomDialogBoxState({this.userInAuth,this.viewmodel});
   @override
   _CustomDialogBoxStateState createState() => _CustomDialogBoxStateState();
 }
@@ -25,7 +29,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    //_controller = AnimationController(vsync: this);
   }
 
   @override
@@ -48,7 +52,7 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
 
   contentBox(context) {
     final userAuthProvider = Provider.of<UserAuthProvider>(context);
-    final userInAuth = userAuthProvider.getUserInAuth();
+    final userInAuth = widget.userInAuth;
     return Stack(children: <Widget>[
       Container(
         padding: EdgeInsets.only(
@@ -149,8 +153,13 @@ class _CustomDialogBoxStateState extends State<CustomDialogBoxState>
                         if (phoneController.text.isEmpty) {
                           phoneController.text = userInAuth.phoneNumber;
                         }
-                        userAuthProvider.updateAttributes(nameController.text,
-                            emailController.text, phoneController.text);
+                        print(userInAuth.id);
+
+                        
+                        // viewmodel(userInAuth.id,{"name":nameController.text,
+                        // "email":emailController.text,"phoneNumber":phoneController.text})
+                        // userAuthProvider.updateAttributes(nameController.text,
+                        //     emailController.text, phoneController.text);
                         Navigator.pop(context);
                       },
                       child: Container(

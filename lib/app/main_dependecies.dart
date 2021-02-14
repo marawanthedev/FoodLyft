@@ -24,3 +24,4 @@ export '../components/restaurants_admin_icon.dart';
 export '../screens/admin/edit_restaurant.dart';
 export '../services/DarkTheme/theme_changer.dart';
 export '../screens/settings/settings_screen.dart';
+export '../models/restaurant.dart';

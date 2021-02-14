@@ -37,7 +37,8 @@ class Restaurants with ChangeNotifier {
   }
 
   getLists() {
-    restList.clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
+    restList
+        .clear(); //To clear the getList function after execution and to avoid Duplicate Restaurants in the Restaurant Category
     restList.add(fastfoodList);
     restList.add(arabList);
     restList.add(westernfoodList);
@@ -76,7 +77,7 @@ class Restaurants with ChangeNotifier {
             itemName: "5 piece nuggets",
             description: "Crunchy Fried Nuggets",
             price: 15.0,
-            image:"assets/images/nuggets.jpg"),
+            image: "assets/images/nuggets.jpg"),
       ],
       isTouched: true,
     ),
@@ -86,38 +87,38 @@ class Restaurants with ChangeNotifier {
       image: 'assets/images/pizza.png',
       description: "Desciprion 1",
       price: 15,
-      category:"Fast Food",
+      category: "Fast Food",
       itemsa: [
         MenuItems(
             resturantId: "r2",
             itemName: " SuperSupreme",
             description: "Large Pizza",
             price: 20.0,
-            image:"assets/images/pizzahut1.jpg"),
+            image: "assets/images/pizzahut1.jpg"),
         MenuItems(
             resturantId: "r2",
             itemName: " Chicken Delight",
             description: "Large Pizza",
             price: 10.0,
-            image:"assets/images/chickenpizza.jpg"),
+            image: "assets/images/chickenpizza.jpg"),
         MenuItems(
             resturantId: "r2",
             itemName: " Pepperoni",
             description: "Large Pizza",
             price: 10.0,
-            image:"assets/images/pepperoni.jpg"),
+            image: "assets/images/pepperoni.jpg"),
         MenuItems(
             resturantId: "r2",
             itemName: " Shrimp Pizza",
             description: "Large Pizza",
             price: 15.0,
-            image:"assets/images/fruitpizza.jpg"),
+            image: "assets/images/fruitpizza.jpg"),
         MenuItems(
             resturantId: "r2",
             itemName: " Shrimp Pizza",
             description: "Large Pizza",
             price: 15.0,
-            image:"assets/images/fruitpizza.jpg"),
+            image: "assets/images/fruitpizza.jpg"),
       ],
       isTouched: true,
     ),
@@ -140,8 +141,7 @@ class Restaurants with ChangeNotifier {
             itemName: "Chicken Bucket",
             description: "SuperSupreme",
             price: 10.0,
-            image: "assets/images/bucket.png"
-            ),
+            image: "assets/images/bucket.png"),
         MenuItems(
             resturantId: "r3",
             itemName: "Fries",
@@ -270,7 +270,7 @@ class Restaurants with ChangeNotifier {
       price: 18,
       category: "Arab",
       itemsa: [
-         MenuItems(
+        MenuItems(
             resturantId: "r7",
             itemName: "Kabsa",
             description: "Rice with Chicken",
@@ -305,7 +305,7 @@ class Restaurants with ChangeNotifier {
       price: 10,
       category: "Arab",
       itemsa: [
-         MenuItems(
+        MenuItems(
             resturantId: "r8",
             itemName: "Kabsa",
             description: "Rice with Chicken",
@@ -345,31 +345,31 @@ class Restaurants with ChangeNotifier {
             itemName: " SuperSupreme",
             description: "Large Pizza",
             price: 20.0,
-            image:"assets/images/italianpizza.jpg"),
+            image: "assets/images/italianpizza.jpg"),
         MenuItems(
             resturantId: "r9",
             itemName: " Chicken Delight",
             description: "Large Pizza",
             price: 10.0,
-            image:"assets/images/chickenpizza.jpg"),
+            image: "assets/images/chickenpizza.jpg"),
         MenuItems(
             resturantId: "r9",
             itemName: " Pepperoni",
             description: "Large Pizza",
             price: 10.0,
-            image:"assets/images/pepperoni.jpg"),
+            image: "assets/images/pepperoni.jpg"),
         MenuItems(
             resturantId: "r9",
             itemName: " Shrimp Pizza",
             description: "Large Pizza",
             price: 15.0,
-            image:"assets/images/fruitpizza.jpg"),
+            image: "assets/images/fruitpizza.jpg"),
         MenuItems(
             resturantId: "r9",
             itemName: " Shrimp Pizza",
             description: "Large Pizza",
             price: 15.0,
-            image:"assets/images/fruitpizza.jpg"),
+            image: "assets/images/fruitpizza.jpg"),
       ],
       isTouched: true,
     ),
@@ -386,25 +386,25 @@ class Restaurants with ChangeNotifier {
             itemName: "Nacho's",
             description: "Stuffed Nacho's",
             price: 20.0,
-            image:"assets/images/nacho1.jpg"),
+            image: "assets/images/nacho1.jpg"),
         MenuItems(
             resturantId: "r10",
             itemName: "Casadia",
             description: "Chicken Casadia",
             price: 10.0,
-            image:"assets/images/casadia.jpg"),
+            image: "assets/images/casadia.jpg"),
         MenuItems(
             resturantId: "r10",
             itemName: "Grilled Chicken",
             description: "Mexican",
             price: 10.0,
-            image:"assets/images/grilled1chicken.jpg"),
+            image: "assets/images/grilled1chicken.jpg"),
         MenuItems(
             resturantId: "r10",
             itemName: "Pasta",
             description: "Pasta Mexican",
             price: 15.0,
-            image:"assets/images/italian.jpg"),
+            image: "assets/images/italian.jpg"),
       ],
       isTouched: true,
     ),
@@ -421,25 +421,25 @@ class Restaurants with ChangeNotifier {
             itemName: "Nando's Chicken",
             description: "Grilled Chicken",
             price: 20.0,
-            image:"assets/images/grilledchicken.jpg"),
+            image: "assets/images/grilledchicken.jpg"),
         MenuItems(
             resturantId: "r11",
             itemName: "Casadia",
             description: "Chicken Casadia",
             price: 10.0,
-            image:"assets/images/casadia.jpg"),
+            image: "assets/images/casadia.jpg"),
         MenuItems(
             resturantId: "r11",
             itemName: "Grilled Chicken",
             description: "Mexican",
             price: 10.0,
-            image:"assets/images/grilled1chicken.jpg"),
+            image: "assets/images/grilled1chicken.jpg"),
         MenuItems(
             resturantId: "r11",
             itemName: "Pasta",
             description: "Pasta Mexican",
             price: 15.0,
-            image:"assets/images/italian.jpg"),
+            image: "assets/images/italian.jpg"),
       ],
       isTouched: true,
     ),
@@ -451,6 +451,21 @@ class Restaurants with ChangeNotifier {
 
   MenuItems getItem(int restaurantIndex, int itemIndex) {
     return _items[restaurantIndex].itemsa[itemIndex];
+  }
+
+  void addRestaurant(Restaurant restaurant) {
+    final newRestaurant = Restaurant(
+      title: restaurant.title,
+      description: restaurant.category,
+      image: restaurant.image,
+      price: restaurant.price,
+      category: restaurant.category,
+      id: restaurant.id,
+      itemsa: restaurant.itemsa,
+    );
+    _items.add(newRestaurant);
+    //_items.insert(0, newRestaurant);
+    notifyListeners();
   }
 
   checkList(String id) {

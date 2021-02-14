@@ -20,7 +20,8 @@ class UserAuthServiceFirebase implements UserAuthService {
   }
 
   Future<User> updateUserInfo(
-      String name, String email, String phoneNumber) async {
+      {String userId, var data}) async {
+        print("update user info");
     // firebase.patch(collection: "users",documentId: )
   }
   Future<List<User>> getUsersList() async {

@@ -44,6 +44,7 @@ class LoginViewModel extends Viewmodel {
   Future<List<User>> getUsers() async {
     turnBusy();
     final users = await dataService.getUsersList();
+    
     turnIdle();
     return users;
   }

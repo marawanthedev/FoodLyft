@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "473713042386",
-    "project_id": "map-foodlyft",
-    "storage_bucket": "map-foodlyft.appspot.com"
+    "project_number": "32069357325",
+    "project_id": "food-lyft-map",
+    "storage_bucket": "food-lyft-map.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:473713042386:android:0e9eb3e1af964770a8de0b",
+        "mobilesdk_app_id": "1:32069357325:android:a4ac6c5796cd17f6a8ea44",
         "android_client_info": {
           "package_name": "com.map.foodlyft"
         }
       },
       "oauth_client": [
         {
-          "client_id": "473713042386-nrds5rel6gmn2bgte6llsh4tfsauo8t6.apps.googleusercontent.com",
+          "client_id": "32069357325-g9uq4ub1kol1bnr0fo7bi7umu5onplkj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBaq-jvLk8Bttc2IDiIK5ixq7njEFD6Q8E"
+          "current_key": "AIzaSyBHFYuPWQKc0-_cCDSYfCuPv518YWRbdTM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "473713042386-nrds5rel6gmn2bgte6llsh4tfsauo8t6.apps.googleusercontent.com",
+              "client_id": "32069357325-g9uq4ub1kol1bnr0fo7bi7umu5onplkj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
