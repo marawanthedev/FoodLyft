@@ -4,7 +4,6 @@ import "./app/router.dart" as router;
 import "./app/dependencies.dart" as dep;
 
 void main() async {
-  // String fontFamily = 'Roboto';
   WidgetsFlutterBinding.ensureInitialized();
 
   await dep.init();
@@ -13,9 +12,7 @@ void main() async {
       ChangeNotifierProvider(
         create: (ctx) => Restaurants(),
       ),
-      ChangeNotifierProvider(
-        create: (ctx) => UserAuthProvider(),
-      ),
+      
       ChangeNotifierProvider(
         create: (ctx) => CartProvider(),
       ),
@@ -48,7 +45,7 @@ darkTheme: ThemeData(
             ),
             // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
             debugShowCheckedModeBanner: false,
-            initialRoute: "/splash_screen",
+            initialRoute: "/Restaurant_List",
             // ignore: missing_return
             onGenerateRoute: router.createRoute);
       },

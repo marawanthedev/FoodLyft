@@ -32,4 +32,10 @@ class RestaurantsFirebaseService implements RestaurantsService {
         .toList();
     return restaurantsMap;
   }
+
+  Future<Restaurant> updateRestaurantInfo(
+      {String restaurantId, String title,String description ,String image,String category}) async {
+        print("update restaurant info");
+    firebase.patch(collection: "restaurants",documentId: "id" );
+  }
 }

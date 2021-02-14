@@ -20,14 +20,19 @@ class Restaurants with ChangeNotifier {
     fastfoodList.clear();
     arabList.clear();
     westernfoodList.clear();
-    _items.forEach((e) {
-      if (e.category == 'Arab') {
+    
+      _items.forEach((e) {
+      if(e.category!=null){
+        var cat=e.category;
+  if (e.category == 'Arab'||e.category=="arab") {
         arabList.add(e);
-      } else if (e.category == 'Fast Food') {
+      } else if (e.category == 'Fast Food'||e.category=="fastfood"||e.category=="fast food"||e.category=="Fast Food") {
         fastfoodList.add(e);
-      } else if (e.category == 'Western Food') {
+      } else if (e.category == 'Western Food'||e.category=="western food"||e.category=="westernfood"||e.category=="WesternFood") {
         westernfoodList.add(e);
       }
+      }
+     
     });
   }
 

@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:foodlyft/app/dependencies.dart';
 import 'package:foodlyft/app/main_dependecies.dart';
-import 'package:foodlyft/models/restaurant.dart';
-import 'package:foodlyft/models/user.dart';
 import 'package:foodlyft/providers/restaurants.provider.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List_viewmodel.dart';
-import 'package:foodlyft/screens/view.dart';
+import 'package:foodlyft/services/UserAuth/userAuth_service_firebase.dart';
 import 'package:provider/provider.dart';
 import '../../components/category_Row_Builder.dart';
 import './Constants.dart';
 import '../../components/drawer_Options.dart';
 import "../../models/menu.dart";
 
+
 class RestaurantMenu extends StatefulWidget {
-  User user;
-  RestaurantMenu({this.user});
+  RestaurantMenu();
   @override
   _RestaurantMenuState createState() => _RestaurantMenuState();
 }
@@ -26,17 +24,15 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
     data.getREstaurantByCategory();
     data.getLists();
     double height = MediaQuery.of(context).size.height;
-
+    print(UserAuthServiceFirebase().getUserInAuth());
     return Scaffold(
-        drawer: DrawerOptions(user: widget.user),
+        drawer: DrawerOptions(),
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0.0,
           leading: FlatButton(
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => DrawerOptions(user: widget.user))),
+            onPressed: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => DrawerOptions())),
             child: Icon(
               Icons.sort,
               color: appListColor,
