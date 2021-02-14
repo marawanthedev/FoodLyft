@@ -12,13 +12,12 @@ void main() async {
       ChangeNotifierProvider(
         create: (ctx) => Restaurants(),
       ),
-      
       ChangeNotifierProvider(
         create: (ctx) => CartProvider(),
       ),
     ],
     child: theme.ThemeBuilder(
-      defaultBrightness: Brightness.dark,
+      defaultBrightness: Brightness.light,
       builder: (context, _brightness) {
         return MaterialApp(
             theme: ThemeData(
@@ -26,7 +25,7 @@ void main() async {
             ),
             // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
             debugShowCheckedModeBanner: false,
-            initialRoute: "/Restaurant_List",
+            initialRoute: "/splash_screen",
             // ignore: missing_return
             onGenerateRoute: router.createRoute);
       },

@@ -4,6 +4,7 @@ import 'package:foodlyft/app/main_dependecies.dart';
 import 'package:foodlyft/screens/Restaurantlist/Restaurant_List_viewmodel.dart';
 import '../../app/main_dependecies.dart';
 import "../../components/formInput.dart";
+
 class EditRestaurant extends StatefulWidget {
   @override
   _EditRestaurantState createState() => _EditRestaurantState();
@@ -22,13 +23,9 @@ class _EditRestaurantState extends State<EditRestaurant> {
     price: 0,
   );
 
-
   @override
   void didChangeDependencies() {
-    if (_isInit) {
-      final loaded = Provider.of<Restaurants>(context, listen: true);
-    }
-    _isInit = false;
+    final loaded = Provider.of<Restaurants>(context, listen: true);
 
     super.didChangeDependencies();
   }
@@ -42,10 +39,10 @@ class _EditRestaurantState extends State<EditRestaurant> {
   bool _valid() {
     final isValid = _form.currentState.validate();
     if (!isValid) {
-      return;
+      return isValid;
     }
     _form.currentState.save();
- 
+
     Navigator.of(context).pop();
     return isValid;
   }
@@ -58,7 +55,7 @@ class _EditRestaurantState extends State<EditRestaurant> {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.save),
-              onPressed: _saveEdited,
+              onPressed: _valid,
             )
           ],
         ),
@@ -74,10 +71,9 @@ class _EditRestaurantState extends State<EditRestaurant> {
                       scrollDirection: Axis.vertical,
                       child: Column(
                         children: <Widget>[
-
                           TextFormField(
                             decoration:
-                                InputDecoration(labelText: 'Restaurant Name'),
+                                InputDecoration(labelText: 'Restaurant Title'),
                             textInputAction: TextInputAction.next,
                             onSaved: (value) {
                               _editedRestaurant = Restaurant(
@@ -87,7 +83,6 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                 image: _editedRestaurant.image,
                                 itemsa: _editedRestaurant.itemsa,
                                 price: _editedRestaurant.price,
-                                
                               );
                             },
                             validator: (value) {
@@ -109,7 +104,6 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                 image: _editedRestaurant.image,
                                 itemsa: _editedRestaurant.itemsa,
                                 price: _editedRestaurant.price,
-                              
                               );
                             },
                           ),
@@ -166,25 +160,22 @@ class _EditRestaurantState extends State<EditRestaurant> {
                                       description:
                                           _editedRestaurant.description,
                                       category: _editedRestaurant.category,
-                                      image: value,
+                                      image: "assets/images$value",
                                       itemsa: _editedRestaurant.itemsa,
                                       price: _editedRestaurant.price,
-                                      
                                     );
                                   },
                                   onFieldSubmitted: (_) {
-                                   
-                                  if(_valid())
-
-                                   viewmodel.addRestaurant(Restaurant(
-                                      title: _editedRestaurant.title,
-                                      description:
-                                          _editedRestaurant.description,
-                                      category: _editedRestaurant.category,
-                                      image:_editedRestaurant.image,
-                                      itemsa: _editedRestaurant.itemsa,
-                                      price: _editedRestaurant.price,
-                                    ));
+                                    if (_valid())
+                                      viewmodel.addRestaurant(Restaurant(
+                                        title: _editedRestaurant.title,
+                                        description:
+                                            _editedRestaurant.description,
+                                        category: _editedRestaurant.category,
+                                        image: _editedRestaurant.image,
+                                        itemsa: _editedRestaurant.itemsa,
+                                        price: _editedRestaurant.price,
+                                      ));
                                   },
                                 ),
                               ),

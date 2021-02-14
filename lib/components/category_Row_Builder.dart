@@ -6,7 +6,6 @@ import '../screens/FoodMenu/Food_Menu2_view.dart';
 
 class CategoryRowBuilder extends StatelessWidget {
   //final String categoryTitle;
-
   //CategoryRowBuilder({this.categoryTitle});
 
   @override

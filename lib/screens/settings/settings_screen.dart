@@ -7,13 +7,14 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool _toggleTheme = false;
+  bool _toggleTheme = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings'),
+        backgroundColor: Colors.amber,
       ),
       body: Column(
         children: [

@@ -49,7 +49,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               'facebook': () => {print("Facebook")},
                               'twitter': () => {print("twitter")},
                             },
-                          )),
+                          )
+                          ),
                           Center(
                               child: Container(
                             margin: EdgeInsets.only(top: 40),

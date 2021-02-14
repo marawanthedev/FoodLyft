@@ -67,7 +67,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     widget.cartProvider = Provider.of<CartProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: CustomAppBar(),
@@ -78,11 +78,13 @@ class _CartScreenState extends State<CartScreen> {
             Container(
               height: widget.containerWidth,
               width: 450,
-              color: Colors.white,
+              //color: Colors.white,
               alignment: Alignment.centerLeft,
               child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child: Container(child: getCartItems())),
+                  child: Container(
+                    child: getCartItems(),
+                  )),
             ),
             Container(
               height: widget.cartPriceDetailsHeight,

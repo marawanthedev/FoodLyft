@@ -69,6 +69,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
             value: dependency<RestaurantViewModel>(),
             child: Consumer<RestaurantViewModel>(
               builder: (context, viewmodel, _) {
+               
                 return Builder(
                   builder: (ctx) => SingleChildScrollView(
                     scrollDirection: Axis.vertical,
@@ -99,7 +100,6 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                           height: 500,
                           child: ListView.builder(
                             scrollDirection: Axis.vertical,
-
                             itemBuilder: (context, index) {
                               data.tempCategoryIndex = index;
                               return CategoryRowBuilder();

@@ -1,4 +1,3 @@
-
 import "./helpers/dependencies.dart";
 
 class PaymentFailed extends StatefulWidget {
@@ -24,7 +23,7 @@ class _PaymentFailedState extends State<PaymentFailed> {
   Widget build(BuildContext context) {
     return Container(
       padding: new EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),
-      color: Colors.white,
+      //color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

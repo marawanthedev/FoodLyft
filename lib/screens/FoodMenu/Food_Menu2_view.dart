@@ -58,7 +58,7 @@ class _FoodMenu2State extends State<FoodMenu2> {
                     child: IconButton(
                       icon: Icon(
                         Icons.keyboard_arrow_left,
-                        color: white,
+                        //color: white,
                         size: 35,
                       ),
                       onPressed: () => Navigator.push(
@@ -86,7 +86,9 @@ class _FoodMenu2State extends State<FoodMenu2> {
                         Text(
                           loaded.restaurantObject.title,
                           style: TextStyle(
-                              fontSize: 26.0, fontWeight: FontWeight.bold),
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
