@@ -22,7 +22,7 @@ class Footer extends StatelessWidget {
                   width: 5,
                 ),
                 RaisedButton(
-                  //color: Colors.white,
+                  color: Colors.white,
                   elevation: 0,
                   highlightElevation: 0,
                   focusElevation: 0,
@@ -33,7 +33,7 @@ class Footer extends StatelessWidget {
                   child: Text(
                     "Sign up.",
                     style: TextStyle(
-                        // color: Colors.black,
+                        color: Colors.black,
                         fontSize: 20,
                         fontFamily: 'Roboto'),
                   ),
