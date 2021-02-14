@@ -12,21 +12,11 @@ void main() async {
       ChangeNotifierProvider(
         create: (ctx) => Restaurants(),
       ),
-      ChangeNotifierProvider(
-        create: (ctx) => UserAuthProvider(),
-      ),
+      
       ChangeNotifierProvider(
         create: (ctx) => CartProvider(),
       ),
     ],
-<<<<<<< HEAD
-    child: MaterialApp(
-        // theme: ThemeData(fontFamily: 'PlayfairDisplay'),
-        debugShowCheckedModeBanner: false,
-        initialRoute: "/splash_screen",
-        // ignore: missing_return
-        onGenerateRoute: router.createRoute),
-=======
     child: theme.ThemeBuilder(
       defaultBrightness: Brightness.dark,
       builder: (context, _brightness) {
@@ -41,6 +31,5 @@ void main() async {
             onGenerateRoute: router.createRoute);
       },
     ),
->>>>>>> b51f05acf14c9e517f2bcc7b5b47ee7a1b438f8d
   ));
 }

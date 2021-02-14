@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodlyft/app/dependencies.dart';
-import 'package:foodlyft/providers/UserAuth.provider.dart';
 import 'package:provider/provider.dart';
 
 import 'Profile_viewmodel.dart';
@@ -255,10 +254,6 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                                           userInAuth = viewmodel
                                                               .getUserInAuth();
                                                           this.setState(() {});
-                                                          UserAuthProvider()
-                                                              .addUserInAuth(
-                                                                  userInAuth);
-                                                        
                                                         },
                                                         child: Container(
                                                           height: 50,
