@@ -25,7 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         //color: Colors.white,
         padding: EdgeInsets.only(top: 20, bottom: 20),
         child: Scaffold(
-            // backgroundColor: Colors.white,
+            backgroundColor: Colors.white,
             appBar: PreferredSize(
                 child: CustomAppBar(), preferredSize: Size.fromHeight(60)),
             body: ChangeNotifierProvider.value(
